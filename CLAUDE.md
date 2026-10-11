@@ -20,7 +20,8 @@ SafeGraph cell-phone data near schools (OSF project tpwqf — **not yet obtained
 SchoolBoards/
   CLAUDE.md                    <- this file
   README.md, requirements.txt
-  code/                        <- numbered, re-runnable scripts (see "Pipeline")
+  data cleaning/               <- numbered, re-runnable covariate scripts (see "Pipeline"; quote the path, it has a space)
+  source/derived/sb_transcripts/read_sb_transcript.py  <- extracts transcript tars + saves samples (run first, from repo root)
   notebooks/  output/{figures,tables}/  docs/   <- tracked; docs/ holds a copy of the proposal PDF
   Datastore/
     DistrictView/              <- transcripts + meta (5.1 GB, tar files; do NOT commit)
@@ -36,6 +37,13 @@ SchoolBoards/
 ```
 `SchoolBoards/.gitignore` excludes `Datastore/` (size + SEDA data-use terms). `SchoolBoards/` is its own git repo (nested inside the home-dir repo, which does not track it); run git from inside it.
 
+## Shared Drive copy (Google Drive: "Stat236 Project Datastore", owner himalbamzaiwokhlu@college.harvard.edu)
+- rclone remote `personal_gdrive:` (Himal's). Always address the folder by ID, never by name — a different, unrelated folder named `datastore` (abortion/fertility project) also exists in the same Drive:
+  `DEST="personal_gdrive,root_folder_id=1LTr8kZcD_cJmo75EAQ5J5amulIK7uJ0O:"`
+- Push: `rclone copy Datastore "$DEST" --exclude ".DS_Store" -v` (use `copy`, not `sync`; add `--ignore-existing` to avoid overwriting teammates' files; `--dry-run` first). Pull: swap the arguments.
+- Uploaded 2026-10-11: everything under Datastore/ (tars, SEDA raw + processed, CCD, elections, COVID hub, Literature, Writeups). Extracted per-transcript folders (`DistrictView/transcripts_districtview_part{1,2,3}/`, ~199k files) were NOT uploaded — the tars hold the same data.
+- SEDA raw files carry Stanford's data-use terms (no public redistribution): keep the Drive folder restricted to the team, never link-share publicly.
+
 ## DistrictView corpus (`Datastore/DistrictView/districtview_share_draft/`)
 - `meta_districtview.parquet`: **201,568 videos, 1,605 districts (LEAIDs), 49 states, 1,606 YouTube channels.** Median 93 videos/district (max 1,497).
 - Columns: `id, title, description, published_at, thumbnail, view_count, like_count, comment_count, duration (ISO 8601), channel_id, st_fips (empty), place_names, multiple_cities (always 0), predicted_st_fips (empty), leaid, meeting_date, government_type`. Codebook: `codebook.md`.
@@ -45,14 +53,14 @@ SchoolBoards/
 - Transcripts: three tar files (`transcripts_districtview_part{1,2,3}.tar`, 78k+77k+44k = ~199k files; ~2.8k fewer than metadata rows). Members are **`{channel_id}__{id}.txt.gz`** (gzipped! codebook says `.txt`). Format: one line per caption segment `[H:MM:SS] text` — **raw YouTube auto-captions, no speaker labels, no punctuation/casing reliability, noisy ("um")**. Speaker/role (board member vs public commenter) is not available; any "who said what" analysis needs inference.
 - Read one: `tar -xOf part1.tar <channel>__<id>.txt.gz | gunzip`. Extract needed subsets by filtering metadata first (5 GB total tarballs).
 
-## Pipeline (all scripts idempotent; run from anywhere, paths resolve from file location)
+## Pipeline (idempotent; the `data cleaning/` scripts resolve paths from their own location, `read_sb_transcript.py` needs the repo root as cwd)
 | script | does |
 |---|---|
-| `code/01_download_seda.sh` | SEDA 6.0 (Stanford Digital Repository druid `xh833nn4025`, world-downloadable): admindist pool/poolsub/annual (CS scale), cov_admindist pool/annual, county pool + covariates |
-| `code/02_download_ccd_saipe.py [dataset]` | Urban Institute Education Data API → CCD directory 2008-24, CCD enrollment by race 2008-23, SAIPE poverty 2008-23, CCD finance 2008-20 (2021 returns empty) (filtered to the 1,605 LEAIDs). Slow for old years (API timeouts) — run datasets in parallel |
-| `code/03_download_covid_hub.py` | Scrapes covidschooldatahub.com asset links; keeps district-level files (DistrictsByShare, LearningModelData, MaskingData, etc.) |
-| `code/04_build_processed.py` | Harmonizes raw → `processed/*.parquet` (SEDA subsets, county votes, hub files) |
-| `code/05_merge_panel.py` | Builds `district_static.parquet` (1 row / LEAID) and `district_year.parquet` (LEAID × year) |
+| `data cleaning/01_download_seda.sh` | SEDA 6.0 (Stanford Digital Repository druid `xh833nn4025`, world-downloadable): admindist pool/poolsub/annual (CS scale), cov_admindist pool/annual, county pool + covariates |
+| `data cleaning/02_download_ccd_saipe.py [dataset]` | Urban Institute Education Data API → CCD directory 2008-24, CCD enrollment by race 2008-23, SAIPE poverty 2008-23, CCD finance 2008-20 (2021 returns empty) (filtered to the 1,605 LEAIDs). Slow for old years (API timeouts) — run datasets in parallel |
+| `data cleaning/03_download_covid_hub.py` | Scrapes covidschooldatahub.com asset links; keeps district-level files (DistrictsByShare, LearningModelData, MaskingData, etc.) |
+| `data cleaning/04_build_processed.py` | Harmonizes raw → `processed/*.parquet` (SEDA subsets, county votes, hub files) |
+| `data cleaning/05_merge_panel.py` | Builds `district_static.parquet` (1 row / LEAID) and `district_year.parquet` (LEAID × year) |
 
 ## Analysis-ready files (`Datastore/District Covariates/processed/`)
 - **`district_static.parquet`** — one row per DistrictView LEAID. Roster (place_name, n_videos, first/last date), CCD (name, lat/lon, locale, CBSA, `county_fips`), SEDA pooled achievement (`seda_cs_mn_avg_eb` = mean achievement in CS SD units, `seda_cs_mn_lrn_eb` learning rate, `seda_cs_mn_tav_eb` cohort trend; `seda_avg_{ecd,nec,wht,blk,hsp}` subgroup means), SEDA covariates (`sedacov_*`: race shares, FRL, SES composite, income, BA+, poverty, unemployment, SNAP, single mothers), county presidential vote (`gop_2p_{2008..2024}` two-party GOP share, `total_{year}`), county SEDA covariates (`cty_*`), COVID hub (`hub_share_inperson/hybrid/virtual`, `hub_StudentMaskPolicy`, `hub_StaffMaskPolicy`).
@@ -85,8 +93,8 @@ Missing votes: the 5 Alaska districts (AK reports by house district, not county)
 - Not yet pulled: SafeGraph/OSF cell-phone data; Oster hub school-level files; ACS/EDGE district demographics (partly covered by SEDA covariates, which are ACS-derived); Chronic absenteeism; Census Household Pulse; parents'-rights-group (Moms for Liberty chapters) and state mask/lockdown policy trackers.
 
 ## Conventions
-- Python 3 (miniconda, pandas 3.x + pyarrow). Run scripts with `python3 -I`. Keys: `leaid` = 7-char string, `county_fips` = 5-char string.
-- Keep scratch/temp in the session scratchpad; commit code (`code/`), not data.
+- Python 3 (miniconda, pandas 3.x + pyarrow). Run scripts from the repo root with plain `python3` (not `-I`: isolated mode ignores `PYTHONPATH`). Keys: `leaid` = 7-char string, `county_fips` = 5-char string.
+- Keep scratch/temp in the session scratchpad; commit code (`data cleaning/`, `source/`), not data.
 - Verify merge rates after every join (see 05 script printout) — do not assume.
 
 ## Status log

@@ -31,7 +31,7 @@ def ReadTranscripts():
 def Slug(text):
     return re.sub(r"[^A-Za-z0-9]+", "-", str(text)).strip("-").lower()
 
-def SampleTranscripts(df_metadata, n=2, n_lines=15, seed=236):
+def SampleTranscripts(df_metadata, n=15, n_lines=15, seed=236):
     # Files are named {channel_id}__{id}.txt.gz; part dirs come from ReadTranscripts
     part_dirs = sorted(INDIR_SB.glob("transcripts_districtview_part*"))
     OUTDIR_SAMPLES.mkdir(exist_ok=True)
@@ -53,7 +53,10 @@ def SampleTranscripts(df_metadata, n=2, n_lines=15, seed=236):
         header = f"{row.place_names} | {row.title} | {row.meeting_date:%Y-%m-%d}"
         print(f"\n=== Sample {found}: {header} ===")
         print("\n".join(text.splitlines()[:n_lines]))
-        out_name = f"{row.leaid}_{Slug(row.place_names)}_{row.meeting_date:%Y-%m-%d}_{row.id}.txt"
+        base = f"{row.leaid}_{Slug(row.place_names)}_{row.meeting_date:%Y-%m-%d}"
+        out_name, k = f"{base}.txt", 2
+        while (OUTDIR_SAMPLES / out_name).exists():  # same district + same day
+            out_name, k = f"{base}_{k}.txt", k + 1
         (OUTDIR_SAMPLES / out_name).write_text(f"{header}\n\n{text}")
         if found == n:
             break
