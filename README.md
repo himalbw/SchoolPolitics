@@ -1,6 +1,6 @@
 # School Board Polarization (Stat 236)
 
-Has local education politics become more partisan? We use DistrictView school-board meeting
+Has local education politics become more partisan? We use  school-board meeting
 transcripts to study how language, topics, and partisan alignment changed before / during / after COVID-19.
 
 Team: Calista Wilik, Lillian Yang, Stefan Nikov, Himal Bamzai-Wokhlu.
