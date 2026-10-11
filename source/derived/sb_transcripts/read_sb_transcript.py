@@ -4,7 +4,7 @@ import pandas as pd
 from pathlib import Path
 import tarfile
 
-INDIR_SB = Path("Datastore/DistrictView/")
+INDIR_SB = Path("Datastore/DistrictView/raw/")   # raw = original, untouched transcripts (derived/ is built by build_derived_transcripts.py)
 INDIR_RAW_TRANSCRIPTS = Path("Datastore/DistrictView/districtview_share_draft/")
 OUTDIR_SAMPLES = Path("Datastore/DistrictView/sample_transcripts/")
 
