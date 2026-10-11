@@ -4,7 +4,6 @@ import pandas as pd
 from pathlib import Path
 import tarfile
 
-# Paths are relative: run from the SchoolBoards/ project root
 INDIR_SB = Path("Datastore/DistrictView/")
 INDIR_RAW_TRANSCRIPTS = Path("Datastore/DistrictView/districtview_share_draft/")
 OUTDIR_SAMPLES = Path("Datastore/DistrictView/sample_transcripts/")
