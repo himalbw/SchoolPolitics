@@ -1,0 +1,31 @@
+# --- Data (size + SEDA data-use terms; never commit) ---
+Datastore/
+*.parquet
+*.tar
+*.tar.gz
+*.gz
+*.dta
+*.rds
+*.RData
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
+
+# --- Python / R / Jupyter ---
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.Rhistory
+.Rproj.user/
+
+# --- Secrets ---
+.env
+*.key
+*.token
+
+# --- Local Claude Code state ---
+.claude/settings.local.json
