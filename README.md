@@ -4,7 +4,7 @@ Has local education politics become more partisan? We use  school-board meeting
 transcripts to study how language, topics, and partisan alignment changed before / during / after COVID-19.
 
 Team: Calista Wilik, Lillian Yang, Stefan Nikov, Himal Bamzai-Wokhlu.
-Project context and data notes for contributors: see [CLAUDE.md](CLAUDE.md). Proposal: `docs/`.
+Project context and data notes for contributors: see [CLAUDE.md](CLAUDE.md). 
 
 ## Setup
 ```bash
