@@ -2,3 +2,4 @@ pandas>=3.0
 pyarrow>=25
 numpy
 requests
+scikit-learn
