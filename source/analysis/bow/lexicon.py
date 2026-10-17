@@ -82,6 +82,18 @@ LEXICON = {
                   "unlawful", "illegal"],
         "phrases": ["public comment", "open meetings act", "first amendment", "recall election", "no confidence"],
     },
+    # --- in-meeting conflict (decorum, disruption, hostility); used for the conflict index/map in conflict_map.py ---
+    # Deliberately excludes routine/ambiguous words: police, security, threat (school-safety items), harassment (a policy agenda
+    # item), disruption (instructional), shame (casual speech).
+    "meeting_conflict": {
+        "expected": "none",
+        "terms": ["decorum", "outburst", "trespass", "trespassing", "arrested", "arrest", "escorted", "heckling", "booing",
+                  "shouting", "yelling", "screaming", "intimidation", "intimidate", "threatened", "liar", "lying",
+                  "disgrace", "disgusting", "hypocrite", "corrupt", "corruption"],
+        "phrases": ["out of order", "point of order", "call the police", "please be seated", "please sit down",
+                    "your time is up", "time is up", "remove him", "remove her", "stop the meeting", "recess the meeting",
+                    "ask you to leave", "you will be removed", "this is a warning"],
+    },
     # --- technical controls (should NOT be partisan) ---
     "ctrl_budget": {
         "expected": "none",

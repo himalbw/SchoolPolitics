@@ -1,4 +1,4 @@
-103,019 transcripts x 85 phrases -> Datastore/DistrictView/derived/bow_phrases/phrase_counts.parquet
+103,019 transcripts x 99 phrases -> Datastore/DistrictView/derived/bow_phrases/phrase_counts.parquet
 public comment                174938
 fund balance                  103201
 social emotional               89044
@@ -26,11 +26,13 @@ school choice                   9024
 culturally responsive           9000
 gender identity                 8224
 locker room                     7776
+out of order                    7566
 school resource officer         7309
 restorative justice             7262
 school resource officers        7159
 mask mandate                    7093
 racial equity                   7032
+point of order                  6945
 open meetings act               6680
 hybrid learning                 6494
 teachers union                  6415
@@ -38,6 +40,7 @@ first amendment                 6030
 age appropriate                 5973
 anti racist                     5914
 capital improvements            5820
+time is up                      5590
 sexual orientation              5323
 active shooter                  5199
 equity lens                     4634
@@ -46,6 +49,7 @@ gun violence                    4171
 teacher salaries                3826
 teacher pay                     3708
 parental rights                 3698
+your time is up                 3613
 implicit bias                   3467
 reading level                   3256
 mask optional                   3170
@@ -57,12 +61,14 @@ parent choice                   1990
 vaccine mandate                 1973
 parents rights                  1639
 mask mandates                   1620
+call the police                 1137
 moms for liberty                1109
 white privilege                 1092
 parents bill of rights           874
 parents choice                   845
 no confidence                    814
 biological sex                   796
+please be seated                 785
 1619 project                     573
 parent rights                    526
 gender affirming                 444
@@ -71,210 +77,24 @@ girls sports                     416
 separation of church             378
 gender ideology                  330
 pornographic material            319
+remove her                       307
 banned books                     305
+ask you to leave                 284
+remove him                       251
+recess the meeting               241
 education savings accounts       217
 inappropriate material           212
+please sit down                  207
 in god we trust                  197
+stop the meeting                 195
 education savings account        168
 divisive concepts                162
 ten commandments                 161
 recall election                  138
 inappropriate materials          131
 book ban                         121
+you will be removed              100
 book bans                         56
+this is a warning                 39
 tax credit scholarship            37
 antiracist                        14
-ing handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
-    self.run()
-    ~~~~~~~~^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
-    put((job, i, (False, wrapped)))
-    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
-    self._writer.send_bytes(obj)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 201, in send_bytes
-    self._send_bytes(m[offset:offset + size])
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 421, in _send_bytes
-    self._send(header)
-    ~~~~~~~~~~^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 385, in _send
-    n = write(self._handle, buf)
-BrokenPipeError: [Errno 32] Broken pipe
-Process SpawnPoolWorker-2:
-Traceback (most recent call last):
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
-    put((job, i, result))
-    ~~~^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
-    self._writer.send_bytes(obj)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 201, in send_bytes
-    self._send_bytes(m[offset:offset + size])
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 421, in _send_bytes
-    self._send(header)
-    ~~~~~~~~~~^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 385, in _send
-    n = write(self._handle, buf)
-BrokenPipeError: [Errno 32] Broken pipe
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
-    self.run()
-    ~~~~~~~~^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
-    put((job, i, (False, wrapped)))
-    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
-    self._writer.send_bytes(obj)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 201, in send_bytes
-    self._send_bytes(m[offset:offset + size])
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 421, in _send_bytes
-    self._send(header)
-    ~~~~~~~~~~^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 385, in _send
-    n = write(self._handle, buf)
-BrokenPipeError: [Errno 32] Broken pipe
-Process SpawnPoolWorker-6:
-Traceback (most recent call last):
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
-    put((job, i, result))
-    ~~~^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
-    self._writer.send_bytes(obj)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 201, in send_bytes
-    self._send_bytes(m[offset:offset + size])
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 421, in _send_bytes
-    self._send(header)
-    ~~~~~~~~~~^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 385, in _send
-    n = write(self._handle, buf)
-BrokenPipeError: [Errno 32] Broken pipe
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
-    self.run()
-    ~~~~~~~~^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
-    put((job, i, (False, wrapped)))
-    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
-    self._writer.send_bytes(obj)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 201, in send_bytes
-    self._send_bytes(m[offset:offset + size])
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 421, in _send_bytes
-    self._send(header)
-    ~~~~~~~~~~^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 385, in _send
-    n = write(self._handle, buf)
-BrokenPipeError: [Errno 32] Broken pipe
-Process SpawnPoolWorker-4:
-Traceback (most recent call last):
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
-    put((job, i, result))
-    ~~~^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
-    self._writer.send_bytes(obj)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 201, in send_bytes
-    self._send_bytes(m[offset:offset + size])
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 421, in _send_bytes
-    self._send(header)
-    ~~~~~~~~~~^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 385, in _send
-    n = write(self._handle, buf)
-BrokenPipeError: [Errno 32] Broken pipe
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
-    self.run()
-    ~~~~~~~~^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
-    put((job, i, (False, wrapped)))
-    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
-    self._writer.send_bytes(obj)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 201, in send_bytes
-    self._send_bytes(m[offset:offset + size])
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 421, in _send_bytes
-    self._send(header)
-    ~~~~~~~~~~^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 385, in _send
-    n = write(self._handle, buf)
-BrokenPipeError: [Errno 32] Broken pipe
-Process SpawnPoolWorker-3:
-Traceback (most recent call last):
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/pool.py", line 131, in worker
-    put((job, i, result))
-    ~~~^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
-    self._writer.send_bytes(obj)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 201, in send_bytes
-    self._send_bytes(m[offset:offset + size])
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 421, in _send_bytes
-    self._send(header)
-    ~~~~~~~~~~^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 385, in _send
-    n = write(self._handle, buf)
-BrokenPipeError: [Errno 32] Broken pipe
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
-    self.run()
-    ~~~~~~~~^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/pool.py", line 136, in worker
-    put((job, i, (False, wrapped)))
-    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/queues.py", line 397, in put
-    self._writer.send_bytes(obj)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 201, in send_bytes
-    self._send_bytes(m[offset:offset + size])
-    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 421, in _send_bytes
-    self._send(header)
-    ~~~~~~~~~~^^^^^^^^
-  File "/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/connection.py", line 385, in _send
-    n = write(self._handle, buf)
-BrokenPipeError: [Errno 32] Broken pipe
-/Users/himalbamzai-wokhlu/miniconda3/lib/python3.13/multiprocessing/resource_tracker.py:400: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown: {'/mp-vq0g46x7', '/mp-mxjc58mu', '/mp-jj4tre5m', '/mp-dy6udfau', '/mp-pfo9oban', '/mp-3j8evywn'}
-  warnings.warn(

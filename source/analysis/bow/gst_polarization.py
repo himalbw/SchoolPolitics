@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 import scipy.sparse as sp
 
-from bow_data import CollapseTo, LoadDQ, OUTDIR_TABLES, TermStateConcentration, WithAnchor
+from bow_data import AddStrata, CollapseTo, LoadDQ, OUTDIR_TABLES, TermStateConcentration, WithAnchor
 from lexicon import LEXICON
 
 MIN_TOKENS = {"year": 5000, "quarter": 2000}   # a district-period needs this many (post-cut) words to enter
@@ -28,6 +28,7 @@ def Main():
     OUTDIR_TABLES.mkdir(parents=True, exist_ok=True)
     dtm, vocab, units = LoadDQ()
     dtm, units = WithAnchor(dtm, units)
+    units = AddStrata(units)
     # Spec 1: every district-period with enough words. Composition changes a lot in 2020 (district count x2-3).
     # Spec 2: balanced panel (same districts every year) with each district-year thinned to the same number of words,
     #         so pre/post differences are not driven by who is in the sample or how many meetings they have.
@@ -38,7 +39,9 @@ def Main():
     national = np.flatnonzero((df_conc.top_state_share <= MAX_TOP_STATE_SHARE).to_numpy())
     specs = [("all", "year", dtm, vocab, {}), ("all", "quarter", dtm, vocab, {}),
              ("balanced_thinned", "year", dtm, vocab, {"balanced": True, "thin_to": THIN_TO}),
-             ("balanced_thinned_national", "year", dtm[:, national], vocab[national], {"balanced": True, "thin_to": THIN_TO})]
+             ("balanced_thinned_national", "year", dtm[:, national], vocab[national], {"balanced": True, "thin_to": THIN_TO}),
+             # Spec 4: spec 3 but R and D districts are only compared within the same locale x size stratum
+             ("balanced_thinned_national_stratified", "year", dtm[:, national], vocab[national], {"balanced": True, "thin_to": THIN_TO, "stratified": True})]
     for name, level, mat, terms, kwargs in specs:
         df_series, df_excess = PolarizationSeries(mat, units, terms, level, **kwargs)
         suffix = "" if name == "all" else f"_{name}"
@@ -77,10 +80,12 @@ def Thin(counts, rng, target):
     kept = rng.binomial(coo.data.astype(np.int64), (target / m)[coo.row])
     return sp.csr_matrix((kept.astype(float), (coo.row, coo.col)), shape=counts.shape)
 
-def PolarizationSeries(dtm, units, vocab, level, balanced=False, thin_to=None, n_thin=3, seed=0):
+def PolarizationSeries(dtm, units, vocab, level, balanced=False, thin_to=None, n_thin=3, stratified=False, seed=0):
     counts, df, _ = CollapseTo(dtm, units, level)
     rng = np.random.default_rng(seed)
     ok = df.n_tokens >= (thin_to or MIN_TOKENS[level])
+    if stratified:
+        ok &= df.stratum.notna()
     if balanced:
         n_labels = df.label.nunique()
         in_all = df[ok].groupby("leaid").label.nunique() == n_labels
@@ -98,19 +103,40 @@ def PolarizationSeries(dtm, units, vocab, level, balanced=False, thin_to=None, n
         if min(is_r.sum(), (~is_r).sum()) < MIN_PER_PARTY:
             continue
         subs = [r[sel] for r in reps]
-        res = [LeaveOutPi(sub, is_r) for sub in subs]
+        stratum = meta.stratum.to_numpy() if stratified else np.zeros(len(meta), dtype=object)
+        groups = [np.flatnonzero(stratum == k) for k in np.unique(stratum)]
+        res = [PiOverGroups(sub, is_r, groups) for sub in subs]
         pi = np.mean([r[0] for r in res])
-        null_random = [LeaveOutPi(subs[k % n_rep], rng.permutation(is_r))[0] for k in range(N_PERM[level])]
-        null_state = [LeaveOutPi(subs[k % n_rep], PermuteWithinState(is_r, meta.state.to_numpy(), rng))[0] for k in range(N_PERM[level])]
+        null_random = [PiOverGroups(subs[k % n_rep], PermuteWithin(is_r, stratum, rng), groups)[0] for k in range(N_PERM[level])]
+        null_state = [PiOverGroups(subs[k % n_rep], PermuteWithin(is_r, meta.state.to_numpy(), rng), groups)[0] for k in range(N_PERM[level])]
         rows.append({"label": label, "n_districts": len(meta), "n_R": int(is_r.sum()), "n_D": int((~is_r).sum()),
-                     "n_tokens": int(meta.n_tokens.sum()), "pi": pi, "pi_thin_sd": np.std([r[0] for r in res]),
+                     "n_tokens": int(meta.n_tokens.sum()), "n_districts_compared": res[0][2], "pi": pi, "pi_thin_sd": np.std([r[0] for r in res]),
                      "random_null_mean": np.mean(null_random), "random_null_sd": np.std(null_random),
                      "within_state_mean": np.mean(null_state), "within_state_sd": np.std(null_state)})
         excess[label] = np.mean([r[1] for r in res], axis=0)
     df_series = pd.DataFrame(rows)
     df_series["pi_minus_within_state"] = df_series.pi - df_series.within_state_mean
+    df_series["pi_minus_random_null"] = df_series.pi - df_series.random_null_mean   # use this to compare specs: strata shift the null below 0.5
     df_excess = pd.DataFrame(excess, index=vocab)
     return df_series, df_excess
+
+def PiOverGroups(counts, is_r, groups):
+    """Leave-out pi computed separately inside each group (stratum) and averaged with weights = districts compared.
+    Groups without >= MIN_PER_PARTY districts of each party are skipped. Returns (pi, excess per term, districts used)."""
+    pi_total, excess, used = 0.0, 0.0, 0
+    for g in groups:
+        if min(is_r[g].sum(), (~is_r[g]).sum()) < MIN_PER_PARTY:
+            continue
+        p, e = LeaveOutPi(counts[g], is_r[g])
+        pi_total, excess, used = pi_total + len(g) * p, excess + len(g) * e, used + len(g)
+    return pi_total / used, excess / used, used
+
+def PermuteWithin(is_r, labels, rng):
+    out = is_r.copy()
+    for s in np.unique(labels):
+        idx = np.flatnonzero(labels == s)
+        out[idx] = rng.permutation(is_r[idx])
+    return out
 
 def PermuteWithinState(is_r, state, rng):
     out = is_r.copy()

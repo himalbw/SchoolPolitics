@@ -53,7 +53,8 @@ def CollapseTo(dtm, units, level):
     group = sp.csr_matrix((np.ones(len(units), dtype="float64"), (codes, np.arange(len(units)))), shape=(len(uniq), len(units)))
     counts = (group @ dtm).tocsr()
     df = pd.DataFrame(list(uniq), columns=["leaid", "label"])
-    df = df.merge(units[["leaid", "is_r", "gop", "state"]].drop_duplicates("leaid"), on="leaid", how="left")
+    extra = [c for c in ("stratum",) if c in units.columns]
+    df = df.merge(units[["leaid", "is_r", "gop", "state"] + extra].drop_duplicates("leaid"), on="leaid", how="left")
     df["is_r"] = df.is_r.astype(bool)
     df["n_tokens"] = np.asarray(counts.sum(1)).ravel()
     df["n_words"] = group @ units.n_words.to_numpy()
@@ -78,3 +79,19 @@ def TermStateConcentration(dtm, units, vocab):
     scode = pd.factorize(state_of_district)[0]
     by_state = (sp.csr_matrix((np.ones(len(scode)), (scode, np.arange(len(scode))))) @ freq).toarray()
     return pd.DataFrame({"term": vocab, "top_state_share": by_state.max(0) / by_state.sum(0), "n_states": (by_state > 0).sum(0)})
+
+def AddStrata(units):
+    """Add `stratum` = locale group (city/suburb/town/rural, from the NCES urban-centric code) x enrollment tercile (2019, falling
+    back to 2018/2020). Used to compare R and D districts only within similar kinds of districts."""
+    static = pd.read_parquet(INDIR_STATIC, columns=["leaid", "urban_centric_locale"])
+    static["leaid"] = static.leaid.astype(str).str.zfill(7)
+    static["locale"] = static.urban_centric_locale.map(lambda c: {1: "city", 2: "suburb", 3: "town", 4: "rural"}.get(int(c) // 10) if pd.notna(c) else None)
+    year = pd.read_parquet(INDIR_STATIC.with_name("district_year.parquet"), columns=["leaid", "year", "enrollment"])
+    year["leaid"] = year.leaid.astype(str).str.zfill(7)
+    enroll = year[year.year.isin([2018, 2019, 2020]) & (year.enrollment > 0)].groupby("leaid").enrollment.median()
+    static["enroll"] = static.leaid.map(enroll)
+    static["size"] = pd.qcut(static.enroll, 3, labels=["small", "mid", "large"]).astype(object)
+    static["stratum"] = static.locale + "_" + static["size"]
+    out = units.merge(static[["leaid", "locale", "size", "stratum"]], on="leaid", how="left")
+    print(f"Strata: {out.stratum.notna().mean():.1%} of district-quarters have locale and size")
+    return out

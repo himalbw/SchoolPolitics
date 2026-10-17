@@ -10,6 +10,7 @@ Run everything from the repo root, in this order (data paths are under `Datastor
 | 4 | `source/analysis/bow/gst_polarization.py` | Gentzkow-Shapiro-Taddy leave-out partisanship by year/quarter + placebos -> `output/tables/gst_*.csv` |
 | 5 | `source/analysis/bow/partisan_lexicon.py` | which lexicon categories / terms differ between R and D districts, and how that moved -> `output/tables/lexicon_*.csv`, `partisan_terms_*.csv` |
 | 6 | `source/analysis/bow/plot_bow.py` | `output/figures/*.png` |
+| 7 | `source/analysis/bow/conflict_map.py` | in-meeting conflict index per district/state + maps (`conflict_*.csv`, `conflict_map.png`, `conflict_state_by_period.png`) |
 
 `bow_data.py` = shared loaders. `lexicon.py` = hand-built culture-war / control word lists (edit here to change categories).
 
@@ -29,8 +30,14 @@ Run everything from the repo root, in this order (data paths are under `Datastor
 6. Culture-war topics became *salient everywhere at once*, not more partisan: CRT spikes in 2021Q3 and parental-rights/book-content terms rise from 2021 in R and D districts alike (`lexicon_category_trend.png`).
 7. Our priors in `lexicon.py` (`expected`) were wrong for covid_mandates and gender_lgbtq: mentions measure who is discussing/implementing a topic, not who opposes it. Do not read the R/D tilt as stance.
 
+## Locale/size control (GST)
+`balanced_thinned_national_stratified`: R and D districts are compared only within the same locale (city/suburb/town/rural) x enrollment-tercile stratum (291 of 343 panel districts have both parties in their stratum). Net of the shuffled-label null, pi is .0025, .0023, .0036, .0043, .0038, .0033 (2018-23) vs .0028, .0029, .0034, .0043, .0040, .0034 without the control: the 2021 peak is not a rural/urban artifact, and the rise from 2019 is slightly larger once locale is held fixed.
+
+## Conflict index and map
+Index (0-100) = mean percentile of two word-list rates per district (>= 100k words; 1,355 of 1,532 districts): `meeting_conflict` (decorum, "out of order", "point of order", shouting, liar, arrests, ...) and `conflict_legal` (lawsuit, resignation, censure, misconduct, ...). Routine words are excluded on purpose (public comment = ~40% of the raw legal list, recall, transparency, harassment policy, disruption). Top districts include well-known flashpoints (Chino Valley CA, Brevard FL, Stockton CA); top states NJ, FL, PA (mean index 68, 68, 63). Lowest: MS, MN, UT, KY, NC, KS, GA. No boundary files offline, so maps are district points + a state tile grid.
+Caveats: captions carry no tone, so this is conflict that is said, not heard; state means with < 5 districts are blanked; word lists were chosen by us and tightened after inspecting the top words.
+
 ## Caveats / next steps
-- Control for locale/size (GST within locale class, or residualise on urbanicity) before interpreting pi as "partisanship".
 - No sampling uncertainty on pi yet (only placebo and thinning noise): add district subsampling.
 - Unigrams only; auto-caption quality and channel effects vary by year. Phrase counts cover the hand-picked phrases only.
 - No speaker roles: public comment and board talk are mixed (matters for "parents' rights" talk).
