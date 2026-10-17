@@ -12,7 +12,7 @@ INDIR_DERIVED = Path("Datastore/DistrictView/derived/")
 INDIR_TRANSCRIPTS = INDIR_DERIVED / "transcripts"
 OUTDIR_BOW = INDIR_DERIVED / "bow"   # a run with n_docs set writes to bow_sample/ instead, so tests never overwrite the full matrix
 MIN_DF = 20      # drop words in fewer than 20 transcripts (caption typos, rare names)
-MAX_DF = 0.5     # drop words in more than half of all transcripts
+MAX_DF = 1.0     # keep ubiquitous words (parents, curriculum, safety): the culture-war lexicon needs them; stopwords handle function words
 
 # sklearn's list has no contractions, but our text keeps in-word apostrophes ("don't"), so list the common ones.
 CONTRACTIONS = {
@@ -28,7 +28,18 @@ CAPTION_NOISE = {
     "okay", "ok", "gonna", "wanna", "gotta", "kinda", "sorta", "like", "just", "really", "going", "know", "think",
 }
 
-PROCEDURAL = set()
+# Meeting rituals, pleasantries, calendar words and common first names: carry no topical (or partisan) content.
+# Structural cuts (digits, tokens < 3 chars, possessive merging, terms in < MIN_DISTRICTS districts) are in aggregate_dtm.py.
+PROCEDURAL = {
+    "aye", "nay", "madam", "sir", "chair", "chairman", "chairwoman", "chairperson", "vice", "carries", "carried", "passes",
+    "seconded", "second", "hello", "welcome", "congratulations", "congrats", "awesome", "exciting", "helpful", "excellent",
+    "wonderful", "fantastic", "great", "good", "morning", "afternoon", "evening", "tonight", "today", "ma'am", "y'all",
+    "o'clock", "everybody", "everyone", "somebody", "someone", "yes", "no", "right", "thank", "thanks", "please", "sorry",
+    "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december",
+    "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "am", "pm",
+    "john", "michael", "david", "james", "robert", "mary", "jennifer", "linda", "susan", "karen", "lisa", "sarah", "jim", "joe",
+    "tom", "dan", "kim", "lee", "amy", "smith", "johnson", "williams", "brown", "jones",
+}
 
 STOPWORDS = frozenset(ENGLISH_STOP_WORDS | CONTRACTIONS | CAPTION_NOISE | PROCEDURAL)
 

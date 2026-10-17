@@ -1,0 +1,6 @@
+Document-term matrix: 103,019 docs x 96,731 terms, 158,932,547 nonzeros, 499,155,045 tokens
+Saved dtm.npz, vocab.parquet (column j of dtm), docs.parquet (row i of dtm) to Datastore/DistrictView/derived/bow
+
+real	13m21.441s
+user	3m30.307s
+sys	0m6.331s
