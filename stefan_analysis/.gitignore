@@ -1,0 +1,15 @@
+# Track only source and documentation in this contribution.
+# In particular, never add raw data, transcript excerpts, caches, models or figures.
+*
+!*/
+!*.py
+!*.ipynb
+!README.md
+!requirements.txt
+!.gitignore
+# Even code/notebooks beneath these local-only locations stay excluded.
+data/
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+**/chunks/
