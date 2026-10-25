@@ -5,12 +5,13 @@ import tarfile, gzip, re, json, hashlib, collections
 import numpy as np
 import pandas as pd
 
-RAW = Path(os.environ.get('STAT236_RAW_DIR', Path(__file__).resolve().parents[2] / 'data' / 'raw')).expanduser().resolve()
+RAW = Path(os.environ.get('STAT236_RAW_DIR', 'Datastore/DistrictView/districtview_share_draft')).expanduser()
 for filename in ['meta_districtview.parquet'] + [f'transcripts_districtview_part{i}.tar' for i in (1,2,3)]:
     if not (RAW / filename).is_file():
-        raise FileNotFoundError(f'Missing {RAW / filename}. See stefan_analysis/README.md for data setup.')
+        raise FileNotFoundError(f'Missing {RAW / filename}. See source/analysis/lda_2018_2023/README.md for data setup.')
 
-OUT = Path(__file__).resolve().parent
+OUT=Path('Datastore/DistrictView/derived/initial_eda/')  # generated outputs (local only; may contain transcript text)
+OUT.mkdir(parents=True, exist_ok=True)
 df = pd.read_parquet(RAW/'meta_districtview.parquet')
 df['year'] = df.meeting_date.dt.year
 df['upload_date'] = pd.to_datetime(df.published_at, utc=True, errors='coerce').dt.tz_localize(None)

@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd, pyarrow.parquet as pq, re
 import workflow
-ROOT=Path(__file__).resolve().parent
+ROOT=workflow.OUTDIR
 m=pd.read_csv(ROOT/'analysis_videos.csv',dtype={'id':str}).set_index('id');allowed=set(m.index)
 terms=['covet','coven','principles','eighty','thousand','foreign','esser','shortages','inflation']
 counts={};out=[]

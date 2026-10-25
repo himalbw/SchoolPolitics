@@ -3,3 +3,7 @@ pyarrow>=25
 numpy
 requests
 scikit-learn
+scipy
+joblib
+matplotlib
+nbformat

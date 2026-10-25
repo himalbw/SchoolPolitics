@@ -1,7 +1,7 @@
 from pathlib import Path
 import nbformat as nbf
 
-P=Path(__file__).resolve().parent
+P=Path('notebooks/')  # run from the repo root
 nb=nbf.v4.new_notebook()
 md=nbf.v4.new_markdown_cell;code=nbf.v4.new_code_cell
 nb.cells=[
@@ -20,10 +20,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from IPython.display import display, Markdown, HTML
-P = Path.cwd()
-assert (P / "workflow.py").exists(), "Open this notebook from its lda_2018_2023 folder."
-sys.path.insert(0, str(P))
+REPO = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p / "globals.json").exists())
+os.chdir(REPO)  # pipeline paths are relative to the repo root
+sys.path.insert(0, str(REPO / "source/analysis/lda_2018_2023"))
 import workflow as wf
+P = wf.OUTDIR
 pd.set_option("display.max_colwidth", 160)
 pd.set_option("display.max_rows", 70)
 print("Analysis folder:", P)
@@ -160,11 +161,11 @@ For later trends, infer topic mixtures on all retained chunks; aggregate to meet
 - `cleaning_manifest.csv`: every in-period metadata record with inclusion/exclusion reason.
 - `vectorizer.joblib`, `lda_k10.joblib`, `lda_k20.joblib`, `lda_k30.joblib`: locally fitted artifacts.
 - `comparison.csv`, `topics.csv`, `topic_examples.json`: reproducible comparison and source review material.
-- `workflow.py`: the streaming code. From this folder run `python3 workflow.py prepare`, then `vocabulary`, `fit`, and `evaluate`.
+- `source/analysis/lda_2018_2023/workflow.py`: the streaming code. From the repo root run `python3 source/analysis/lda_2018_2023/workflow.py prepare`, then `vocabulary`, `fit`, and `evaluate`. Outputs go to `Datastore/DistrictView/derived/lda_2018_2023/`.
 
 Caches are reused on reopening. If you change cleaning, priors, or vocabulary settings, create a new analysis directory and rerun all stages; do not mix old cache files with new settings. Only load the locally generated joblib files you trust.
 
 References: [LDA paper](https://www.jmlr.org/papers/v3/blei03a.html), [scikit-learn LDA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html), [DistrictView codebook](https://docs.google.com/document/d/1v79kiBSBxIqdfEaN29LqxyO2w9JWHp0H/edit).''')]
 nb.metadata={'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'}}
-nbf.write(nb,P/'LDA_2018_2023_comparison.ipynb')
+nbf.write(nb,P/'lda_2018_2023.ipynb')
 print('Notebook created')

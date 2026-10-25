@@ -8,7 +8,8 @@ from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.model_selection import train_test_split
 import sklearn
 
-OUT=Path(__file__).resolve().parent
+OUT=Path('Datastore/DistrictView/derived/initial_eda/')  # generated outputs (local only; may contain transcript text)
+OUT.mkdir(parents=True, exist_ok=True)
 records=[json.loads(line) for line in gzip.open(OUT/'sample_texts.jsonl.gz','rt')]
 rng=np.random.default_rng(236)
 # Reject very short text, then sample meetings equally; cap three chunks per meeting.

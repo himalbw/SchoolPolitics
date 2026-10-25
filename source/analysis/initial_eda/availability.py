@@ -3,12 +3,13 @@ from pathlib import Path
 import os
 import tarfile,gzip,json
 import pandas as pd
-RAW=Path(os.environ.get('STAT236_RAW_DIR', Path(__file__).resolve().parents[2] / 'data' / 'raw')).expanduser().resolve()
+RAW=Path(os.environ.get('STAT236_RAW_DIR', 'Datastore/DistrictView/districtview_share_draft')).expanduser()
 for filename in ['meta_districtview.parquet'] + [f'transcripts_districtview_part{i}.tar' for i in (1,2,3)]:
     if not (RAW / filename).is_file():
-        raise FileNotFoundError(f'Missing {RAW / filename}. See stefan_analysis/README.md for data setup.')
+        raise FileNotFoundError(f'Missing {RAW / filename}. See source/analysis/lda_2018_2023/README.md for data setup.')
 
-OUT=Path(__file__).resolve().parent
+OUT=Path('Datastore/DistrictView/derived/initial_eda/')  # generated outputs (local only; may contain transcript text)
+OUT.mkdir(parents=True, exist_ok=True)
 rows=[]
 for p in sorted(RAW.glob('*.tar')):
     with tarfile.open(p,mode='r|') as t:

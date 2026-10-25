@@ -14,8 +14,8 @@ from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS,CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 import joblib,sklearn
 
-ROOT=Path(__file__).resolve().parent
-RAW=Path(os.environ.get('STAT236_RAW_DIR', Path(__file__).resolve().parents[2] / 'data' / 'raw')).expanduser().resolve()
+OUTDIR=Path('Datastore/DistrictView/derived/lda_2018_2023/')  # chunks, models, caches (local only)
+RAW=Path(os.environ.get('STAT236_RAW_DIR', 'Datastore/DistrictView/districtview_share_draft')).expanduser()
 SEED=236
 TOPICS=[10,20,30]
 CHUNK=1000
@@ -36,7 +36,8 @@ SUFFIX={"n't":' not',"'re":' are',"'ve":' have',"'ll":' will',"'d":' would'}
 schema=pa.schema([('id',pa.string()),('leaid',pa.string()),('year',pa.int16()),('chunk',pa.int32()),('start_seconds',pa.float64()),('end_seconds',pa.float64()),('words',pa.int32()),('split',pa.string()),('text',pa.string())])
 
 def save_json(name,data):
-    (ROOT/name).write_text(json.dumps(data,indent=2,default=str))
+    OUTDIR.mkdir(parents=True, exist_ok=True)
+    (OUTDIR/name).write_text(json.dumps(data,indent=2,default=str))
 
 def clean_text(raw):
     text=TAG.sub(' ',raw.lower().replace('’',"'"))
@@ -44,11 +45,11 @@ def clean_text(raw):
 
 def prepare():
     """Read every dated 2018–2023 archive entry; write full cleaned chunks."""
-    if (ROOT/'preparation.json').exists():return json.loads((ROOT/'preparation.json').read_text())
-    (ROOT/'chunks').mkdir(exist_ok=True)
+    if (OUTDIR/'preparation.json').exists():return json.loads((OUTDIR/'preparation.json').read_text())
+    (OUTDIR/'chunks').mkdir(parents=True,exist_ok=True)
     for filename in ['meta_districtview.parquet'] + [f'transcripts_districtview_part{i}.tar' for i in (1,2,3)]:
         if not (RAW / filename).is_file():
-            raise FileNotFoundError(f'Missing {RAW / filename}. See stefan_analysis/README.md for data setup.')
+            raise FileNotFoundError(f'Missing {RAW / filename}. See source/analysis/lda_2018_2023/README.md for data setup.')
     d=pd.read_parquet(RAW/'meta_districtview.parquet')
     d=d.loc[d.meeting_date.dt.year.between(2018,2023)].copy()
     d['year']=d.meeting_date.dt.year
@@ -56,7 +57,7 @@ def prepare():
     writers={};buffers=collections.defaultdict(list);audit=[];seen={};found=set();counts=collections.Counter();started=time.time()
     def flush(shard):
         if not buffers[shard]:return
-        if shard not in writers:writers[shard]=pq.ParquetWriter(ROOT/'chunks'/f'shard_{shard:02}.parquet',schema,compression='zstd')
+        if shard not in writers:writers[shard]=pq.ParquetWriter(OUTDIR/'chunks'/f'shard_{shard:02}.parquet',schema,compression='zstd')
         writers[shard].write_table(pa.Table.from_pylist(buffers[shard],schema=schema));buffers[shard].clear()
     for archive in sorted(RAW.glob('*.tar')):
         with tarfile.open(archive,mode='r|') as tar:
@@ -102,18 +103,18 @@ def prepare():
     for shard in buffers:flush(shard)
     for w in writers.values():w.close()
     for vid in set(meta)-found:audit.append(dict(id=vid,**meta[vid],status='missing_archive',chunks=0))
-    a=pd.DataFrame(audit);a.to_csv(ROOT/'cleaning_manifest.csv',index=False)
-    a.groupby(['year','status']).size().unstack(fill_value=0).to_csv(ROOT/'cleaning_by_year.csv')
+    a=pd.DataFrame(audit);a.to_csv(OUTDIR/'cleaning_manifest.csv',index=False)
+    a.groupby(['year','status']).size().unstack(fill_value=0).to_csv(OUTDIR/'cleaning_by_year.csv')
     result=dict(metadata_in_period=len(d),statuses=a.status.value_counts().to_dict(),counts=dict(counts),title_flags_retained=int(a.loc[a.status=='retained','title_review_flag'].sum()),low_ascii_flags_retained=int((a.loc[a.status=='retained','ascii_letter_fraction']<.95).sum()),elapsed_seconds=time.time()-started,seed=SEED,chunk_words=CHUNK,min_words=MIN_WORDS,shards=SHARDS,split_rule='content SHA256 prefix modulo 10; 0 = test, otherwise train; exact duplicates removed first',stopwords=STOP)
     save_json('preparation.json',result);return result
 
 def iter_frames(shard=None):
-    paths=sorted((ROOT/'chunks').glob('*.parquet')) if shard is None else [ROOT/'chunks'/f'shard_{shard:02}.parquet']
+    paths=sorted((OUTDIR/'chunks').glob('*.parquet')) if shard is None else [OUTDIR/'chunks'/f'shard_{shard:02}.parquet']
     for p in paths:
         for b in pq.ParquetFile(p).iter_batches(batch_size=BATCH):yield b.to_pandas()
 
 def vocabulary():
-    if (ROOT/'vectorizer.joblib').exists():return joblib.load(ROOT/'vectorizer.joblib')
+    if (OUTDIR/'vectorizer.joblib').exists():return joblib.load(OUTDIR/'vectorizer.joblib')
     base=CountVectorizer(stop_words=STOP,token_pattern=r"(?u)\b[a-z][a-z]+\b")
     analyzer=base.build_analyzer();freq=collections.Counter();docfreq=collections.Counter();n=0
     for i,frame in enumerate(iter_frames()):
@@ -122,14 +123,14 @@ def vocabulary():
         if i%100==0:print('Vocabulary chunks',n,flush=True)
     allowed=[w for w,c in freq.most_common() if docfreq[w]>=25 and docfreq[w]<=.8*n][:VOCAB_MAX]
     vec=CountVectorizer(stop_words=STOP,token_pattern=r"(?u)\b[a-z][a-z]+\b",vocabulary={w:i for i,w in enumerate(sorted(allowed))})
-    vec.fit([' '.join(allowed[:2])]);joblib.dump(vec,ROOT/'vectorizer.joblib')
-    pd.DataFrame([{'term':w,'term_count':freq[w],'chunk_document_frequency':docfreq[w]} for w in vec.get_feature_names_out()]).to_csv(ROOT/'vocabulary.csv',index=False)
+    vec.fit([' '.join(allowed[:2])]);joblib.dump(vec,OUTDIR/'vectorizer.joblib')
+    pd.DataFrame([{'term':w,'term_count':freq[w],'chunk_document_frequency':docfreq[w]} for w in vec.get_feature_names_out()]).to_csv(OUTDIR/'vocabulary.csv',index=False)
     save_json('vocabulary_info.json',dict(train_chunks=n,vocabulary=len(allowed),min_df=25,max_df=.8,max_features=VOCAB_MAX));return vec
 
 def fit_models():
     """One complete online pass over all nonempty training chunks, all K together."""
-    prep=prepare();vec=vocabulary();checkpoint=ROOT/'training_checkpoint.joblib'
-    if (ROOT/'training.json').exists():return json.loads((ROOT/'training.json').read_text())
+    prep=prepare();vec=vocabulary();checkpoint=OUTDIR/'training_checkpoint.joblib'
+    if (OUTDIR/'training.json').exists():return json.loads((OUTDIR/'training.json').read_text())
     if checkpoint.exists():state=joblib.load(checkpoint);models=state['models'];done=state['done'];timings=state['timings'];n_seen=state['n_seen'];empty=state['empty']
     else:
         models={k:LatentDirichletAllocation(n_components=k,doc_topic_prior=ALPHA,topic_word_prior=ETA,learning_method='online',learning_decay=.7,learning_offset=64,total_samples=prep['counts']['train_chunks'],batch_size=BATCH,max_doc_update_iter=20,mean_change_tol=.001,random_state=SEED,n_jobs=4) for k in TOPICS}
@@ -148,7 +149,7 @@ def fit_models():
             n_seen+=X.shape[0]
         done.append(shard);joblib.dump(dict(models=models,done=done,timings=timings,n_seen=n_seen,empty=empty),checkpoint)
         print('Training shards',len(done),'/',SHARDS,'chunks',n_seen,'seconds by K',timings,flush=True)
-    for k,m in models.items():joblib.dump(m,ROOT/f'lda_k{k}.joblib')
+    for k,m in models.items():joblib.dump(m,OUTDIR/f'lda_k{k}.joblib')
     result=dict(topic_counts=TOPICS,train_chunks_fitted=n_seen,empty_train_chunks=empty,passes=1,seed=SEED,alpha=ALPHA,eta=ETA,max_doc_update_iter=20,learning_decay=.7,learning_offset=64,n_jobs=4,training_seconds=timings,sklearn_version=sklearn.__version__,note='Full training corpus online pass; no convergence or seed stability claim. Shared held-out videos are never used to fit vocabulary or model.')
     save_json('training.json',result);return result
 
@@ -158,9 +159,9 @@ def evaluate():
     Half the counts infer theta; the other half score predictive likelihood.
     Topic coherence uses binary co-occurrence across full test chunks.
     """
-    if (ROOT/'comparison.csv').exists():return pd.read_csv(ROOT/'comparison.csv')
-    vec=joblib.load(ROOT/'vectorizer.joblib');words=vec.get_feature_names_out()
-    models={k:joblib.load(ROOT/f'lda_k{k}.joblib') for k in TOPICS}
+    if (OUTDIR/'comparison.csv').exists():return pd.read_csv(OUTDIR/'comparison.csv')
+    vec=joblib.load(OUTDIR/'vectorizer.joblib');words=vec.get_feature_names_out()
+    models={k:joblib.load(OUTDIR/f'lda_k{k}.joblib') for k in TOPICS}
     betas={k:m.components_/m.components_.sum(axis=1,keepdims=True) for k,m in models.items()}
     tops={k:np.argsort(b,axis=1)[:,-10:][:,::-1] for k,b in betas.items()}
     union=np.unique(np.concatenate([x.ravel() for x in tops.values()]))
@@ -215,7 +216,7 @@ def evaluate():
                 if len(selected)==3:break
             examples[k].append(dict(topic=topic+1,terms=list(words[indices]),npmi=coherence,examples=selected))
         results.append(dict(k=k,completion_perplexity=float(np.exp(-ll[k]/score_tokens)),heldout_log_likelihood=ll[k],scored_tokens=score_tokens,npmi_mean=float(np.mean(scores)),npmi_median=float(np.median(scores)),top10_diversity=len(np.unique(tops[k]))/(k*10)))
-    pd.DataFrame(results).to_csv(ROOT/'comparison.csv',index=False);pd.DataFrame(topic_rows).to_csv(ROOT/'topics.csv',index=False)
+    pd.DataFrame(results).to_csv(OUTDIR/'comparison.csv',index=False);pd.DataFrame(topic_rows).to_csv(OUTDIR/'topics.csv',index=False)
     save_json('topic_examples.json',examples)
     save_json('evaluation.json',dict(test_chunks=test_chunks,scored_chunks=scored_chunks,empty_chunks=empty_chunks,unscorable_chunks=unscorable,scored_tokens=score_tokens,token_split_seed=SEED+1,token_observation_fraction=.5,coherence='Mean normalized PMI over 45 pairs of top 10 words, using held-out chunk co-occurrence. Zero pairs assigned -1.',representatives='Mixtures inferred from observed half of held-out word counts. Excerpts show beginning of full cleaned chunk; timestamp is approximate caption-line start.'))
     return pd.DataFrame(results)

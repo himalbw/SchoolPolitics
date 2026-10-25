@@ -7,14 +7,15 @@ import scipy.sparse as sp
 from scipy.special import ndtr
 import joblib
 
-ROOT=Path(__file__).resolve().parent
-RAW=Path(os.environ.get('STAT236_RAW_DIR', Path(__file__).resolve().parents[2] / 'data' / 'raw')).expanduser().resolve()
-LDA=ROOT.parent/'lda_2018_2023'
+OUTDIR=Path('Datastore/DistrictView/derived/eligibility_hc/')  # audit tables, profiles, test results (local only)
+RAW=Path(os.environ.get('STAT236_RAW_DIR', 'Datastore/DistrictView/districtview_share_draft')).expanduser()
+LDA=Path('Datastore/DistrictView/derived/lda_2018_2023/')  # reads the LDA cleaned chunks, manifest and vectorizer
 SEED=236
 YEARS=[2018,2019,2022,2023]
 
 def save(name,obj):
-    (ROOT/name).write_text(json.dumps(obj,indent=2,default=str))
+    OUTDIR.mkdir(parents=True, exist_ok=True)
+    (OUTDIR/name).write_text(json.dumps(obj,indent=2,default=str))
 
 def audit():
     m=pd.read_csv(LDA/'cleaning_manifest.csv',dtype={'leaid':str,'id':str})
@@ -49,8 +50,9 @@ def audit():
     corroborated=corroborated|(m.generic_governance_title&m.direct_school_body_prefix)
     m['audit_status']=np.select([m.clip_or_campaign_title,m.other_body_title&m.explicit_school_title,m.other_body_title,m.event_title,m.explicit_school_title,corroborated],['review_possible_clip_or_campaign','review_joint_bodies','exclude_other_body','exclude_standalone_event','include_explicit_title','include_corroborated'],default='review_ambiguous')
     m['primary_eligible']=m.audit_status.str.startswith('include_');m['strict_eligible']=m.audit_status.eq('include_explicit_title')
-    m.to_csv(ROOT/'eligibility_audit.csv',index=False)
-    channel.to_csv(ROOT/'channel_audit.csv')
+    OUTDIR.mkdir(parents=True, exist_ok=True)
+    m.to_csv(OUTDIR/'eligibility_audit.csv',index=False)
+    channel.to_csv(OUTDIR/'channel_audit.csv')
     # Reproducible stratified manual evidence review, not a census of manual labels.
     sizes={'include_explicit_title':20,'include_corroborated':20,'review_possible_clip_or_campaign':10,'exclude_other_body':15,'exclude_standalone_event':10,'review_joint_bodies':10,'review_ambiguous':25}
     samples=[]
@@ -63,7 +65,7 @@ def audit():
     print(m.audit_status.value_counts().to_string(),flush=True)
 
 def aggregate():
-    m=pd.read_csv(ROOT/'eligibility_audit.csv',dtype={'id':str,'leaid':str});m=m[m.year.isin(YEARS)&m.primary_eligible].copy()
+    m=pd.read_csv(OUTDIR/'eligibility_audit.csv',dtype={'id':str,'leaid':str});m=m[m.year.isin(YEARS)&m.primary_eligible].copy()
     m['date']=pd.to_datetime(m.meeting_date);m['quarter']=m.date.dt.quarter
     # Require at least 4 videos and 3 covered quarters in every comparison year.
     def panel(f):
@@ -71,7 +73,7 @@ def aggregate():
         good=a[(a.n>=4)&(a.quarters>=3)].reset_index().groupby('leaid').year.nunique()
         return sorted(good[good.eq(4)].index)
     primary=panel(m);strict=panel(m[m.strict_eligible]);ids=set(primary)|set(strict)
-    m=m[m.leaid.isin(ids)];m.to_csv(ROOT/'analysis_videos.csv',index=False)
+    m=m[m.leaid.isin(ids)];m.to_csv(OUTDIR/'analysis_videos.csv',index=False)
     vec=joblib.load(LDA/'vectorizer.joblib');terms=vec.get_feature_names_out().astype(str);p=len(terms)
     keys=sorted(set(zip(m.leaid,m.year)));lookup={k:i for i,k in enumerate(keys)}
     sums={mode:np.zeros((len(keys),p),dtype=np.float64) for mode in ['primary','strict']}
@@ -106,8 +108,8 @@ def aggregate():
     assert not empty, 'Recompute coverage after removing zero-vocabulary videos'
     for mode in ['primary','strict']:
         assert np.allclose(out[mode+'_early'].sum(axis=1),1) and np.allclose(out[mode+'_late'].sum(axis=1),1)
-    np.savez_compressed(ROOT/'district_profiles.npz',**out)
-    m.groupby(['year','strict_eligible']).agg(videos=('id','size'),districts=('leaid','nunique')).to_csv(ROOT/'panel_coverage.csv')
+    np.savez_compressed(OUTDIR/'district_profiles.npz',**out)
+    m.groupby(['year','strict_eligible']).agg(videos=('id','size'),districts=('leaid','nunique')).to_csv(OUTDIR/'panel_coverage.csv')
     save('aggregation.json',{'primary_districts':len(primary),'strict_districts':len(strict),'video_records':len(m),'empty_videos':empty,'years':YEARS,'weighting':'equal videos within district-year, equal years within period, equal districts in contrasts','panel_rule':'At least 4 primary/strict-eligible videos and 3 distinct calendar quarters in each of 2018, 2019, 2022, 2023','vocabulary':'Fixed existing LDA training vocabulary of 12000 terms; no new outcome-based vocabulary tuning. Not an independent confirmation of earlier exploratory topic discoveries.'})
 
 def stats(Z):
@@ -118,7 +120,7 @@ def stats(Z):
     return np.column_stack([hc,np.max(np.abs(Z),axis=1),np.sum(Z**2,axis=1)])
 
 def compare(B=1999):
-    data=np.load(ROOT/'district_profiles.npz');terms=data['terms'];outputs=[]
+    data=np.load(OUTDIR/'district_profiles.npz');terms=data['terms'];outputs=[]
     for mode in ['primary','strict','primary_common_panel','primary_artifact_sensitivity']:
         base='strict' if mode=='strict' else 'primary'
         select=np.isin(data['primary_districts'],data['strict_districts']) if mode=='primary_common_panel' else np.ones(len(data[base+'_districts']),bool)
@@ -139,8 +141,8 @@ def compare(B=1999):
         null=np.vstack(null);pvals=(1+(null>=observed).sum(axis=0))/(B+1)
         for j,name in enumerate(['Higher Criticism (HC+)','Minimum p-value / max |Z|','Sum of squared Z']):
             outputs.append(dict(analysis=mode,test=name,districts=n,words=len(words),statistic=observed[j],bootstrap_p=pvals[j],critical_95=np.quantile(null[:,j],.95),replicates=B))
-        pd.DataFrame({'word':words,'early_frequency':a.mean(axis=0),'late_frequency':b.mean(axis=0),'change_per_10000':D.mean(axis=0)*10000,'se_per_10000':sd/np.sqrt(n)*10000,'z':z,'normal_approx_p':2*ndtr(-np.abs(z))}).sort_values('z',key=lambda s:s.abs(),ascending=False).to_csv(ROOT/f'word_changes_{mode}.csv',index=False)
-        np.savez_compressed(ROOT/f'test_null_{mode}.npz',statistics=null,z=z,words=words)
+        pd.DataFrame({'word':words,'early_frequency':a.mean(axis=0),'late_frequency':b.mean(axis=0),'change_per_10000':D.mean(axis=0)*10000,'se_per_10000':sd/np.sqrt(n)*10000,'z':z,'normal_approx_p':2*ndtr(-np.abs(z))}).sort_values('z',key=lambda s:s.abs(),ascending=False).to_csv(OUTDIR/f'word_changes_{mode}.csv',index=False)
+        np.savez_compressed(OUTDIR/f'test_null_{mode}.npz',statistics=null,z=z,words=words)
         if mode=='primary':
             # Independent conditional-Gaussian replicates: a diagnostic, not proof for real data.
             sims=[];rng2=np.random.default_rng(SEED+1);crit=np.quantile(null,.95,axis=0)
@@ -151,9 +153,9 @@ def compare(B=1999):
                     if signals:zz[:,indices]+=strength*rng2.choice([-1,1],len(indices))
                     power=(stats(zz)>crit).mean(axis=0)
                     for j,name in enumerate(['HC+','Min-P','Sum squares']):sims.append(dict(signals=len(indices),effect_z=strength,test=name,rejection_rate=power[j],replicates=nrep))
-            pd.DataFrame(sims).to_csv(ROOT/'gaussian_power_simulation.csv',index=False)
+            pd.DataFrame(sims).to_csv(OUTDIR/'gaussian_power_simulation.csv',index=False)
         print(mode,'n',n,'p',len(words),'p-values',pvals,flush=True)
-    pd.DataFrame(outputs).to_csv(ROOT/'test_comparison.csv',index=False)
+    pd.DataFrame(outputs).to_csv(OUTDIR/'test_comparison.csv',index=False)
     save('inference_settings.json',{'seed':SEED,'bootstrap_replicates':B,'calibration':'Null-centered Gaussian district multiplier bootstrap; one multiplier shared across every word in a district; plug-in sample covariance, unit marginal variance. Fixed standard errors. Conditional Gaussian calibration is approximate for the actual district differences.','assumptions':'District contrast vectors behave approximately as independent sampling units with adequate moments and sufficient district support for retained words. Within-district dependence and cross-word covariance are retained in the contrast vector. Cross-district shared shocks are not fully accommodated. Results are descriptive period associations, not causal effects.','HC':'Two-sided normal marginal p-values; ranks up to p/2 and p_(i)>1/p; negative/empty HC maximum set to zero. Bootstrap repeats exactly the same statistic.','family':'Three global tests of the same predeclared period contrast; report all, do not select whichever rejects. Strict-title panel is a sensitivity analysis.'})
 
 if __name__=='__main__':

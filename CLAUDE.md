@@ -24,7 +24,8 @@ SchoolBoards/
   source/derived/sb_transcripts/read_sb_transcript.py  <- extracts transcript tars + saves samples (run first, from repo root)
   source/derived/sb_transcripts/{build_derived_transcripts,clean_transcripts,aggregate_dtm}.py  <- derived text -> document-term matrices
   source/analysis/bow/         <- bag-of-words analysis (GST polarization, culture-war lexicon); see its README.md
-  notebooks/  output/{figures,tables}/  docs/   <- tracked; docs/ holds a copy of the proposal PDF
+  source/analysis/{initial_eda,lda_2018_2023,eligibility_hc}/  <- Stefan: EDA, full-corpus LDA (K=10/20/30), vocabulary-change HC tests; see lda_2018_2023/README.md (own sample spec, outputs -> Datastore/DistrictView/derived/<name>/)
+  notebooks/  output/{figures,tables}/  docs/   <- tracked; notebooks find the repo root and chdir there (clear outputs before committing); docs/ holds a copy of the proposal PDF
   Datastore/
     DistrictView/              <- transcripts + meta (5.1 GB, tar files; do NOT commit)
     District Covariates/
@@ -106,3 +107,4 @@ Missing votes: the 5 Alaska districts (AK reports by house district, not county)
 - 2026-10-11: Initial setup. Proposal read; DistrictView profiled; SEDA 6.0, NCES CCD (via Urban API), SAIPE, CCD finance, county presidential returns 2008-24 and Oster COVID hub downloaded, harmonized and merged onto all 1,605 DistrictView LEAIDs (`district_static`, `district_year`). Video counts reconcile (201,568 = 201,568).
 - Next-step suggestions: (1) get pandemic-era achievement (Education Recovery Scorecard) and district-level partisanship (school-district presidential returns); (2) extract transcripts for a pilot subset (e.g. 2018-2024, ~200 districts) from the tars into one tidy parquet; (3) decide partisan anchor for the GST measure; (4) obtain SafeGraph/OSF data if still wanted.
 - 2026-10-17: Bag-of-words pipeline built (`source/analysis/bow/README.md`: steps, design, findings). GST leave-out pi (R vs D by county 2020 vote) is small but above placebo, rises 2018->2021 and partly falls by 2023; driven by rural/informal vs professional-jargon vocabulary more than culture-war terms. Equity/SEL strongly D; book bans/CRT/parental rights not partisan, but salient everywhere from 2021. Next: control for locale, add sampling CIs.
+- 2026-10-24/25: Stefan's analyses (initial EDA + LDA pilot, full-corpus LDA K=10/20/30, eligibility audit + Higher Criticism vocabulary-change test 2018-19 vs 2022-23) merged and moved into `source/analysis/{initial_eda,lda_2018_2023,eligibility_hc}/` + `notebooks/`. They use their own sample (dated meetings only, >= 200 words, ~1k-word chunks), not `globals.json`. HC: vocabulary changed significantly (273 matched districts), partly COVID-era caption variants. Next: agree on one sample definition across BoW and LDA.

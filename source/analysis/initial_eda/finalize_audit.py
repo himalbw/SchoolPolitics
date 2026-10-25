@@ -2,11 +2,12 @@
 from pathlib import Path
 import os
 import pandas as pd,json,gzip
-P=Path(__file__).resolve().parent
-RAW=Path(os.environ.get('STAT236_RAW_DIR', Path(__file__).resolve().parents[2] / 'data' / 'raw')).expanduser().resolve()
+P=Path('Datastore/DistrictView/derived/initial_eda/')  # generated outputs (local only; may contain transcript text)
+P.mkdir(parents=True, exist_ok=True)
+RAW=Path(os.environ.get('STAT236_RAW_DIR', 'Datastore/DistrictView/districtview_share_draft')).expanduser()
 for filename in ['meta_districtview.parquet'] + [f'transcripts_districtview_part{i}.tar' for i in (1,2,3)]:
     if not (RAW / filename).is_file():
-        raise FileNotFoundError(f'Missing {RAW / filename}. See stefan_analysis/README.md for data setup.')
+        raise FileNotFoundError(f'Missing {RAW / filename}. See source/analysis/lda_2018_2023/README.md for data setup.')
 
 d=pd.read_parquet(RAW/'meta_districtview.parquet');s=json.loads((P/'summary.json').read_text())
 s['empty_strings']={c:int(d[c].astype(str).str.strip().eq('').sum()) for c in d.columns}

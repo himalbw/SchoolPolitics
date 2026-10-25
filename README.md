@@ -31,7 +31,8 @@ Everything below is run **from the `SchoolBoards/` project root** (scripts use p
    echo "export PYTHONPATH=\"$PWD\"" >> ~/.zshrc   # optional: persist (use ~/.bashrc for bash)
    ```
    Do **not** run scripts with `python -I` (isolated mode ignores `PYTHONPATH`).
-6. *(Optional, to rebuild covariates from scratch instead of using the Drive copy)* run `data cleaning/01..05` in order, e.g. `python3 "data cleaning/04_build_processed.py"` (note the quotes: the folder name has a space).
+6. **Analyses**: bag-of-words / GST in `source/analysis/bow/README.md`; topic models + vocabulary-change tests in `source/analysis/lda_2018_2023/README.md`.
+7. *(Optional, to rebuild covariates from scratch instead of using the Drive copy)* run `data cleaning/01..05` in order, e.g. `python3 "data cleaning/04_build_processed.py"` (note the quotes: the folder name has a space).
 
 ## Citation
 SEDA: Reardon, Ho, Shear, Fahle, Kalogrides, saliba (2026), SEDA v6.0, https://purl.stanford.edu/xh833nn4025

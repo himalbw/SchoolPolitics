@@ -4,7 +4,7 @@ import json
 import pandas as pd
 import pyarrow.parquet as pq
 
-P=Path(__file__).resolve().parent
+P=Path('Datastore/DistrictView/derived/lda_2018_2023/')
 p=json.loads((P/'preparation.json').read_text())
 m=pd.read_csv(P/'cleaning_manifest.csv',dtype={'id':str,'leaid':str})
 assert len(m)==p['metadata_in_period'] and m.id.is_unique
