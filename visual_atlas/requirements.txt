@@ -1,0 +1,14 @@
+numpy
+pandas
+pyarrow
+scipy
+matplotlib
+statsmodels
+requests
+pyshp
+nbformat
+nbclient
+ipykernel
+nbconvert
+Pillow
+jupyterlab
