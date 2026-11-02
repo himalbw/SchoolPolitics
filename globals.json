@@ -4,5 +4,7 @@
   "MIN_WORDS": 1000,
   "GABRIEL_PER_DISTRICT_YEAR": 4,
   "GABRIEL_STATES": ["CA", "FL", "PA"],
-  "GABRIEL_SEED": 236
+  "GABRIEL_SEED": 236,
+  "BOW_DERIVED_DIR": "Datastore/DistrictView/derived_screened",
+  "BOW_OUTPUT_TAG": "bow_screened"
 }

@@ -1,11 +1,12 @@
 """Count the lexicon's multi-word phrases in every kept cleaned transcript.
 
-Reads  Datastore/DistrictView/derived/{manifest.parquet, transcripts/*.txt.gz}
-Writes Datastore/DistrictView/derived/bow_phrases/phrase_counts.parquet   one row per kept transcript (same order as
+Reads  {BOW_DERIVED_DIR}/{manifest.parquet, transcripts/*.txt.gz}
+Writes {BOW_DERIVED_DIR}/bow_phrases/phrase_counts.parquet   one row per kept transcript (same order as
        bow/docs.parquet): file, then one integer column per phrase in lexicon.py
 Run from the repo root:  python3 source/analysis/bow/count_phrases.py
 """
 import gzip
+import json
 import re
 from multiprocessing import Pool
 from pathlib import Path
@@ -14,7 +15,8 @@ import pandas as pd
 
 from lexicon import AllPhrases
 
-INDIR_DERIVED = Path("Datastore/DistrictView/derived/")
+GLOBALS = json.loads(Path("globals.json").read_text())
+INDIR_DERIVED = Path(GLOBALS["BOW_DERIVED_DIR"])
 OUTDIR = INDIR_DERIVED / "bow_phrases"
 PHRASES = AllPhrases()
 PATTERNS = [re.compile(r"\b" + re.escape(p) + r"\b") for p in PHRASES]

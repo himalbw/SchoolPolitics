@@ -3,18 +3,21 @@
 Rows of the district-quarter matrix are described by units.parquet; the partisan anchor is the county presidential
 two-party GOP share from district_static.parquet (county != district: a proxy, see CLAUDE.md).
 """
+import json
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import scipy.sparse as sp
 
-INDIR_DQ = Path("Datastore/DistrictView/derived/bow_dq/")
-INDIR_PHRASES = Path("Datastore/DistrictView/derived/bow_phrases/phrase_counts.parquet")
-INDIR_DOCS = Path("Datastore/DistrictView/derived/bow/docs.parquet")
+GLOBALS = json.loads(Path("globals.json").read_text())
+INDIR_DERIVED = Path(GLOBALS["BOW_DERIVED_DIR"])
+INDIR_DQ = INDIR_DERIVED / "bow_dq"
+INDIR_PHRASES = INDIR_DERIVED / "bow_phrases" / "phrase_counts.parquet"
+INDIR_DOCS = INDIR_DERIVED / "bow" / "docs.parquet"
 INDIR_STATIC = Path("Datastore/District Covariates/processed/district_static.parquet")
-OUTDIR_TABLES = Path("output/tables/")
-OUTDIR_FIGURES = Path("output/figures/")
+OUTDIR_TABLES = Path("output/tables") / GLOBALS["BOW_OUTPUT_TAG"]
+OUTDIR_FIGURES = Path("output/figures") / GLOBALS["BOW_OUTPUT_TAG"]
 
 PERIODS = {2018: "pre", 2019: "pre", 2020: "covid", 2021: "covid", 2022: "post", 2023: "post"}
 

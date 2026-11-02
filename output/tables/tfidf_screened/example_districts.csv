@@ -1,0 +1,391 @@
+vocabulary,leaid,lea_name,party,locale,period,rank,term,tfidf,own_name_token,n_states,top_state_share
+all,1200150,BREVARD,R,suburb,covid,1,brevard,0.060334347,True,16,0.49369373732596666
+all,1200150,BREVARD,R,suburb,covid,2,mcdougall,0.048507124,False,27,0.2796353155665477
+all,1200150,BREVARD,R,suburb,covid,3,bps,0.044101194,False,25,0.6551731586742613
+all,1200150,BREVARD,R,suburb,covid,4,surtax,0.04344661,False,4,0.5921510517325325
+all,1200150,BREVARD,R,suburb,covid,5,mullins,0.042967252,False,39,0.4126968268211468
+all,1200150,BREVARD,R,suburb,covid,6,fsba,0.040543552,False,5,0.9871807321001107
+all,1200150,BREVARD,R,suburb,covid,7,viera,0.040543552,False,15,0.5274518725362436
+all,1200150,BREVARD,R,suburb,covid,8,bayside,0.036754187,False,16,0.6081503971323645
+all,1200150,BREVARD,R,suburb,covid,9,cceis,0.035831016,False,11,0.2577600919806972
+all,1200150,BREVARD,R,suburb,covid,10,escobar,0.035761967,False,28,0.5279255463534887
+all,1200150,BREVARD,R,suburb,covid,11,gibbs,0.035352606,False,41,0.1672330680040697
+all,1200150,BREVARD,R,suburb,covid,12,vpk,0.03521008,False,5,0.7696358638491644
+all,1200150,BREVARD,R,suburb,covid,13,cheatham,0.034941886,False,24,0.48634128289239703
+all,1200150,BREVARD,R,suburb,covid,14,tallahassee,0.034151316,False,19,0.9494298965919671
+all,1200150,BREVARD,R,suburb,covid,15,mcdougal,0.033432506,False,15,0.16700399519915807
+all,1200150,BREVARD,R,suburb,post,1,brevard,0.0475588,True,16,0.49369373732596666
+all,1200150,BREVARD,R,suburb,post,2,viera,0.0411016,False,15,0.5274518725362436
+all,1200150,BREVARD,R,suburb,post,3,rendell,0.04071837,False,19,0.7062777993641629
+all,1200150,BREVARD,R,suburb,post,4,schiller,0.04007055,False,25,0.26544338900886066
+all,1200150,BREVARD,R,suburb,post,5,fsba,0.0381533,False,5,0.9871807321001107
+all,1200150,BREVARD,R,suburb,post,6,bps,0.03736783,False,25,0.6551731586742613
+all,1200150,BREVARD,R,suburb,post,7,mcdougall,0.033406314,False,27,0.2796353155665477
+all,1200150,BREVARD,R,suburb,post,8,mullins,0.03142311,False,39,0.4126968268211468
+all,1200150,BREVARD,R,suburb,post,9,bayside,0.031391848,False,16,0.6081503971323645
+all,1200150,BREVARD,R,suburb,post,10,alcs,0.03123319,False,13,0.5521283615473526
+all,1200150,BREVARD,R,suburb,post,11,rsm,0.030893007,False,14,0.4361420189447065
+all,1200150,BREVARD,R,suburb,post,12,fetty,0.030836696,False,15,0.5024144116795983
+all,1200150,BREVARD,R,suburb,post,13,surtax,0.030653633,False,4,0.5921510517325325
+all,1200150,BREVARD,R,suburb,post,14,vieira,0.029900325,False,18,0.7116048553451939
+all,1200150,BREVARD,R,suburb,post,15,cheatham,0.028824566,False,24,0.48634128289239703
+all,1200150,BREVARD,R,suburb,pre,1,ecg,0.14373928,False,15,0.543600370284144
+all,1200150,BREVARD,R,suburb,pre,2,bps,0.09324238,False,25,0.6551731586742613
+all,1200150,BREVARD,R,suburb,pre,3,ekg,0.09269587,False,25,0.31912219581133255
+all,1200150,BREVARD,R,suburb,pre,4,brevard,0.08801611,True,16,0.49369373732596666
+all,1200150,BREVARD,R,suburb,pre,5,cardiologist,0.08590734,False,32,0.1617564550595052
+all,1200150,BREVARD,R,suburb,pre,6,vpk,0.08332448,False,5,0.7696358638491644
+all,1200150,BREVARD,R,suburb,pre,7,tallahassee,0.073619284,False,19,0.9494298965919671
+all,1200150,BREVARD,R,suburb,pre,8,moors,0.07121137,False,27,0.19475040292971774
+all,1200150,BREVARD,R,suburb,pre,9,neola,0.07030949,False,10,0.2978774712255371
+all,1200150,BREVARD,R,suburb,pre,10,chiropractors,0.06873901,False,17,0.37550543461458996
+all,1200150,BREVARD,R,suburb,pre,11,cardiologists,0.068130136,False,19,0.11319246201162703
+all,1200150,BREVARD,R,suburb,pre,12,cardiology,0.058334626,False,31,0.23149939931822375
+all,1200150,BREVARD,R,suburb,pre,13,ekgs,0.05520973,False,18,0.30648601011795884
+all,1200150,BREVARD,R,suburb,pre,14,bpk,0.054048155,False,5,0.6129445363891588
+all,1200150,BREVARD,R,suburb,pre,15,viera,0.053830422,False,15,0.5274518725362436
+all,0608460,Chino Valley Unified,D,suburb,covid,1,gagne,0.0705187,False,19,0.7377059584614879
+all,0608460,Chino Valley Unified,D,suburb,covid,2,chino,0.067545846,True,18,0.9442355604985713
+all,0608460,Chino Valley Unified,D,suburb,covid,3,enfield,0.060964108,False,25,0.44435248541642053
+all,0608460,Chino Valley Unified,D,suburb,covid,4,garnier,0.052336656,False,18,0.459711618669715
+all,0608460,Chino Valley Unified,D,suburb,covid,5,bernardino,0.04803775,True,15,0.9820420716798477
+all,0608460,Chino Valley Unified,D,suburb,covid,6,sycamore,0.044080637,False,23,0.3632766994320188
+all,0608460,Chino Valley Unified,D,suburb,covid,7,bearden,0.04254504,False,23,0.3755684844313086
+all,0608460,Chino Valley Unified,D,suburb,covid,8,lugo,0.03942266,False,20,0.32918483534112064
+all,0608460,Chino Valley Unified,D,suburb,covid,9,schafer,0.03869796,False,19,0.24232787955257057
+all,0608460,Chino Valley Unified,D,suburb,covid,10,ayala,0.0385811,False,25,0.27296549095840206
+all,0608460,Chino Valley Unified,D,suburb,covid,11,renteria,0.036359094,False,9,0.37191781496713255
+all,0608460,Chino Valley Unified,D,suburb,covid,12,hargrove,0.035501212,False,21,0.24029739766972083
+all,0608460,Chino Valley Unified,D,suburb,covid,13,lcap,0.034102116,False,3,0.9997833056690042
+all,0608460,Chino Valley Unified,D,suburb,covid,14,butterfield,0.033843413,False,28,0.17649373519013523
+all,0608460,Chino Valley Unified,D,suburb,covid,15,cif,0.0333956,False,12,0.9892153525358743
+all,0608460,Chino Valley Unified,D,suburb,post,1,chino,0.06385848,True,18,0.9442355604985713
+all,0608460,Chino Valley Unified,D,suburb,post,2,enfield,0.05402459,False,25,0.44435248541642053
+all,0608460,Chino Valley Unified,D,suburb,post,3,gagne,0.05264373,False,19,0.7377059584614879
+all,0608460,Chino Valley Unified,D,suburb,post,4,lugo,0.04340061,False,20,0.32918483534112064
+all,0608460,Chino Valley Unified,D,suburb,post,5,garnier,0.04100173,False,18,0.459711618669715
+all,0608460,Chino Valley Unified,D,suburb,post,6,bearden,0.03966613,False,23,0.3755684844313086
+all,0608460,Chino Valley Unified,D,suburb,post,7,ayala,0.03901309,False,25,0.27296549095840206
+all,0608460,Chino Valley Unified,D,suburb,post,8,renteria,0.038129088,False,9,0.37191781496713255
+all,0608460,Chino Valley Unified,D,suburb,post,9,bernardino,0.036361404,True,15,0.9820420716798477
+all,0608460,Chino Valley Unified,D,suburb,post,10,cif,0.034181174,False,12,0.9892153525358743
+all,0608460,Chino Valley Unified,D,suburb,post,11,laya,0.033261787,False,14,0.39656920810913593
+all,0608460,Chino Valley Unified,D,suburb,post,12,esas,0.032911997,False,15,0.3348262117552898
+all,0608460,Chino Valley Unified,D,suburb,post,13,murillo,0.032421242,False,19,0.6614310553276674
+all,0608460,Chino Valley Unified,D,suburb,post,14,preferential,0.03191983,False,41,0.759575960531342
+all,0608460,Chino Valley Unified,D,suburb,post,15,omari,0.031784266,False,19,0.20886009245147402
+all,4823640,HOUSTON ISD,D,city,covid,1,hisd,0.104375966,False,6,0.9985389777730456
+all,4823640,HOUSTON ISD,D,city,covid,2,tasers,0.074209355,False,28,0.49626790090383904
+all,4823640,HOUSTON ISD,D,city,covid,3,hist,0.061701193,False,22,0.5256765569299503
+all,4823640,HOUSTON ISD,D,city,covid,4,decentralization,0.054300323,False,20,0.18714436741297868
+all,4823640,HOUSTON ISD,D,city,covid,5,ccmr,0.05418922,False,2,0.9998827988843142
+all,4823640,HOUSTON ISD,D,city,covid,6,tsia,0.05322031,False,2,0.9431933181600947
+all,4823640,HOUSTON ISD,D,city,covid,7,taser,0.05312259,False,29,0.17255862878707895
+all,4823640,HOUSTON ISD,D,city,covid,8,txdot,0.052961573,False,1,1.0
+all,4823640,HOUSTON ISD,D,city,covid,9,santos,0.051136933,False,39,0.5035622371503602
+all,4823640,HOUSTON ISD,D,city,covid,10,trusty,0.05013663,False,39,0.5655451042337888
+all,4823640,HOUSTON ISD,D,city,covid,11,tasby,0.048351083,False,3,0.9979652184336333
+all,4823640,HOUSTON ISD,D,city,covid,12,tsi,0.046847656,False,38,0.633774306360402
+all,4823640,HOUSTON ISD,D,city,covid,13,teaks,0.046334587,False,4,0.9870639573761062
+all,4823640,HOUSTON ISD,D,city,covid,14,boi,0.044710837,False,21,0.6148886118552545
+all,4823640,HOUSTON ISD,D,city,covid,15,daniels,0.043649323,False,43,0.17194297454166785
+all,4823640,HOUSTON ISD,D,city,post,1,hisd,0.07668638,False,6,0.9985389777730456
+all,4823640,HOUSTON ISD,D,city,post,2,westbury,0.04900893,False,16,0.9480590885115598
+all,4823640,HOUSTON ISD,D,city,post,3,kravitz,0.047650225,False,18,0.41989135147065293
+all,4823640,HOUSTON ISD,D,city,post,4,lindner,0.04544613,False,17,0.5006926981163528
+all,4823640,HOUSTON ISD,D,city,post,5,nes,0.044858333,False,39,0.47615153225095913
+all,4823640,HOUSTON ISD,D,city,post,6,hist,0.044009257,False,22,0.5256765569299503
+all,4823640,HOUSTON ISD,D,city,post,7,ccmr,0.042841382,False,2,0.9998827988843142
+all,4823640,HOUSTON ISD,D,city,post,8,trin,0.041315753,False,19,0.5132666153682889
+all,4823640,HOUSTON ISD,D,city,post,9,manzano,0.040814873,False,12,0.43525153986211434
+all,4823640,HOUSTON ISD,D,city,post,10,heiner,0.039482173,False,20,0.29318406129255126
+all,4823640,HOUSTON ISD,D,city,post,11,candida,0.038020737,False,22,0.35306237902080306
+all,4823640,HOUSTON ISD,D,city,post,12,cashmere,0.037744254,False,22,0.17275517208565122
+all,4823640,HOUSTON ISD,D,city,post,13,mcdonough,0.03715311,False,34,0.24054828310725918
+all,4823640,HOUSTON ISD,D,city,post,14,quesada,0.036888264,False,13,0.20529493808393964
+all,4823640,HOUSTON ISD,D,city,post,15,wheatley,0.036883887,False,29,0.1708200525210228
+all,3407140,High Point Regional High School District,R,rural,covid,1,kehoe,0.07679866,False,15,0.5014240571821085
+all,3407140,High Point Regional High School District,R,rural,covid,2,nugent,0.07341756,False,25,0.4599611040188032
+all,3407140,High Point Regional High School District,R,rural,covid,3,dona,0.0675245,False,29,0.592754411632849
+all,3407140,High Point Regional High School District,R,rural,covid,4,sussex,0.06694644,True,17,0.809052854127529
+all,3407140,High Point Regional High School District,R,rural,covid,5,ripley,0.06325474,False,32,0.2996011775031312
+all,3407140,High Point Regional High School District,R,rural,covid,6,sedona,0.0567372,False,17,0.39433173251827996
+all,3407140,High Point Regional High School District,R,rural,covid,7,mancuso,0.05414308,False,18,0.6098568224681222
+all,3407140,High Point Regional High School District,R,rural,covid,8,hpa,0.053972494,False,21,0.47797285841947856
+all,3407140,High Point Regional High School District,R,rural,covid,9,njac,0.053471908,False,2,0.9980715791780483
+all,3407140,High Point Regional High School District,R,rural,covid,10,montague,0.053400043,False,27,0.6410239586434824
+all,3407140,High Point Regional High School District,R,rural,covid,11,corazon,0.051706996,False,15,0.5483139600715958
+all,3407140,High Point Regional High School District,R,rural,covid,12,schuman,0.05121865,False,28,0.4084441439577693
+all,3407140,High Point Regional High School District,R,rural,covid,13,leduc,0.05106518,False,20,0.24378429653359995
+all,3407140,High Point Regional High School District,R,rural,covid,14,frankfurt,0.049487256,False,31,0.6392744187563567
+all,3407140,High Point Regional High School District,R,rural,covid,15,keough,0.04635451,False,15,0.4627723875319883
+all,3407140,High Point Regional High School District,R,rural,post,1,schuman,0.090570025,False,28,0.4084441439577693
+all,3407140,High Point Regional High School District,R,rural,post,2,sussex,0.08205954,True,17,0.809052854127529
+all,3407140,High Point Regional High School District,R,rural,post,3,dona,0.07352096,False,29,0.592754411632849
+all,3407140,High Point Regional High School District,R,rural,post,4,sedona,0.072790496,False,17,0.39433173251827996
+all,3407140,High Point Regional High School District,R,rural,post,5,ripley,0.068484806,False,32,0.2996011775031312
+all,3407140,High Point Regional High School District,R,rural,post,6,hpa,0.06554664,False,21,0.47797285841947856
+all,3407140,High Point Regional High School District,R,rural,post,7,corazon,0.06543334,False,15,0.5483139600715958
+all,3407140,High Point Regional High School District,R,rural,post,8,montague,0.06364344,False,27,0.6410239586434824
+all,3407140,High Point Regional High School District,R,rural,post,9,njac,0.06172875,False,2,0.9980715791780483
+all,3407140,High Point Regional High School District,R,rural,post,10,frankfurt,0.058452517,False,31,0.6392744187563567
+all,3407140,High Point Regional High School District,R,rural,post,11,schumann,0.058216907,False,30,0.17388497663045924
+all,3407140,High Point Regional High School District,R,rural,post,12,horsey,0.055691503,False,23,0.42149735866495447
+all,3407140,High Point Regional High School District,R,rural,post,13,dunn,0.054887436,False,44,0.25006972961812035
+all,3407140,High Point Regional High School District,R,rural,post,14,hibs,0.05390198,False,4,0.9753207836428192
+all,3407140,High Point Regional High School District,R,rural,post,15,ireland,0.053746726,False,46,0.13722313471596367
+all,3407140,High Point Regional High School District,R,rural,pre,1,sussex,0.07110862,True,17,0.809052854127529
+all,3407140,High Point Regional High School District,R,rural,pre,2,kehoe,0.06280093,False,15,0.5014240571821085
+all,3407140,High Point Regional High School District,R,rural,pre,3,frankfort,0.058637206,False,16,0.7703244961855922
+all,3407140,High Point Regional High School District,R,rural,pre,4,nugent,0.052833244,False,25,0.4599611040188032
+all,3407140,High Point Regional High School District,R,rural,pre,5,hpa,0.05236392,False,21,0.47797285841947856
+all,3407140,High Point Regional High School District,R,rural,pre,6,ripley,0.05220852,False,32,0.2996011775031312
+all,3407140,High Point Regional High School District,R,rural,pre,7,frankfurt,0.047250457,False,31,0.6392744187563567
+all,3407140,High Point Regional High School District,R,rural,pre,8,boroughs,0.044296976,False,22,0.41227112712892827
+all,3407140,High Point Regional High School District,R,rural,pre,9,lafayette,0.04398493,False,34,0.39140065020993353
+all,3407140,High Point Regional High School District,R,rural,pre,10,augusta,0.04289191,False,34,0.3825357983097041
+all,3407140,High Point Regional High School District,R,rural,pre,11,moretti,0.042689603,False,12,0.8724905686077566
+all,3407140,High Point Regional High School District,R,rural,pre,12,engler,0.040119287,False,20,0.3435904683246001
+all,3407140,High Point Regional High School District,R,rural,pre,13,shortstop,0.04007038,False,25,0.18425159906941507
+all,3407140,High Point Regional High School District,R,rural,pre,14,dunn,0.037012666,False,44,0.25006972961812035
+all,3407140,High Point Regional High School District,R,rural,pre,15,keel,0.036624372,False,41,0.2137580491747989
+all,2314240,RSU 51/MSAD 51,D,rural,covid,1,yarmouth,0.07427045,False,11,0.9099939975852135
+all,2314240,RSU 51/MSAD 51,D,rural,covid,2,mcginley,0.064718395,False,11,0.37577209147719176
+all,2314240,RSU 51/MSAD 51,D,rural,covid,3,greeley,0.05838926,False,25,0.45906413948480235
+all,2314240,RSU 51/MSAD 51,D,rural,covid,4,falmouth,0.05603646,False,10,0.7411415417135059
+all,2314240,RSU 51/MSAD 51,D,rural,covid,5,mabel,0.052440047,False,35,0.393064770707498
+all,2314240,RSU 51/MSAD 51,D,rural,covid,6,cumberland,0.049451392,True,28,0.28339920098865684
+all,2314240,RSU 51/MSAD 51,D,rural,covid,7,gms,0.04926897,False,27,0.18987922329185047
+all,2314240,RSU 51/MSAD 51,D,rural,covid,8,usm,0.048958298,False,13,0.8123277741715558
+all,2314240,RSU 51/MSAD 51,D,rural,covid,9,gca,0.04476821,False,31,0.19734713038441062
+all,2314240,RSU 51/MSAD 51,D,rural,covid,10,margo,0.044602554,False,32,0.19743340582301652
+all,2314240,RSU 51/MSAD 51,D,rural,covid,11,perrin,0.043457657,False,30,0.30693865284249855
+all,2314240,RSU 51/MSAD 51,D,rural,covid,12,margot,0.042793557,False,32,0.11855222517283139
+all,2314240,RSU 51/MSAD 51,D,rural,covid,13,bingham,0.04263631,False,33,0.3551368384369814
+all,2314240,RSU 51/MSAD 51,D,rural,covid,14,leggett,0.04050624,False,25,0.661796517675344
+all,2314240,RSU 51/MSAD 51,D,rural,covid,15,fls,0.040089246,False,17,0.2791919267641821
+all,2314240,RSU 51/MSAD 51,D,rural,post,1,yarmouth,0.0713475,False,11,0.9099939975852135
+all,2314240,RSU 51/MSAD 51,D,rural,post,2,greeley,0.057882685,False,25,0.45906413948480235
+all,2314240,RSU 51/MSAD 51,D,rural,post,3,falmouth,0.05147055,False,10,0.7411415417135059
+all,2314240,RSU 51/MSAD 51,D,rural,post,4,mabel,0.048595924,False,35,0.393064770707498
+all,2314240,RSU 51/MSAD 51,D,rural,post,5,cumberland,0.045325007,True,28,0.28339920098865684
+all,2314240,RSU 51/MSAD 51,D,rural,post,6,gca,0.04466121,False,31,0.19734713038441062
+all,2314240,RSU 51/MSAD 51,D,rural,post,7,fls,0.04287293,False,17,0.2791919267641821
+all,2314240,RSU 51/MSAD 51,D,rural,post,8,esps,0.04231966,False,27,0.18673893056911492
+all,2314240,RSU 51/MSAD 51,D,rural,post,9,gms,0.042220548,False,27,0.18987922329185047
+all,2314240,RSU 51/MSAD 51,D,rural,post,10,forecaster,0.03913072,False,23,0.29254304416214694
+all,2314240,RSU 51/MSAD 51,D,rural,post,11,decile,0.037310135,False,19,0.2836061625902452
+all,2314240,RSU 51/MSAD 51,D,rural,post,12,drummond,0.037307806,False,37,0.32156493298000305
+all,2314240,RSU 51/MSAD 51,D,rural,post,13,ghs,0.036547087,False,30,0.251074906118429
+all,2314240,RSU 51/MSAD 51,D,rural,post,14,modulars,0.036358632,False,36,0.14700746898089792
+all,2314240,RSU 51/MSAD 51,D,rural,post,15,vernal,0.034296148,False,19,0.24315322315981977
+all,2314240,RSU 51/MSAD 51,D,rural,pre,1,yarmouth,0.086621806,False,11,0.9099939975852135
+all,2314240,RSU 51/MSAD 51,D,rural,pre,2,greeley,0.07358424,False,25,0.45906413948480235
+all,2314240,RSU 51/MSAD 51,D,rural,pre,3,falmouth,0.06848832,False,10,0.7411415417135059
+all,2314240,RSU 51/MSAD 51,D,rural,pre,4,casco,0.06688213,False,14,0.7392910884117058
+all,2314240,RSU 51/MSAD 51,D,rural,pre,5,gms,0.060453475,False,27,0.18987922329185047
+all,2314240,RSU 51/MSAD 51,D,rural,pre,6,cumberland,0.058743883,True,28,0.28339920098865684
+all,2314240,RSU 51/MSAD 51,D,rural,pre,7,mabel,0.057437226,False,35,0.393064770707498
+all,2314240,RSU 51/MSAD 51,D,rural,pre,8,nhd,0.0527105,False,19,0.4165403054630893
+all,2314240,RSU 51/MSAD 51,D,rural,pre,9,blatt,0.048667997,False,21,0.15853186779291914
+all,2314240,RSU 51/MSAD 51,D,rural,pre,10,ghs,0.046405938,False,30,0.251074906118429
+all,2314240,RSU 51/MSAD 51,D,rural,pre,11,gigi,0.04498253,False,36,0.17843833043397275
+all,2314240,RSU 51/MSAD 51,D,rural,pre,12,mcarthur,0.04279192,False,22,0.1900012863112165
+all,2314240,RSU 51/MSAD 51,D,rural,pre,13,laughlin,0.042304747,False,33,0.308181084456338
+all,2314240,RSU 51/MSAD 51,D,rural,pre,14,quebec,0.041986153,False,38,0.16239465499258673
+all,2314240,RSU 51/MSAD 51,D,rural,pre,15,guerrilla,0.04123998,False,17,0.27712589978085606
+national,1200150,BREVARD,R,suburb,covid,1,mcdougall,0.05191325,False,27,0.2796353155665477
+national,1200150,BREVARD,R,suburb,covid,2,cceis,0.038347036,False,11,0.2577600919806972
+national,1200150,BREVARD,R,suburb,covid,3,gibbs,0.037835035,False,41,0.1672330680040697
+national,1200150,BREVARD,R,suburb,covid,4,mcdougal,0.035780106,False,15,0.16700399519915807
+national,1200150,BREVARD,R,suburb,covid,5,jabari,0.033455558,False,17,0.24141636798095512
+national,1200150,BREVARD,R,suburb,covid,6,melbourne,0.03255161,False,33,0.13131704683125575
+national,1200150,BREVARD,R,suburb,covid,7,mems,0.03254906,False,19,0.18040203836463603
+national,1200150,BREVARD,R,suburb,covid,8,jenkins,0.030420499,False,43,0.19140158161440352
+national,1200150,BREVARD,R,suburb,covid,9,cigna,0.029894227,False,30,0.2174372620989522
+national,1200150,BREVARD,R,suburb,covid,10,crowdfunding,0.029690467,False,28,0.19826529664378956
+national,1200150,BREVARD,R,suburb,covid,11,brun,0.029320657,False,25,0.19258461123652856
+national,1200150,BREVARD,R,suburb,covid,12,mckinnon,0.02857284,False,38,0.20095371411936946
+national,1200150,BREVARD,R,suburb,covid,13,armored,0.028528614,False,31,0.2993846330340732
+national,1200150,BREVARD,R,suburb,covid,14,endeavour,0.028401991,False,24,0.1280520794947871
+national,1200150,BREVARD,R,suburb,covid,15,kovitch,0.028395563,False,21,0.19472508910426867
+national,1200150,BREVARD,R,suburb,post,1,schiller,0.04316676,False,25,0.26544338900886066
+national,1200150,BREVARD,R,suburb,post,2,mcdougall,0.035987586,False,27,0.2796353155665477
+national,1200150,BREVARD,R,suburb,post,3,takis,0.030391095,False,13,0.2443658021409649
+national,1200150,BREVARD,R,suburb,post,4,gibbs,0.029890861,False,41,0.1672330680040697
+national,1200150,BREVARD,R,suburb,post,5,neola,0.029182771,False,10,0.2978774712255371
+national,1200150,BREVARD,R,suburb,post,6,melbourne,0.028442975,False,33,0.13131704683125575
+national,1200150,BREVARD,R,suburb,post,7,reclassed,0.028151564,False,15,0.24981345699069288
+national,1200150,BREVARD,R,suburb,post,8,elopement,0.02699994,False,19,0.18307489907078892
+national,1200150,BREVARD,R,suburb,post,9,cceis,0.026465304,False,11,0.2577600919806972
+national,1200150,BREVARD,R,suburb,post,10,brun,0.025822831,False,25,0.19258461123652856
+national,1200150,BREVARD,R,suburb,post,11,cocoa,0.025808545,False,41,0.11267965392409257
+national,1200150,BREVARD,R,suburb,post,12,jenkins,0.025697121,False,43,0.19140158161440352
+national,1200150,BREVARD,R,suburb,post,13,jabari,0.025589306,False,17,0.24141636798095512
+national,1200150,BREVARD,R,suburb,post,14,mendel,0.02549235,False,28,0.12013655734081305
+national,1200150,BREVARD,R,suburb,post,15,canaveral,0.025107054,False,16,0.2051730754737229
+national,1200150,BREVARD,R,suburb,pre,1,cardiologist,0.09278349,False,32,0.1617564550595052
+national,1200150,BREVARD,R,suburb,pre,2,moors,0.076911226,False,27,0.19475040292971774
+national,1200150,BREVARD,R,suburb,pre,3,neola,0.07593716,False,10,0.2978774712255371
+national,1200150,BREVARD,R,suburb,pre,4,cardiologists,0.07358337,False,19,0.11319246201162703
+national,1200150,BREVARD,R,suburb,pre,5,cardiology,0.063003816,False,31,0.23149939931822375
+national,1200150,BREVARD,R,suburb,pre,6,cardiac,0.053833403,False,45,0.16076396146120556
+national,1200150,BREVARD,R,suburb,pre,7,scoliosis,0.05226673,False,27,0.13055728157095361
+national,1200150,BREVARD,R,suburb,pre,8,ineligible,0.049597148,False,46,0.08443424377011334
+national,1200150,BREVARD,R,suburb,pre,9,eeoc,0.049543507,False,35,0.17528132165460147
+national,1200150,BREVARD,R,suburb,pre,10,merritt,0.048968792,False,40,0.21840180378162988
+national,1200150,BREVARD,R,suburb,pre,11,pediatric,0.048398178,False,47,0.09987587781915336
+national,1200150,BREVARD,R,suburb,pre,12,caucus,0.047599684,False,42,0.15328155003140845
+national,1200150,BREVARD,R,suburb,pre,13,jupiter,0.047188014,False,36,0.1990050531676305
+national,1200150,BREVARD,R,suburb,pre,14,playtime,0.0464966,False,34,0.08704295784625865
+national,1200150,BREVARD,R,suburb,pre,15,delegation,0.045375034,False,47,0.09853424598611518
+national,0608460,Chino Valley Unified,D,suburb,covid,1,schafer,0.042131066,False,19,0.24232787955257057
+national,0608460,Chino Valley Unified,D,suburb,covid,2,ayala,0.042003836,False,25,0.27296549095840206
+national,0608460,Chino Valley Unified,D,suburb,covid,3,hargrove,0.038650718,False,21,0.24029739766972083
+national,0608460,Chino Valley Unified,D,suburb,covid,4,butterfield,0.036845844,False,28,0.17649373519013523
+national,0608460,Chino Valley Unified,D,suburb,covid,5,schaefer,0.035855297,False,42,0.2624834435215318
+national,0608460,Chino Valley Unified,D,suburb,covid,6,shaffer,0.035634384,False,36,0.2949207791536806
+national,0608460,Chino Valley Unified,D,suburb,covid,7,kanye,0.03494872,False,32,0.11526819602031439
+national,0608460,Chino Valley Unified,D,suburb,covid,8,recusal,0.03342625,False,29,0.23179867577042979
+national,0608460,Chino Valley Unified,D,suburb,covid,9,anvil,0.033387706,False,20,0.2852918566739093
+national,0608460,Chino Valley Unified,D,suburb,covid,10,infield,0.032655586,False,45,0.26587480905200545
+national,0608460,Chino Valley Unified,D,suburb,covid,11,infilled,0.03248809,False,17,0.24938900616676132
+national,0608460,Chino Valley Unified,D,suburb,covid,12,repurchase,0.03188491,False,33,0.11787343496774841
+national,0608460,Chino Valley Unified,D,suburb,covid,13,cruz,0.03089396,False,45,0.23025738601631304
+national,0608460,Chino Valley Unified,D,suburb,covid,14,shareholder,0.030193873,False,34,0.1447739040082083
+national,0608460,Chino Valley Unified,D,suburb,covid,15,myocarditis,0.03011936,False,35,0.25629920638806414
+national,0608460,Chino Valley Unified,D,suburb,post,1,ayala,0.042821262,False,25,0.27296549095840206
+national,0608460,Chino Valley Unified,D,suburb,post,2,omari,0.03488681,False,19,0.20886009245147402
+national,0608460,Chino Valley Unified,D,suburb,post,3,swagger,0.034427907,False,32,0.1996818257584576
+national,0608460,Chino Valley Unified,D,suburb,post,4,shaffer,0.03328743,False,36,0.2949207791536806
+national,0608460,Chino Valley Unified,D,suburb,post,5,relinquished,0.031483553,False,29,0.25738686163889646
+national,0608460,Chino Valley Unified,D,suburb,post,6,schaefer,0.031319313,False,42,0.2624834435215318
+national,0608460,Chino Valley Unified,D,suburb,post,7,butterfield,0.030690089,False,28,0.17649373519013523
+national,0608460,Chino Valley Unified,D,suburb,post,8,wales,0.030491836,False,40,0.22503641224466342
+national,0608460,Chino Valley Unified,D,suburb,post,9,monroe,0.028533403,False,42,0.28919714163164556
+national,0608460,Chino Valley Unified,D,suburb,post,10,nah,0.028435718,False,43,0.22494836580240643
+national,0608460,Chino Valley Unified,D,suburb,post,11,plunkett,0.028419558,False,16,0.244937430179924
+national,0608460,Chino Valley Unified,D,suburb,post,12,agnes,0.028324906,False,33,0.19079215490916673
+national,0608460,Chino Valley Unified,D,suburb,post,13,kanye,0.028162563,False,32,0.11526819602031439
+national,0608460,Chino Valley Unified,D,suburb,post,14,sonia,0.027832929,False,44,0.15450646538379215
+national,0608460,Chino Valley Unified,D,suburb,post,15,transphobic,0.02778532,False,30,0.18782940135968504
+national,4823640,HOUSTON ISD,D,city,covid,1,decentralization,0.058790036,False,20,0.18714436741297868
+national,4823640,HOUSTON ISD,D,city,covid,2,taser,0.057514925,False,29,0.17255862878707895
+national,4823640,HOUSTON ISD,D,city,covid,3,daniels,0.047258377,False,43,0.17194297454166785
+national,4823640,HOUSTON ISD,D,city,covid,4,flynn,0.04394198,False,43,0.12751961474256596
+national,4823640,HOUSTON ISD,D,city,covid,5,cashmere,0.04320694,False,22,0.17275517208565122
+national,4823640,HOUSTON ISD,D,city,covid,6,centralization,0.04212343,False,30,0.285296913410152
+national,4823640,HOUSTON ISD,D,city,covid,7,hernandez,0.042056795,False,41,0.28707507808164084
+national,4823640,HOUSTON ISD,D,city,covid,8,cruz,0.041894957,False,45,0.23025738601631304
+national,4823640,HOUSTON ISD,D,city,covid,9,hcc,0.038698923,False,26,0.2462732316398431
+national,4823640,HOUSTON ISD,D,city,covid,10,madden,0.03825676,False,40,0.09964313453630162
+national,4823640,HOUSTON ISD,D,city,covid,11,busby,0.037850577,False,26,0.24515468060442341
+national,4823640,HOUSTON ISD,D,city,covid,12,mcbride,0.03743006,False,41,0.2888112366269596
+national,4823640,HOUSTON ISD,D,city,covid,13,wheatley,0.03679387,False,29,0.1708200525210228
+national,4823640,HOUSTON ISD,D,city,covid,14,hbcu,0.036195014,False,34,0.161923919749009
+national,4823640,HOUSTON ISD,D,city,covid,15,blooper,0.035683412,False,22,0.1599247297486347
+national,4823640,HOUSTON ISD,D,city,post,1,heiner,0.04345693,False,20,0.29318406129255126
+national,4823640,HOUSTON ISD,D,city,post,2,cashmere,0.04154405,False,22,0.17275517208565122
+national,4823640,HOUSTON ISD,D,city,post,3,mcdonough,0.040893395,False,34,0.24054828310725918
+national,4823640,HOUSTON ISD,D,city,post,4,quesada,0.040601887,False,13,0.20529493808393964
+national,4823640,HOUSTON ISD,D,city,post,5,wheatley,0.04059707,False,29,0.1708200525210228
+national,4823640,HOUSTON ISD,D,city,post,6,ackley,0.03920122,False,25,0.27480148867513565
+national,4823640,HOUSTON ISD,D,city,post,7,beller,0.038705036,False,17,0.22389041155426617
+national,4823640,HOUSTON ISD,D,city,post,8,compos,0.037205797,False,17,0.25692964532169166
+national,4823640,HOUSTON ISD,D,city,post,9,daniels,0.036007393,False,43,0.17194297454166785
+national,4823640,HOUSTON ISD,D,city,post,10,takeover,0.03529615,False,40,0.13752273662293657
+national,4823640,HOUSTON ISD,D,city,post,11,bel,0.034686428,False,40,0.2413769925875
+national,4823640,HOUSTON ISD,D,city,post,12,skinner,0.034634646,False,38,0.20168646011151922
+national,4823640,HOUSTON ISD,D,city,post,13,sharepoint,0.034368295,False,31,0.13275886693772682
+national,4823640,HOUSTON ISD,D,city,post,14,terminations,0.033517156,False,43,0.18463480877080415
+national,4823640,HOUSTON ISD,D,city,post,15,softeners,0.032825302,False,19,0.23424943361395037
+national,3407140,High Point Regional High School District,R,rural,covid,1,ripley,0.069258764,False,32,0.2996011775031312
+national,3407140,High Point Regional High School District,R,rural,covid,2,leduc,0.055912197,False,20,0.24378429653359995
+national,3407140,High Point Regional High School District,R,rural,covid,3,dunn,0.047830936,False,44,0.25006972961812035
+national,3407140,High Point Regional High School District,R,rural,covid,4,arnold,0.046409108,False,43,0.1601454108135337
+national,3407140,High Point Regional High School District,R,rural,covid,5,sabo,0.045773163,False,26,0.20745158027740082
+national,3407140,High Point Regional High School District,R,rural,covid,6,wattage,0.04509249,False,30,0.2332088905004883
+national,3407140,High Point Regional High School District,R,rural,covid,7,schumann,0.04222774,False,30,0.17388497663045924
+national,3407140,High Point Regional High School District,R,rural,covid,8,advertiser,0.041458555,False,32,0.18813282518843066
+national,3407140,High Point Regional High School District,R,rural,covid,9,klein,0.0405611,False,47,0.14262594887042473
+national,3407140,High Point Regional High School District,R,rural,covid,10,herald,0.039162032,False,40,0.19693386183337533
+national,3407140,High Point Regional High School District,R,rural,covid,11,harnett,0.03781269,False,16,0.26844155129851693
+national,3407140,High Point Regional High School District,R,rural,covid,12,arno,0.037660368,False,19,0.1818754517421678
+national,3407140,High Point Regional High School District,R,rural,covid,13,sanderson,0.03651779,False,35,0.2139873434420627
+national,3407140,High Point Regional High School District,R,rural,covid,14,ascending,0.035896778,False,33,0.29567111881062186
+national,3407140,High Point Regional High School District,R,rural,covid,15,langan,0.0354813,False,18,0.238700460006378
+national,3407140,High Point Regional High School District,R,rural,post,1,ripley,0.07485144,False,32,0.2996011775031312
+national,3407140,High Point Regional High School District,R,rural,post,2,schumann,0.063628994,False,30,0.17388497663045924
+national,3407140,High Point Regional High School District,R,rural,post,3,dunn,0.05999,False,44,0.25006972961812035
+national,3407140,High Point Regional High School District,R,rural,post,4,ireland,0.058743242,False,46,0.13722313471596367
+national,3407140,High Point Regional High School District,R,rural,post,5,davita,0.058557164,False,16,0.19450202671952535
+national,3407140,High Point Regional High School District,R,rural,post,6,arnold,0.056771003,False,43,0.1601454108135337
+national,3407140,High Point Regional High School District,R,rural,post,7,klein,0.05357414,False,47,0.14262594887042473
+national,3407140,High Point Regional High School District,R,rural,post,8,hba,0.052837916,False,28,0.22553834127211023
+national,3407140,High Point Regional High School District,R,rural,post,9,krause,0.04930219,False,31,0.21446382306469494
+national,3407140,High Point Regional High School District,R,rural,post,10,footloose,0.04798085,False,24,0.18140763587469816
+national,3407140,High Point Regional High School District,R,rural,post,11,herald,0.046448313,False,40,0.19693386183337533
+national,3407140,High Point Regional High School District,R,rural,post,12,donut,0.0462155,False,45,0.08684275086857189
+national,3407140,High Point Regional High School District,R,rural,post,13,sudan,0.044884194,False,28,0.20484784612417925
+national,3407140,High Point Regional High School District,R,rural,post,14,langdon,0.043195345,False,21,0.2675248409794544
+national,3407140,High Point Regional High School District,R,rural,post,15,dossier,0.041550197,False,26,0.17539500795700902
+national,3407140,High Point Regional High School District,R,rural,pre,1,ripley,0.056753732,False,32,0.2996011775031312
+national,3407140,High Point Regional High School District,R,rural,pre,2,shortstop,0.04355886,False,25,0.18425159906941507
+national,3407140,High Point Regional High School District,R,rural,pre,3,dunn,0.040234946,False,44,0.25006972961812035
+national,3407140,High Point Regional High School District,R,rural,pre,4,keel,0.039812844,False,41,0.2137580491747989
+national,3407140,High Point Regional High School District,R,rural,pre,5,herald,0.03939973,False,40,0.19693386183337533
+national,3407140,High Point Regional High School District,R,rural,pre,6,wattage,0.039149214,False,30,0.2332088905004883
+national,3407140,High Point Regional High School District,R,rural,pre,7,radcliffe,0.038261242,False,25,0.26118761082341857
+national,3407140,High Point Regional High School District,R,rural,pre,8,irb,0.035846405,False,32,0.14579125023259085
+national,3407140,High Point Regional High School District,R,rural,pre,9,lbgt,0.035363898,False,22,0.2882278316639932
+national,3407140,High Point Regional High School District,R,rural,pre,10,taliban,0.035201177,False,23,0.23286123370310965
+national,3407140,High Point Regional High School District,R,rural,pre,11,sanderson,0.03519972,False,35,0.2139873434420627
+national,3407140,High Point Regional High School District,R,rural,pre,12,baseman,0.033754256,False,22,0.12350295855855725
+national,3407140,High Point Regional High School District,R,rural,pre,13,niro,0.033408638,False,20,0.18231893829666315
+national,3407140,High Point Regional High School District,R,rural,pre,14,langan,0.03278389,False,18,0.238700460006378
+national,3407140,High Point Regional High School District,R,rural,pre,15,townships,0.032652833,False,27,0.20275667405006778
+national,2314240,RSU 51/MSAD 51,D,rural,covid,1,cumberland,0.05225781,True,28,0.28339920098865684
+national,2314240,RSU 51/MSAD 51,D,rural,covid,2,gms,0.052065033,False,27,0.18987922329185047
+national,2314240,RSU 51/MSAD 51,D,rural,covid,3,gca,0.04730885,False,31,0.19734713038441062
+national,2314240,RSU 51/MSAD 51,D,rural,covid,4,margo,0.047133796,False,32,0.19743340582301652
+national,2314240,RSU 51/MSAD 51,D,rural,covid,5,margot,0.045222137,False,32,0.11855222517283139
+national,2314240,RSU 51/MSAD 51,D,rural,covid,6,fls,0.04236435,False,17,0.2791919267641821
+national,2314240,RSU 51/MSAD 51,D,rural,covid,7,elias,0.040615693,False,40,0.21005236520490328
+national,2314240,RSU 51/MSAD 51,D,rural,covid,8,desmond,0.039597757,False,41,0.24826666547141926
+national,2314240,RSU 51/MSAD 51,D,rural,covid,9,pergola,0.037597623,False,19,0.22297500328580805
+national,2314240,RSU 51/MSAD 51,D,rural,covid,10,allied,0.036010876,False,40,0.10519092742509777
+national,2314240,RSU 51/MSAD 51,D,rural,covid,11,mari,0.03459254,False,33,0.1895987959061619
+national,2314240,RSU 51/MSAD 51,D,rural,covid,12,harrington,0.03448593,False,42,0.24409091885613748
+national,2314240,RSU 51/MSAD 51,D,rural,covid,13,maximo,0.033808317,False,15,0.2789508547468933
+national,2314240,RSU 51/MSAD 51,D,rural,covid,14,girly,0.03365002,False,28,0.2086380218041718
+national,2314240,RSU 51/MSAD 51,D,rural,covid,15,binex,0.03268041,False,28,0.17884621280100016
+national,2314240,RSU 51/MSAD 51,D,rural,post,1,cumberland,0.047546227,True,28,0.28339920098865684
+national,2314240,RSU 51/MSAD 51,D,rural,post,2,gca,0.0468499,False,31,0.19734713038441062
+national,2314240,RSU 51/MSAD 51,D,rural,post,3,fls,0.044973984,False,17,0.2791919267641821
+national,2314240,RSU 51/MSAD 51,D,rural,post,4,esps,0.0443936,False,27,0.18673893056911492
+national,2314240,RSU 51/MSAD 51,D,rural,post,5,gms,0.04428963,False,27,0.18987922329185047
+national,2314240,RSU 51/MSAD 51,D,rural,post,6,forecaster,0.04104838,False,23,0.29254304416214694
+national,2314240,RSU 51/MSAD 51,D,rural,post,7,decile,0.039138574,False,19,0.2836061625902452
+national,2314240,RSU 51/MSAD 51,D,rural,post,8,ghs,0.038338132,False,30,0.251074906118429
+national,2314240,RSU 51/MSAD 51,D,rural,post,9,modulars,0.038140442,False,36,0.14700746898089792
+national,2314240,RSU 51/MSAD 51,D,rural,post,10,vernal,0.035976883,False,19,0.24315322315981977
+national,2314240,RSU 51/MSAD 51,D,rural,post,11,adl,0.034022402,False,27,0.20828642559143926
+national,2314240,RSU 51/MSAD 51,D,rural,post,12,aca,0.032462083,False,39,0.08231527661536506
+national,2314240,RSU 51/MSAD 51,D,rural,post,13,gry,0.032414123,False,23,0.20698066018147132
+national,2314240,RSU 51/MSAD 51,D,rural,post,14,crier,0.032259747,False,33,0.12583796622071708
+national,2314240,RSU 51/MSAD 51,D,rural,post,15,woodson,0.031305242,False,39,0.18349278649321604
+national,2314240,RSU 51/MSAD 51,D,rural,pre,1,gms,0.06446873,False,27,0.18987922329185047
+national,2314240,RSU 51/MSAD 51,D,rural,pre,2,cumberland,0.062645584,True,28,0.28339920098865684
+national,2314240,RSU 51/MSAD 51,D,rural,pre,3,blatt,0.051900472,False,21,0.15853186779291914
+national,2314240,RSU 51/MSAD 51,D,rural,pre,4,ghs,0.04948817,False,30,0.251074906118429
+national,2314240,RSU 51/MSAD 51,D,rural,pre,5,gigi,0.04797022,False,36,0.17843833043397275
+national,2314240,RSU 51/MSAD 51,D,rural,pre,6,mcarthur,0.045634113,False,22,0.1900012863112165
+national,2314240,RSU 51/MSAD 51,D,rural,pre,7,quebec,0.044774827,False,38,0.16239465499258673
+national,2314240,RSU 51/MSAD 51,D,rural,pre,8,guerrilla,0.043979093,False,17,0.27712589978085606
+national,2314240,RSU 51/MSAD 51,D,rural,pre,9,caswell,0.043430455,False,25,0.22974178731218695
+national,2314240,RSU 51/MSAD 51,D,rural,pre,10,lachlan,0.04077934,False,32,0.25061780477442985
+national,2314240,RSU 51/MSAD 51,D,rural,pre,11,gratulations,0.03956656,False,30,0.15308560458195752
+national,2314240,RSU 51/MSAD 51,D,rural,pre,12,breen,0.03835486,False,26,0.1985148913047206
+national,2314240,RSU 51/MSAD 51,D,rural,pre,13,ikf,0.038302355,False,14,0.20540170771524635
+national,2314240,RSU 51/MSAD 51,D,rural,pre,14,nclb,0.038135663,False,23,0.20318621598514705
+national,2314240,RSU 51/MSAD 51,D,rural,pre,15,mari,0.03795595,False,33,0.1895987959061619
