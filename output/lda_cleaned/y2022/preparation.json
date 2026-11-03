@@ -1,0 +1,22 @@
+{
+  "clean_dir": "Datastore/cleaned_transcripts_2026_10_28",
+  "years": [
+    2022
+  ],
+  "min_doc_words": 1000,
+  "statuses": {
+    "retained": 13741,
+    "not_downloaded": 9993,
+    "placeholder": 2247,
+    "under_1000_words": 917,
+    "missing_archive_transcript": 292,
+    "exact_duplicate": 11
+  },
+  "counts": {
+    "train_chunks": 175529,
+    "train_videos": 12357,
+    "test_chunks": 19276,
+    "test_videos": 1384
+  },
+  "districts_retained": 1299
+}
