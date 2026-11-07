@@ -61,7 +61,7 @@ def PlotCategoryGap():
     ax.axvline(0, color=MUTED, lw=1)
     for v in (-3, 3):
         ax.axvline(v, color=MUTED, lw=0.8, ls=":")
-    ax.set_xlabel("t-statistic of R - D district mention rates, 2022-23   (right = more in Republican-county districts)")
+    ax.set_xlabel("t-statistic, R - D district mention rates, 2022-23 (right = more in R counties)")
     ax.set_title("Which agendas are partisan? (|t| > 3 coloured)", loc="left", fontsize=11)
     ax.grid(axis="y", visible=False)
     fig.tight_layout()

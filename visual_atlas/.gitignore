@@ -1,0 +1,9 @@
+tables/
+external/
+local_data/
+vendor/
+__pycache__/
+.ipynb_checkpoints/
+*.log
+output_checksums.json
+verification.json

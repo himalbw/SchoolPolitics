@@ -1,8 +1,8 @@
 """Collapse the transcript-level document-term matrix to district x quarter, with a tightened vocabulary.
 
-Reads  Datastore/DistrictView/derived/bow/{dtm.npz, vocab.parquet, docs.parquet}   (from clean_transcripts.py)
+Reads  {BOW_DERIVED_DIR}/bow/{dtm.npz, vocab.parquet, docs.parquet}   (from clean_transcripts.py)
        Datastore/DistrictView/districtview_share_draft/meta_districtview.parquet   (for the meeting date -> quarter)
-Writes Datastore/DistrictView/derived/bow_dq/dtm.npz        districts-quarters x terms (counts)
+Writes {BOW_DERIVED_DIR}/bow_dq/dtm.npz        districts-quarters x terms (counts)
                                          vocab.parquet      term for each column
                                          units.parquet      row i = (leaid, quarter, n_docs, n_tokens, n_words)
                                          docs.parquet       bow/docs.parquet plus quarter (row order = phrase_counts.parquet)
@@ -14,6 +14,7 @@ Possessives are merged into the base word ("student's" -> "student").
 Quarter = meeting_date, falling back to upload date (same rule as build_derived_transcripts.py).
 Run from the repo root:  python3 source/derived/sb_transcripts/aggregate_dtm.py
 """
+import json
 import re
 from pathlib import Path
 
@@ -23,9 +24,10 @@ import scipy.sparse as sp
 
 from clean_transcripts import STOPWORDS
 
-INDIR_BOW = Path("Datastore/DistrictView/derived/bow/")
+GLOBALS = json.loads(Path("globals.json").read_text())
+INDIR_BOW = Path(GLOBALS["BOW_DERIVED_DIR"]) / "bow"
 INDIR_META = Path("Datastore/DistrictView/districtview_share_draft/meta_districtview.parquet")
-OUTDIR_DQ = Path("Datastore/DistrictView/derived/bow_dq/")
+OUTDIR_DQ = Path(GLOBALS["BOW_DERIVED_DIR"]) / "bow_dq"
 MIN_DISTRICTS = 25
 
 def Main():

@@ -1,4 +1,5 @@
 import gzip
+import json
 import sys
 from collections import Counter
 from itertools import islice
@@ -8,7 +9,8 @@ import pandas as pd
 import scipy.sparse as sp
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS, CountVectorizer
 
-INDIR_DERIVED = Path("Datastore/DistrictView/derived/")
+GLOBALS = json.loads(Path("globals.json").read_text())
+INDIR_DERIVED = Path(GLOBALS["BOW_DERIVED_DIR"])
 INDIR_TRANSCRIPTS = INDIR_DERIVED / "transcripts"
 OUTDIR_BOW = INDIR_DERIVED / "bow"   # a run with n_docs set writes to bow_sample/ instead, so tests never overwrite the full matrix
 MIN_DF = 20      # drop words in fewer than 20 transcripts (caption typos, rare names)

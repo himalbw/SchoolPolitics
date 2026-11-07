@@ -1,0 +1,10 @@
+{
+  "equity_inclusion": "equity|equitable|inequity|inequities|inclusion|inclusive|diversity|diverse|racial equity|equity lens",
+  "race_racism": "racism|racist|racial|antiracist|anti racist|critical race theory|white privilege|systemic racism|racial discrimination",
+  "book_restrictions": "book bans?|banned books?|banning books?|book banning|ban books?|books? banned|books? banning|book removals?|remove books?|removing books?|challenged books?|library censorship",
+  "parents_rights": "parental rights|parents rights|parent rights|parents bill of rights|parental bill of rights|moms for liberty",
+  "school_choice_vouchers": "school choice|education savings accounts?|tax credit scholarships?|school vouchers?|education vouchers?|private school vouchers?",
+  "school_closures_reopening": "school closures?|school closings?|closing schools?|closed schools?|schools? closed|schools? closing|school reopening|reopening schools?|reopen schools?",
+  "charter_schools": "charter schools?|chartered schools?",
+  "covid_explicit": "covid|covet|coveted|coven|kovid|cobit|coronavirus|pandemic|sars cov"
+}

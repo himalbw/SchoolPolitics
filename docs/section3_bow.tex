@@ -1,0 +1,63 @@
+% Section 3: Bag-of-words representation and notation
+% Numbers are from the screened sample (derived_screened/, globals.json BOW_* settings), 2026-11-06.
+
+\section{Methods}
+
+\subsection{Notation}
+
+Let $\mathcal{D} = \{d_1, \dots, d_N\}$ denote the corpus, where each document $d_n$ is the
+cleaned auto-caption transcript of one school-board meeting video. In our screened 2018--2023
+sample $N = 80{,}063$. Each document is a sequence of tokens
+\[
+  d_n = (w_{n1}, w_{n2}, \dots, w_{n L_n}), \qquad w_{n\ell} \in \mathcal{V},
+\]
+where $L_n$ is the length of document $n$ and $\mathcal{V} = \{v_1, \dots, v_V\}$ is the
+vocabulary of $V = |\mathcal{V}|$ distinct terms. Each document belongs to a district
+$i(n) \in \{1, \dots, I\}$ ($I = 1{,}485$ districts, indexed by NCES LEAID) and a time period
+$t(n)$ (calendar year or quarter of the meeting date). Each district has a partisan label
+$P_i \in \{\mathsf{R}, \mathsf{D}\}$, equal to $\mathsf{R}$ if its county's 2020 two-party
+Republican presidential vote share exceeds one half. To avoid a clash with the corpus
+$\mathcal{D}$, we write the parties in sans-serif and the sets of districts as
+$\mathcal{I}^{\mathsf{R}}$ and $\mathcal{I}^{\mathsf{D}}$.
+
+\subsection{Bag-of-words representation}
+
+The bag-of-words model discards word order and keeps only how often each term occurs.
+Document $d_n$ is represented by its count vector
+\[
+  \mathbf{c}_n = (c_{n1}, \dots, c_{nV}) \in \mathbb{N}^{V}, \qquad
+  c_{nj} = \sum_{\ell=1}^{L_n} \mathbf{1}\{w_{n\ell} = v_j\},
+\]
+and the corpus by the $N \times V$ document--term matrix $\mathbf{C} = [c_{nj}]$. Row sums
+$m_n = \sum_j c_{nj}$ give document length after preprocessing, and normalised frequencies are
+$\mathbf{q}_n = \mathbf{c}_n / m_n$.
+
+\paragraph{Preprocessing.} Captions are raw YouTube auto-transcriptions with no punctuation,
+casing or speaker labels. We remove timestamps and bracketed tags, lowercase, and strip
+punctuation (keeping in-word apostrophes). We then drop English stopwords, contractions,
+caption filler (\emph{um}, \emph{uh}) and procedural meeting language (\emph{motion},
+\emph{second}, \emph{aye}), and keep only terms appearing in at least 20 transcripts. This gives
+$V = 85{,}890$ terms and about 399 million tokens. For the partisanship analysis we further drop
+numerals, terms under three characters and terms used in fewer than 25 districts, and merge
+possessives, leaving $V = 54{,}833$.
+
+\paragraph{Aggregation.} The district, not the meeting, is our unit of analysis, because
+partisanship is measured at the district (county) level and districts differ widely in how many
+meetings they post. We sum counts within district $i$ and period $t$:
+\[
+  \mathbf{c}_{it} = \sum_{n:\, i(n) = i,\ t(n) = t} \mathbf{c}_n, \qquad
+  m_{it} = \sum_j c_{itj}, \qquad
+  \mathbf{q}_{it} = \mathbf{c}_{it} / m_{it},
+\]
+which yields 18{,}898 district--quarter units. Every later method (GST partisanship, TF-IDF, the
+culture-war lexicon) is a function of $\{\mathbf{c}_{it}\}$, and each district receives equal
+weight regardless of how many meetings it posted.
+
+\paragraph{Why bag of words.} Our questions are about \emph{what} boards talk about and
+\emph{which words} distinguish Republican from Democratic districts, not about syntax. Counts
+are well suited to this: they are transparent, scale to $\sim\!10^5$ long documents, and are the
+input assumed by both the Gentzkow--Shapiro--Taddy (2019) partisanship estimator and topic
+models. They are also robust to the main weakness of our text: auto-captions garble punctuation
+and sentence boundaries, but most content words are transcribed correctly. The cost is that a
+count records that a word was said, not its stance or speaker; a mention of ``mask mandate''
+is the same whether it is made in support or in protest. We return to this in the discussion.

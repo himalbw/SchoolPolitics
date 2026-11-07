@@ -1,0 +1,13 @@
+sample,period,vocabulary,shared_top10,shared_top25,shared_top50
+all_districts,covid,all,8,21,45
+all_districts,covid,national,8,21,45
+all_districts,post,all,8,22,47
+all_districts,post,national,8,22,47
+all_districts,pre,all,9,21,47
+all_districts,pre,national,9,21,47
+balanced_thinned,covid,all,9,19,44
+balanced_thinned,covid,national,9,19,44
+balanced_thinned,post,all,9,21,46
+balanced_thinned,post,national,9,21,46
+balanced_thinned,pre,all,9,21,47
+balanced_thinned,pre,national,9,21,47
