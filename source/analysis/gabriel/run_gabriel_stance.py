@@ -1,14 +1,15 @@
 """Rate excerpts with GABRIEL (OpenAI API; costs money).
+Stance/tone pipeline on excerpts (build_excerpts.py); run_gabriel.py + prompts.py is Himal's separate whole-transcript pipeline.
 
 Run from the repo root, with OPENAI_API_KEY set:
-  micromamba run -n stat236 python source/analysis/gabriel/run_gabriel.py models   # confirm model id + reasoning setting
-  micromamba run -n stat236 python source/analysis/gabriel/run_gabriel.py pilot    # 200 split-A excerpts, rated twice
-  micromamba run -n stat236 python source/analysis/gabriel/run_gabriel.py report   # stability, distributions, cost
-  micromamba run -n stat236 python source/analysis/gabriel/run_gabriel.py full     # all excerpts, one pass -> scores_full
-  micromamba run -n stat236 python source/analysis/gabriel/run_gabriel.py terra    # 1,000-excerpt check -> scores_terra
-  ... run_gabriel.py extend         # score excerpts_extension (2020, 2021 top-up, 2024), append to scores_full
-  ... run_gabriel.py public_comment # public-comment share for every excerpt -> public_comment_share
-  ... run_gabriel.py extra_random   # score excerpts_extra_random, append to scores_full
+  micromamba run -n stat236 python source/analysis/gabriel/run_gabriel_stance.py models   # confirm model id + reasoning setting
+  micromamba run -n stat236 python source/analysis/gabriel/run_gabriel_stance.py pilot    # 200 split-A excerpts, rated twice
+  micromamba run -n stat236 python source/analysis/gabriel/run_gabriel_stance.py report   # stability, distributions, cost
+  micromamba run -n stat236 python source/analysis/gabriel/run_gabriel_stance.py full     # all excerpts, one pass -> scores_full
+  micromamba run -n stat236 python source/analysis/gabriel/run_gabriel_stance.py terra    # 1,000-excerpt check -> scores_terra
+  ... run_gabriel_stance.py extend         # score excerpts_extension (2020, 2021 top-up, 2024), append to scores_full
+  ... run_gabriel_stance.py public_comment # public-comment share for every excerpt -> public_comment_share
+  ... run_gabriel_stance.py extra_random   # score excerpts_extra_random, append to scores_full
 Every paid step of the 2026-10-28 session appends its actual cost (API usage fields) to LEDGER and refuses to start once
 the ledger total passes SESSION_CAP. Paid calls use the key in ~/.openai_key_5eeu (run with
 OPENAI_API_KEY=$(cat ~/.openai_key_5eeu)); `keycheck` makes one tiny call and prints the key suffix and organization.

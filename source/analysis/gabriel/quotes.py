@@ -20,7 +20,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_excerpts as be  # noqa: E402
-from run_gabriel import OUTDIR, SessionCost, TERRA_MODEL, TERRA_PRICE_IN, TERRA_PRICE_OUT  # noqa: E402
+from run_gabriel_stance import OUTDIR, SessionCost, TERRA_MODEL, TERRA_PRICE_IN, TERRA_PRICE_OUT  # noqa: E402
 
 INDIR_TABLES = Path("output/tables/")
 MIN_MEETINGS = 10

@@ -38,7 +38,7 @@ D-coded. The other four attributes are unchanged from v2. Wording frozen once ap
 
 ## public_comment_share — 2026-10-28 (separate one-attribute pass; v3 attributes unchanged)
 Not part of the v3 rate() call and not an outcome: a classifier used to split excerpts by who is speaking. Wording
-(`run_gabriel.py`, `PUBLIC_COMMENT`): share of the excerpt that is public comment by members of the public speaking to
+(`run_gabriel_stance.py`, `PUBLIC_COMMENT`): share of the excerpt that is public comment by members of the public speaking to
 the board, as opposed to board member or staff discussion; cues "state your name and address", "three minutes",
 "next speaker", "public comment", a speaker introducing themselves as a parent or resident; 0-100. Run once on all
 22,174 original + extension excerpts (gpt-6-luna, reasoning none); no pilot, no revisions. Cutoff 50 fixed in advance.

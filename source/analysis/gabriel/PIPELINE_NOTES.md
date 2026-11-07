@@ -50,7 +50,7 @@ turn off "Optimize Mac Storage". Other team scripts that read `Datastore/Distric
 
 - The shell's `OPENAI_API_KEY` was not the intended key; ~$4.40 was billed to it before its credits ran out (the
   "rate-limit" errors GABRIEL reported were `429 You have no credits remaining`). Paid calls now read the key from
-  `~/.openai_key_5eeu` and every paid step writes its actual cost to `session_costs_<key>.csv` (`run_gabriel.py`).
+  `~/.openai_key_5eeu` and every paid step writes its actual cost to `session_costs_<key>.csv` (`run_gabriel_stance.py`).
 - GABRIEL 1.1.9 crashes with `ValueError: task_done() called too many times` when a burst of errors (quota, DNS)
   cancels its workers. Responses are checkpointed every 1,000 calls in `<save_dir>/ratings_raw_responses.csv`, and a
   re-run with `reset_files=False` resumes from them, so wrap long runs in a retry loop; in-flight calls since the last
