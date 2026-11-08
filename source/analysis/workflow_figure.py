@@ -21,7 +21,7 @@ COLORS = {
 LABEL_X, X0, X1 = 20, 130, 640
 LEFT = (130, 280)    # x, width of the bag-of-words column
 RIGHT = (430, 210)   # x, width of the LDA column
-FIG_W, FIG_H = 680, 800
+FIG_W, FIG_H = 680, 830
 
 def Main():
     OUTDIR_FIGURES.mkdir(parents=True, exist_ok=True)
@@ -36,15 +36,16 @@ def Main():
         ["Corpus of 80,063 school board meeting transcripts", "with YouTube-generated captions"])
     Box(ax, X0, 148, X1 - X0, 108, "gray", "Pre-processing and cleaning",
         ["Filter 2018-2023, deduplicate, keep school board meetings only,", "tokenize, drop stop words",
-         "Append county-level partisanship (2024 vote share)"])
+         "Append county-level partisanship (2020 vote share)"])
     Box(ax, *LEFT[:1], 296, LEFT[1], 96, "teal", "Bag of words", ["Generate 17 word clusters from", "TF-IDF representation"])
     Box(ax, RIGHT[0], 296, RIGHT[1], 96, "purple", "Topic model (LDA)", ["K = 10, 20, 30 topics", "fit on ~1,000-word chunks"])
     Box(ax, LEFT[0], 432, LEFT[1], 150, "teal", "Conflict clusters",
         ["Hand-picked from BoW (LLM-assisted):", "meeting conflict, legal conflict, plus", "11 culture-war topics: parental rights,",
          "books, CRT/race, gender/LGBTQ, choice,", "COVID, equity/SEL, guns, unions, more"], dashed=True)
-    Box(ax, LEFT[0], 622, LEFT[1], 104, "teal", "LLM scoring", ["Selected attributes,", "rated 0-100 by GABRIEL"])
-    Box(ax, RIGHT[0], 622, RIGHT[1], 104, "purple", "Topic prevalence tests",
-        ["Higher criticism: did", "vocabulary change,", "2018-19 vs 2022-23?"])
+    Box(ax, LEFT[0], 622, LEFT[1], 140, "teal", "LLM scoring", ["Selected attributes,", "rated 0-100 by GABRIEL"])
+    Box(ax, RIGHT[0], 622, RIGHT[1], 140, "purple", "Topic tests and clustering",
+        ["Higher criticism: did", "vocabulary change,", "2018-19 vs 2022-23?",
+         "Spectral clustering of districts", "on topics vs. partisanship"])
     xl, xr = LEFT[0] + LEFT[1] / 2, RIGHT[0] + RIGHT[1] / 2
     Arrow(ax, (X0 + X1) / 2, 108, (X0 + X1) / 2, 148)
     Arrow(ax, xl, 256, xl, 296)
@@ -54,8 +55,8 @@ def Main():
     Arrow(ax, xr, 392, xr, 622)
     for (x, name, key) in [(130, "Shared steps", "gray"), (260, "Bag-of-words branch", "teal"), (430, "Topic-model branch", "purple")]:
         fill, stroke, _, _ = COLORS[key]
-        ax.add_patch(FancyBboxPatch((x, 758), 14, 14, boxstyle="round,pad=0,rounding_size=3", fc=fill, ec=stroke, lw=0.8))
-        ax.text(x + 22, 765, name, fontsize=9, color="#6B6B6B", va="center")
+        ax.add_patch(FancyBboxPatch((x, 784), 14, 14, boxstyle="round,pad=0,rounding_size=3", fc=fill, ec=stroke, lw=0.8))
+        ax.text(x + 22, 791, name, fontsize=9, color="#6B6B6B", va="center")
     for ext in ("png", "svg"):
         fig.savefig(OUTDIR_FIGURES / f"workflow.{ext}", dpi=200, facecolor="white", bbox_inches="tight", pad_inches=0.15)
     print(f"Saved {OUTDIR_FIGURES / 'workflow.png'}")

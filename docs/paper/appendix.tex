@@ -1,0 +1,284 @@
+% =====================================================================
+%  Appendix (input from main.tex after \appendix; no preamble here)
+% =====================================================================
+\section*{Figures}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/workflow.png}
+  \caption{Project workflow. DistrictView transcripts are pre-processed and
+  represented as bag of words (TF-IDF) and LDA topic models. Conflict clusters
+  hand-picked from the bag-of-words output feed the LLM scoring, and the topic
+  model feeds the higher-criticism test and the spectral clustering of districts.}
+  \label{fig:workflow}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/lexicon_category_gap.png}
+  \caption{Partisan differences in contested-topic and control vocabulary, 2022--23.
+  Bars show Welch $t$-statistics for the difference in district mention rates per
+  10,000 words between Republican- and Democratic-county districts (positive = more
+  common in Republican counties). Categories with $|t| > 3$ are colored; dotted lines
+  mark $\pm 3$. Categories prefixed \texttt{ctrl} are non-contested controls. No
+  locale controls.}
+  \label{fig:lexicon-gap}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/gabriel_headline.png}
+  \caption{LLM-scored conservative positions and parental-rights framing in random excerpts, 2018--2024. Top: yearly means for districts in Republican- and Democratic-leaning counties, 95\% bootstrap bands over districts. Bottom: Republican minus Democratic. Grey marks 2020, when many meetings were virtual. 348 districts, 16,367 random excerpts.}
+  \label{fig:llm-headline}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{subfigure}[b]{0.49\linewidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/lda_topic_trends.png}
+    \caption{Topic prevalence over time}
+    \label{fig:topic_trends}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.49\linewidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/cluster_gop_2021.png}
+    \caption{District clusters and county GOP share, 2021}
+    \label{fig:cluster_gop_2021}
+\end{subfigure}
+\caption{(a) Mean topic weight by year, averaged across districts, with 95\% district-bootstrap intervals. (b) District topic clusters in 2021, plotted over 2020 county GOP vote share.}
+\label{fig:trends_and_map}
+\end{figure}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/lexicon_category_trend.png}
+  \caption{Mentions of contested topics over time. Quarterly mean of district mention
+  rates per 10,000 words, Republican-county (red) and Democratic-county (blue)
+  districts, 2018--2023. Vertical scales differ across panels. Mentions count words
+  used, not the position taken.}
+  \label{fig:lexicon-trend}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/conflict_state_by_period.png}
+  \caption{Conflict language by state and period. Each tile shows the state mean of
+  district mention rates per 10,000 words for meeting-conflict terms (e.g.\ ``out of
+  order'', ``point of order'') and legal-conflict terms (e.g.\ lawsuit, resignation,
+  censure). States with fewer than five sample districts are grey. Captions carry no
+  tone, so this measures conflict that is said, not heard.}
+  \label{fig:conflict-state}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/gabriel_topic_period.png}
+  \caption{Flagged excerpts: mean stance (conservative minus progressive) and hostility by contested topic, 2018--19 (open) and 2021--24 (filled), Republican- and Democratic-county districts, 95\% bootstrap intervals over districts.}
+  \label{fig:llm-topics}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/gabriel_event_study_by_speaker.png}
+  \caption{Event study by who is speaking: coefficients on county Republican share $\times$ year (2019 reference) for excerpts that are mostly public comment (share $\ge 50$) and mostly board or staff discussion, random excerpts, district and year fixed effects, 95\% CIs clustered by district. Public-comment cells hold 55--199 excerpts per year.}
+  \label{fig:llm-speaker}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/gabriel_event_study.png}
+  \caption{Event study for all seven LLM scores (the six attributes and stance), random excerpts, 2019 reference, district and year fixed effects, locale$\times$year controls, 95\% CIs clustered by district.}
+  \label{fig:llm-es-all}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/gabriel_change_map.png}
+  \caption{Change in random-excerpt hostility (top) and conservative positions (bottom) from 2018--19 to 2021--24, state means over sampled districts; states with fewer than five districts are grey, and each tile shows the number of districts.}
+  \label{fig:llm-map}
+\end{figure}
+
+\section*{Tables}
+
+\begin{table}[H]
+\centering
+\caption{Event-study estimates, \cref{eq:es}: coefficients per 10 percentage points of county 2020 Republican vote share, relative to 2019, with district and year fixed effects and locale$\times$year controls; 95\% confidence intervals clustered by district in brackets. Random excerpts. Lower panel: half-year resolution for 2020--21.}
+\label{tab:llm-es}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{\input{tables/gabriel_event_study}}
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\caption{Topics from LDA, 2018--2023. Top words are the eight highest-probability words in each topic $\hat A_k$. Share is the mean topic weight
+$\hat w_i(k)$, averaged over meetings within each district and then across districts.}
+\label{tab:topics}
+\begin{tabularx}{\linewidth}{@{}l l X r@{}}
+\toprule
+ & Label & Top words & Share (\%) \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Panel A: Substantive topics}} \\
+T14 & Budget \& finance        & year, budget, dollars, million, money, fund, state, thousand & 8.5 \\
+T15 & Calendar \& scheduling   & day, time, days, week, th, think, teachers, staff & 7.3 \\
+T5  & Facilities \& construction & building, project, new, projects, construction, work, high, cost & 5.7 \\
+T4  & Strategic planning       & work, plan, really, district, community, data, process, year & 5.3 \\
+T12 & Health, safety \& COVID  & children, parents, health, students, people, kids, schools, no & 5.0 \\
+T2  & Achievement data         & students, year, grade, high, data, look, level, student & 4.9 \\
+T9  & Student services         & students, program, schools, staff, services, support, education, district & 4.9 \\
+T10 & Curriculum \& instruction & students, teachers, learning, teacher, curriculum, really, classroom, student & 4.8 \\
+T13 & Athletics \& activities  & high, team, bus, year, sports, state, students, field & 3.7 \\
+T1  & Municipal \& land use    & city, street, property, town, no, area, parking, building & 1.6 \\
+\addlinespace
+\multicolumn{4}{@{}l}{\textit{Panel B: Procedural and conversational topics}} \\
+T6  & Informal discussion      & really, kids, things, lot, did, think, great, kind & 12.4 \\
+T3  & Deliberation             & think, say, need, mean, make, people, board, question & 10.9 \\
+T11 & Ceremony \& recognition  & board, students, community, district, mr, dr, evening, high & 8.7 \\
+T8  & Meeting procedure        & board, meeting, policy, public, committee, members, agenda, th & 8.3 \\
+T7  & Motions \& voting        & yes, motion, mr, second, approve, aye, favor, item & 8.1 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\begin{table}[ht]
+\centering
+\caption{Summary of the analysis corpus.}
+\label{tab:corpus}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Group & Districts & Meetings & Words (millions) & Period \\
+\midrule
+\multicolumn{5}{l}{\textit{Panel A: by county partisanship}} \\
+Republican county & 703 & 31,260 & 380.4 & 2018--23 \\
+Democratic county & 779 & 48,517 & 743.9 & 2018--23 \\
+Unclassified (Alaska) & 3 & 286 & 4.9 & 2018--23 \\
+\midrule
+\multicolumn{5}{l}{\textit{Panel B: by period}} \\
+Pre-COVID & 545 & 12,866 & 161.1 & 2018--19 \\
+COVID & 1,277 & 30,516 & 453.3 & 2020--21 \\
+Post-COVID & 1,339 & 36,681 & 514.8 & 2022--23 \\
+\midrule
+Total & 1,485 & 80,063 & 1,129.1 & 2018--23 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\parbox{0.9\linewidth}{\footnotesize \textit{Notes:} A meeting is one YouTube video
+that passes the sample filters. Words are counted in the cleaned transcripts before
+stopword and vocabulary cuts. Partisanship is the district-office county's 2020
+two-party Republican vote share, split at 0.5. Districts in Panel B do not sum to
+the total because most appear in more than one period.}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Changes in policy-related mentions per 10,000 cleaned
+alphabetic tokens, 2018--2019 to 2022--2023.
+Brackets give pointwise 95\% confidence intervals.}
+\label{tab:hc-themes}
+\small
+\begin{tabular}{lrr}
+\toprule
+Category & All text & Outside COVID chunks \\
+\midrule
+Equity/inclusion
+ & \shortstack{0.778\\{}[0.513, 1.044]}
+ & \shortstack{0.816\\{}[0.545, 1.086]} \\
+Race/racism
+ & \shortstack{0.220\\{}[0.152, 0.287]}
+ & \shortstack{0.234\\{}[0.162, 0.306]} \\
+Book restrictions
+ & \shortstack{0.0557\\{}[0.0381, 0.0733]}
+ & \shortstack{0.0571\\{}[0.0391, 0.0752]} \\
+Parents' rights
+ & \shortstack{0.0965\\{}[0.0649, 0.1280]}
+ & \shortstack{0.0987\\{}[0.0665, 0.1308]} \\
+School choice/vouchers
+ & \shortstack{$-0.006$\\{}[$-0.051$, 0.039]}
+ & \shortstack{$-0.012$\\{}[$-0.053$, 0.030]} \\
+Closures/reopening
+ & \shortstack{0.017\\{}[$-0.002$, 0.035]}
+ & \shortstack{0.006\\{}[$-0.013$, 0.025]} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Corpus construction and cleaning}\label{app:cleaning}
+
+All analyses start from one cleaned corpus (\cref{sec:cleaning}). This appendix
+gives the sample counts at each step, the normalization and screening rules, and
+how the cleaned text is converted to counts for the bag-of-words and Higher
+Criticism (HC) analyses.
+
+\subsection{Sample construction}
+We select records with a nonmissing meeting date in 2018--2023, giving 110,777
+recordings. We exclude 9,914 transcript placeholders, 1,216 recordings whose
+transcripts are missing from the archives, 1,627 transcripts with fewer than 200
+word tokens after normalization, and 94 exact duplicates, leaving 97,926
+recordings. Duplicate transcripts are identified by identical normalized word
+sequences; the first encountered copy is retained. The school-board eligibility
+screen below leaves 83,369 recordings, and requiring at least 1,000 words leaves
+the final 80,063 meetings from 1,485 districts. \todo{Confirm that the 83,369 $\to$ 80,063 step is the 1,000-word floor alone, and that HC uses 83,369 (200-word floor) or the 80,063 sample; state which.}
+
+\subsection{Text normalization}
+We lowercase the text, convert curly apostrophes to straight apostrophes, and
+remove bracketed annotations other than timestamps. We extract sequences of
+letters a--z, allowing an internal apostrophe; numerals, punctuation and caption
+timestamps do not enter the resulting word sequence.
+
+\subsection{School-board eligibility screen}
+Titles must either explicitly identify school-board proceedings or contain a
+governance term supported by channel or transcript evidence. Channel support
+requires at least ten explicitly titled school-board recordings, constituting at
+least half the channel's screened recordings, together with at least three
+education-related word occurrences covering two distinct terms in the first 600
+transcript words. Alternatively, the opening text must explicitly identify a
+school governing body. We exclude recordings flagged as possible clips or campaign
+events, other public-body meetings, joint-body meetings, or unresolved cases. The
+primary eligible sample contains 83,369 recordings: 70,748 with explicit titles and
+12,621 with corroborating evidence. Sampled text reviews supplement these rules;
+eligibility is not manually verified for every recording.
+
+\subsection{Bag-of-words representation}
+Tokens are counted per meeting after removing stop words. \todo{Fill in from the BoW pipeline: stopword list, minimum document frequency (20 meetings), vocabulary cuts (digits, terms under three characters, possessives merged, procedural words, terms used in fewer than 25 districts), and the multi-word phrase counts for the lexicon.} Counts are then summed to district-quarter and district-period for the partisanship and lexicon measures (\cref{sec:r-bow}), and reweighted by TF-IDF for the distinctive-term and similarity analyses.
+
+\subsection{Higher Criticism representation}
+HC uses a different count representation of the same cleaned text. A fixed
+dictionary expands common contractions and informal forms, such as ``can't'' to
+``cannot'' and ``gonna'' to ``going to,'' and fixed suffix rules expand forms such
+as ``n't'' to ``not'' and ``'ve'' to ``have.'' We divide each transcript into
+consecutive 1,000-word chunks; a final chunk shorter than 200 words is merged into
+the preceding chunk. We reuse the vocabulary fitted for the original LDA analysis,
+using training chunks only. We remove scikit-learn's English stopwords, except
+``no,'' ``not,'' ``nor,'' and ``never,'' and add a fixed list of fillers and
+contraction fragments. Candidate terms contain at least two letters and must appear
+in at least 25 training chunks and no more than 80\% of training chunks. We retain
+the 12,000 eligible terms with the highest total training counts, and counts
+exclude all other terms. The matched-district restrictions and additional word
+filters are in \cref{sec:m-lda}.
+
+\section{LLM measurement}\label{app:llm}
+
+
+\paragraph{Sample.}
+Eligible recordings pass the screen of \cref{app:cleaning}, have at least 3,000 words, and are unique within district and date (the longest is kept). 349 districts have at least two eligible recordings in every year of 2018, 2019, 2021, 2022 and 2023; 348 have vote share and locale. The 12 strata (Republican-share tercile $\times$ city, suburb, town, rural) are uneven because Democratic rural (5) and Republican urban (11) districts are rare; the sample over-represents suburbs and Democratic-leaning counties. Recordings sampled per year, 2018--2024: 1,032, 1,041, 2,036, 2,060, 1,042, 1,040 and 1,916; half-years in 2020 and 2021 receive three each where available, and 16 districts have no eligible 2024 recording.
+
+\paragraph{Excerpts.}
+Random windows have median length 1,495 words. Flagged windows are centered on clusters of at least two lexicon hits, with rarer categories (CRT, parental rights, books, gender) preferred over COVID and equity when several apply; counts by category (post/pre, original sample): COVID 1,496/334; equity/SEL 974/743; gender/LGBTQ 505/271; books 406/147; parental rights 365/81; CRT/race 338/23. A variance decomposition of random-excerpt conservative positions gave 72.7\% within district-year, 21.6\% between years within district and 5.7\% between districts, so two further random windows per meeting were added for 2021 and 2023, narrowing the confidence intervals of the Republican--Democratic gap in those years by 17--31\%. Scored excerpts: 16,367 random and 12,007 flagged; 28,374 in total.
+
+\paragraph{Name removal and leakage.}
+District, city, county, state and school names from the metadata, the 50 state names, titles followed by up to two name tokens, phrases ending in ``High School,'' ``Elementary,'' ``School District'' and similar, and spaCy \texttt{en\_core\_web\_sm} \texttt{PERSON}/\texttt{GPE} entities are replaced by \texttt{[NAME]} or \texttt{[PLACE]}; ``DEI'' and ``gender'' are protected from the tagger, and ``I'm X'' is deliberately not stripped. Removal deletes 0.1\% of lexicon hits. About 8\% of excerpts retain a detectable place or school name; the stance--partisanship gradient is present in excerpts without one (random $+1.16$ per 10 pp, $p<.001$) and weaker where one remains ($+0.59$, $p=.05$), so leakage does not generate the result.
+
+\paragraph{Attribute definitions (version 3).}
+\emph{Hostility}: personal attacks or insults, shouting or interrupting, accusations of lying, corruption or bad faith, threats, calls for officials to resign or speakers to be removed; polite disagreement is low. \emph{Culture-war share}: share of the excerpt on race in the curriculum, library or classroom content, gender identity, parental rights, masks or vaccines; routine business counts as none. \emph{Parental-rights framing}: how strongly issues are framed as parents' authority (right to know, consent, opt out) rather than the district's. \emph{COVID contention}: disagreement over masks, closures or remote learning, vaccines, quarantines, testing; neutral updates are zero. \emph{Progressive / conservative positions}: how strongly speakers argue that side of a contested dispute, with examples (defending books against removal, DEI or LGBTQ-inclusive policy, mask requirements; demanding removal of books, opposing DEI, asserting parental authority over curriculum, opposing CRT, opposing mask requirements); positions argued, not topics discussed; routine descriptions of district programs score zero. Version 2 lacked the last clause: in the pilot it scored a staff equity-plan presentation 57 on progressive positions, and random excerpts averaged 4.4 progressive against 0.3 conservative. Version 3 was re-piloted on the same 200 split-A excerpts and frozen. Every wording tried is logged in \texttt{source/analysis/gabriel/attribute\_log.md}.
+
+\paragraph{Validation.}
+Scoring used \texttt{gpt-6-luna} with reasoning disabled, JSON output and 10 parallel calls; total API cost was \$16.93. Pilot run-to-run correlations on 200 excerpts: 0.97, 0.98, 0.97, 0.99, 0.96, 0.99 for the six attributes in the order above, with mean absolute differences of 0.6--3.3 points. Re-scoring 1,000 excerpts (500 random, 500 flagged) with \texttt{gpt-6.1-terra} gives correlations of 0.95, 0.93, 0.95, 0.98, 0.85, 0.97; Terra scores progressive positions 2.4 points lower on average, applying the routine-description rule more strictly, with the largest disagreement in random excerpts ($r=0.70$) where most scores are near zero. We therefore lead with conservative positions ($r=0.97$) and report stance (conservative minus progressive) only as a secondary measure. Post-period regressions re-estimated on the 1,000 shared excerpts give similar coefficients with either model's scores.
+
+\paragraph{Public-comment share.}
+A one-attribute pass over the 22,174 original and extension excerpts asked what share of each is public comment by members of the public, as opposed to board or staff discussion, using cues such as ``state your name and address,'' ``three minutes'' and ``next speaker'' (median 0, mean 12.3). Excerpts with share $\ge 50$ are 5--10\% of random excerpts by year (9.7\% in 2021; 199 excerpts from 149 districts). The extra 2021 and 2023 random windows were not scored for public comment and are excluded from the by-speaker split (\cref{fig:llm-speaker}).
+
+\paragraph{Quotes.}
+For Indian River (FL, Republican share 0.61) and Radnor Township (PA, 0.36), chosen from the three largest pre-to-post risers in each group, the 25 highest-scoring excerpts on the relevant position attribute and the 10 highest on hostility were passed in raw form to \texttt{gpt-6.1-terra}, which returned the single sentence most strongly arguing the position. A quote is kept only if it is an exact substring of the raw window (34 of 35 and 26 of 35 kept; failures are excerpts with no sentence returned). Private individuals' names are replaced afterwards; caption errors are preserved. Full lists are in \texttt{output/tables/quotes\_1200930.csv} and \texttt{quotes\_4219920.csv} in the project repository.
+
