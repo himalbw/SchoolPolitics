@@ -1,4 +1,6 @@
-"""Project workflow figure: DistrictView -> pre-processing -> supervised (bag of words -> HC, dictionary -> LLM) / unsupervised (LDA -> trends, clustering).
+"""Project workflow figure: DistrictView -> pre-processing -> two branches.
+Supervised: bag of words + hand-built dictionaries -> theme trends, higher criticism on phrase groups, LLM scoring.
+Unsupervised: LDA topic model -> topic trends, clustering of districts, higher criticism on all words.
 
 Writes output/figures/workflow.png and workflow.svg (white background). Run from the repo root:
   python3 source/analysis/workflow_figure.py
@@ -18,12 +20,11 @@ COLORS = {
     "teal": ("#E1F5EE", "#0F6E56", "#04342C", "#085041"),
     "purple": ("#EEEDFE", "#534AB7", "#26215C", "#3C3489"),
 }
-LABEL_X, X0, X1 = 20, 130, 790
-LEFT = (130, 400)    # x, width of the supervised (bag-of-words) column
-RIGHT = (560, 230)   # x, width of the unsupervised (topic-model) column
-HC = (130, 185)      # x, width of the higher-criticism box
-LLM = (345, 185)     # x, width of the LLM-scoring box (sits under the dictionary)
-FIG_W, FIG_H = 810, 860
+LABEL_X, X0 = 20, 140
+COL_W, GAP, MID_GAP = 140, 14, 40                  # six final-analysis columns, wider gap between branches
+COLS = [X0 + i * (COL_W + GAP) + (MID_GAP - GAP if i >= 3 else 0) for i in range(6)]
+X1 = COLS[5] + COL_W
+FIG_W, FIG_H = X1 + 20, 790
 
 def Main():
     OUTDIR_FIGURES.mkdir(parents=True, exist_ok=True)
@@ -32,38 +33,40 @@ def Main():
     ax.set_ylim(FIG_H, 0)
     ax.axis("off")
     ax.set_facecolor("white")
-    for text, y in [("Dataset", 64), ("Pre-processing", 202), ("Representation", 376), ("Filtering", 536), ("Final analysis", 712)]:
+    for text, y in [("Dataset", 64), ("Pre-processing", 202), ("Representation", 386), ("Final analysis", 612)]:
         ax.text(LABEL_X, y, text, fontsize=10, color="#6B6B6B", va="center", ha="left")
     Box(ax, X0, 20, X1 - X0, 88, "gray", "DistrictView",
         ["Corpus of 80,063 school board meeting transcripts", "with YouTube-generated captions"])
     Box(ax, X0, 148, X1 - X0, 108, "gray", "Pre-processing and cleaning",
         ["Filter 2018-2023, deduplicate, keep school board meetings only,", "tokenize, drop stop words",
          "Append county-level partisanship (2020 vote share)"])
-    ax.text(LEFT[0] + LEFT[1] / 2 + 10, 291, "Supervised", fontsize=10, fontweight="bold", color=COLORS["teal"][2], ha="left", va="center")
-    ax.text(RIGHT[0] + RIGHT[1] / 2 + 10, 291, "Unsupervised", fontsize=10, fontweight="bold", color=COLORS["purple"][2], ha="left", va="center")
-    Box(ax, LEFT[0], 326, LEFT[1], 100, "teal", "Bag of words", ["Term counts by district and period,", "reweighted by TF-IDF"])
-    Box(ax, RIGHT[0], 326, RIGHT[1], 100, "purple", "Topic model (LDA)", ["K = 10, 20, 30 topics", "fit on ~1,000-word chunks"])
-    Box(ax, LLM[0], 466, LLM[1], 140, "teal", "Dictionary of 17 themes",
-        ["Hand-built word and", "phrase lists: 4 controls,", "13 political themes", "(e.g. CRT, books, masks)"], dashed=True)
-    Box(ax, HC[0], 646, HC[1], 140, "teal", "Higher criticism",
-        ["Did word shares change,", "2018-19 vs 2022-23?", "Follow-up on contested", "phrase dictionaries"])
-    Box(ax, LLM[0], 646, LLM[1], 140, "teal", "LLM scoring", ["Attributes mirroring", "the themes, rated", "0-100 by GABRIEL"])
-    Box(ax, RIGHT[0], 646, RIGHT[1], 140, "purple", "Topic trends and clustering",
-        ["Topic prevalence over time", "Spectral clustering of", "districts on topic weights,", "compared with partisanship"])
-    xl, xr = LEFT[0] + LEFT[1] / 2, RIGHT[0] + RIGHT[1] / 2
-    xhc, xllm = HC[0] + HC[1] / 2, LLM[0] + LLM[1] / 2
+    lx, lw = COLS[0], COLS[2] + COL_W - COLS[0]
+    rx, rw = COLS[3], X1 - COLS[3]
+    xl, xr = lx + lw / 2, rx + rw / 2
+    for x, key, name in [(xl, "teal", "Supervised"), (xr, "purple", "Unsupervised")]:
+        ax.text(x + 10, 291, name, fontsize=10, fontweight="bold", color=COLORS[key][2], ha="left", va="center")
+    Box(ax, lx, 326, lw, 120, "teal", "Bag of words",
+        ["Term counts by district and period, reweighted by TF-IDF", "Hand-built dictionaries: 17 themes (4 controls,",
+         "13 political) and 6 contested phrase groups"])
+    Box(ax, rx, 326, rw, 120, "purple", "Topic model (LDA)", ["K = 10, 20, 30 topics", "fit on ~1,000-word chunks"])
+    final = [("teal", "Theme trends", ["Dictionary mention", "rates over time,", "R vs D counties"]),
+             ("teal", "Higher criticism", ["Did each phrase", "group's share", "change, 2018-19", "vs 2022-23?"]),
+             ("teal", "LLM scoring", ["Positions and", "hostility rated", "0-100 by GABRIEL,", "mirroring themes"]),
+             ("purple", "Topic trends", ["Topic prevalence", "over time,", "2018-2023"]),
+             ("purple", "Higher criticism", ["Did any word", "shares change,", "2018-19 vs", "2022-23?"]),
+             ("purple", "Clustering", ["Spectral clusters", "of districts on", "topic weights vs", "partisanship"])]
+    for x, (key, title, body) in zip(COLS, final):
+        Box(ax, x, 530, COL_W, 160, key, title, body)
     Arrow(ax, (X0 + X1) / 2, 108, (X0 + X1) / 2, 148)
     Arrow(ax, xl, 256, xl, 326)
     Arrow(ax, xr, 256, xr, 326)
-    Arrow(ax, xhc, 426, xhc, 646)
-    Arrow(ax, xllm, 426, xllm, 466)
-    Arrow(ax, xllm, 606, xllm, 646)
-    Arrow(ax, xr, 426, xr, 646)
-    for (x, name, key) in [(130, "Shared steps", "gray"), (290, "Supervised branch (bag of words)", "teal"),
-                           (560, "Unsupervised branch (topic model)", "purple")]:
+    for x in COLS:
+        Arrow(ax, x + COL_W / 2, 446, x + COL_W / 2, 530)
+    for (x, name, key) in [(140, "Shared steps", "gray"), (330, "Supervised branch (bag of words)", "teal"),
+                           (620, "Unsupervised branch (topic model)", "purple")]:
         fill, stroke, _, _ = COLORS[key]
-        ax.add_patch(FancyBboxPatch((x, 818), 14, 14, boxstyle="round,pad=0,rounding_size=3", fc=fill, ec=stroke, lw=0.8))
-        ax.text(x + 22, 825, name, fontsize=9, color="#6B6B6B", va="center")
+        ax.add_patch(FancyBboxPatch((x, 736), 14, 14, boxstyle="round,pad=0,rounding_size=3", fc=fill, ec=stroke, lw=0.8))
+        ax.text(x + 22, 743, name, fontsize=9, color="#6B6B6B", va="center")
     for ext in ("png", "svg"):
         fig.savefig(OUTDIR_FIGURES / f"workflow.{ext}", dpi=200, facecolor="white", bbox_inches="tight", pad_inches=0.15)
     print(f"Saved {OUTDIR_FIGURES / 'workflow.png'}")

@@ -6,7 +6,7 @@
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{figures/workflow.png}
-  \caption{Project workflow. After shared pre-processing, the supervised branch represents transcripts as a bag of words (reweighted by TF-IDF), tests whether word shares changed between 2018--19 and 2022--23 with higher criticism, and counts a hand-built dictionary of 17 themes that also defines the attributes scored by the LLM. The unsupervised branch fits LDA topic models, tracks topic prevalence over time and clusters districts by their topic weights.}
+  \caption{Project workflow. After shared pre-processing, the supervised branch represents transcripts as a bag of words (reweighted by TF-IDF) and groups words with hand-built dictionaries of 17 themes and six contested phrase groups. It tracks theme mention rates over time in Republican- and Democratic-leaning counties, tests with higher criticism whether each phrase group's share changed between 2018--19 and 2022--23, and scores passages with an LLM on attributes that mirror the themes. We add LLM scoring because word counts show what is discussed but not which side a speaker takes or how heated the exchange is, so the scores are better measures of position and conflict. The unsupervised branch represents transcripts by LDA topic weights, tracks topic prevalence over time, clusters districts by their topic weights, and applies higher criticism to all words to test whether the vocabulary changed without predefined groups.}
   \label{fig:workflow}
 \end{figure}
 
