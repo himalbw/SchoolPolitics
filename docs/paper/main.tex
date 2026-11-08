@@ -81,7 +81,7 @@
 \begin{center}
 \begin{minipage}{0.9\textwidth}
 \small
-\noindent\textbf{Abstract.} We perform the first rigorous text analysis of a
+\noindent\textbf{Abstract.} We perform text analysis of a
 newly released corpus of school board meetings from 2018--2023 to characterize
 trends in education politics surrounding the COVID period. Using 80,063 meeting
 transcripts from 1,485 districts, we combine bag-of-words measures of partisan
@@ -121,42 +121,48 @@ workflow. To pre-process the transcripts, we restrict to 2018--2023 and to regul
 school board meetings, tokenize, and drop stop words, and we append county-level
 partisanship from presidential vote shares as covariates. We then pursue two
 complementary representations of the text. In the first, we build a bag-of-words
-representation weighted by TF-IDF and use it to generate 17 word clusters. From
-these, we hand-pick (with LLM assistance) the clusters that capture conflict, and
-use them to define the attributes that large language models score through GABRIEL
-\citep{gabriel}. In the second, we fit LDA topic models and apply higher criticism
+representation, reweighted by TF-IDF, and count mentions of a hand-built dictionary
+of 17 themes: four routine school-business controls and 13 political and contested
+themes, including two measures of conflict. These themes also guide the LLM
+analysis: they locate the contested passages we score, and the attributes that large
+language models score through GABRIEL \citep{gabriel} mirror them. In the second, we fit LDA topic models and apply higher criticism
 to test whether the vocabulary of meetings changed between the pre-pandemic and
 post-pandemic periods.
 
-\textbf{TODO: REWRITE THIS PARA ONCE THE PAPERS REORGED} We present four main findings. First, meeting language
+We present four main findings. First, meeting language
 became more partisan post-pandemic (2021 but cooled by 2023. Second, conflict-driven discussions -- such as mentions of critical race theory, book content and
 parental rights rose in both groups without differing detectably between them. (CHECK THIS)? 
 Third, the trends of topics discussed underwent the most change during COVID, corresponding to a mild temporary polarization between political parties during this period.
 Fourth, the sharpest divergence came in the positions argued rather than the words used, as LLM-scored conservative positions rose more in Republican-leaning counties in the second half of 2021, mostly in public comment, before the gap closed by 2024.
 
-\section{Data}\label{sec:data}
+\section{Data and Pre-Processing}\label{sec:data}
 
-\subsection{DistrictView}
+We use DistrictView, a collection of U.S. school-governance
+meeting transcripts from YouTube
+\citep{districtview_2026,holman_et_al_2026}.
+Our word-based analyses cover 2018--2023.
 
-We leverage DistrictView a newly-available dataset of U.S. school board meeting transcripts from YouTube
-\citep{districtview_2026,holman_et_al_2026}.We restrict attention to transcripts in 2018--2023 where coverage is best. 
+For the main bag-of-words analysis, we remove unavailable
+transcripts, transcripts shorter than 1,000 words under its
+tokenization rules, exact duplicates, and recordings that fail
+the school-governance eligibility screen. The screen excludes
+meetings of other public bodies, joint-body meetings, possible
+clips or campaign events, and unresolved cases. Retained
+recordings can include regular meetings, special sessions,
+workshops, and committees. Text is lowercased and converted
+to word tokens after removing timestamps, bracketed annotations,
+and punctuation; numerical tokens are excluded from the
+bag-of-words features.
 
-\subsection{Pre-Processing}\label{sec:cleaning}
-
-We construct a single cleaned corpus that underlies all of our analyses. Starting
-from the DistrictView videos dated 2018--2023, we remove videos without a usable
-transcript (caption placeholders or transcripts missing from the archive), exact
-duplicate transcripts, transcripts shorter than 1,000 words, and videos that are
-not regular school board meetings (meetings of other public bodies, joint-body
-meetings, clips and campaign events, and unresolved cases). We lowercase the text,
-remove timestamps and bracketed annotations, and strip punctuation and numerals,
-leaving a sequence of word tokens. The final sample contains 80,063 meetings from
-1,485 districts in 49 states, totaling about 1.13 billion words and 140,000 hours
-of video; the median meeting has about 12,100 words and lasts 1.5 hours.
-\Cref{tab:corpus} summarizes the corpus. The bag-of-words and higher criticism
-analyses both start from this corpus and differ only in how the cleaned text is
-converted to counts; \cref{app:cleaning} gives the sample counts at each step, the
-screening rules, and the details of each representation.
+The resulting corpus contains 80,063 recordings from 1,485
+districts in 49 states, totaling approximately 1.13 billion words
+and 140,000 hours of video. The median recording contains
+approximately 12,100 words and lasts 1.5 hours.
+\Cref{tab:corpus} summarizes this corpus. HC uses the same raw
+data and eligibility rules but a separate preprocessing procedure
+and a 200-word minimum, producing 83,369 eligible recordings
+before the matched-panel restrictions in \cref{sec:m-lda}.
+Appendix~\ref{app:cleaning} documents both sample definitions.
 
 \section{Methods}
 
@@ -176,7 +182,7 @@ Republican presidential vote share exceeds one half. To avoid a clash with the c
 $\mathcal{D}$, we write the parties in sans-serif and the sets of districts as
 $\mathcal{I}^{\mathsf{R}}$ and $\mathcal{I}^{\mathsf{D}}$.
 
-\subsection{Bag-of-words representation}
+\subsection{Bag-of-words representation}\label{sec:m-bow}
 
 We represent each document by its bag-of-words count vector
 $\mathbf{c}_n \in \mathbb{N}^V$, so that the corpus is an $N \times V$
@@ -198,45 +204,83 @@ term $j$; each row is then normalized to unit length. We use these vectors to fi
 the terms most characteristic of each period and party, and to compare cosine
 similarity between same-party and different-party pairs of districts.
 
-\subsection{Higher Criticism}\label{sec:m-lda}
+\paragraph{Dictionary of themes.}
+To measure specific agendas, we define 17 themes by hand, each a list of single
+words and multi-word phrases (for example, ``critical race theory,'' ``book ban''
+and ``point of order''). Four themes cover routine school business and serve as
+controls; the other 13 cover political and contested themes. Single words are
+counted from the document--term matrix and phrases directly from the cleaned text,
+and each theme's rate is its mentions per 10,000 words in $\mathbf{c}_{it}$. Each
+theme carries a prior about which party discusses it more, which the analysis tests
+rather than assumes; partisanship always comes from county vote share. The word
+lists are in the code repository.
 
-We test whether mean within-district word shares changed between
-2018--2019 and 2022--2023. Districts must have at least four eligible
-recordings covering three distinct quarters in each comparison
-year, yielding 21,878 recordings from 273 districts. We calculate
-each recording's word shares within the fixed 12,000-term
-vocabulary, average recordings within district-year, and average
-the two years within each period. Districts receive equal weight.
-Support and variance filters leave $m=11{,}804$ tested words.
 
-Let $\Delta_{dw}$ be the late-minus-early share of word $w$ in
-district $d$. With $D=273$ districts, we calculate
-$Z_w=\sqrt{D}\,\overline{\Delta}_w/s_w$, where $s_w$ is the sample
-standard deviation across districts, and two-sided p-values
-$p_w=2\Phi(-|Z_w|)$. The global null is zero mean change for every
-tested word. Ordering the p-values, we calculate
+\subsection{Topic Modeling}\label{sec:m-comm}
+
+If the vocabulary used in school board meetings changes between the periods before and after COVID, it seems plausible that the topics would as well. As such, topic modeling was applied to the dataset with LDA \citep{blei_latent_2003}. For $K$ topics, the topic model proposes
+\[ d_i \sim \text{Multinomial}(L_i, \Omega_i), \quad \Omega_i = \sum_{k=1}^K \beta_i(k) A_k \]
+\noindent where $A_k \in \mathbb R^p$ is a probability mass function over the $p$ words for topic $k$ so $A_k(j) \geq 0$ and $\sum_j A_k(j)=1$ and $\beta_i \in \mathbb R^K$ is the topic weight vector of document $i$ with $\beta_i(k) \geq 0$ and $\sum_k \beta_i(k)=1$. Thus, each document's word distribution $\Omega_i$ is a mixture of the $K$ topics. To make the model identifiable, LDA assumes that the weights $\beta_i$ are drawn from a Dirichlet distribution so $\beta_i \overset{iid}{\sim} \text{Dirichlet}(\alpha)$. Equivalently, each word $m$ of document $i$ is generated by drawing $\beta_i$, a topic $z_{im} \sim \text{Multinomial}(1, \beta_i)$, and a word $w_{im}|(z_{im}=k) \sim \text{Multinomial}(1, A_k)$. 
+
+We use a symmetric prior $\alpha(k) = 0.1$ and a Dirichlet$(0.01 \cdot \mathbf 1_p)$ prior for each topic. Because the marginal density $\int p(\beta_i; \alpha) p(d_i | \beta_i, A) d\beta_i$ is intractable, we fit the model using variational inference, in which the posterior $(\beta_i, z_{im}| d_i, \alpha, A_k)$ is approximated by factorized Dirichlet and multinomial distributions. We apply the variant of \citet{hoffman2010lda}. Each chunk of our dataset is treated as a document, and a meeting's topic weights are the average of its chunks' weights, weighted by each chunk's number of in-vocabulary words. We hold out 10\% of meetings in a test set for evaluation while the train set is used to estimate vocabulary and topic-word distributions.
+
+\subsubsection{Higher Criticism}\label{sec:m-lda} We test whether mean within-district word shares changed between
+2018--2019 and 2022--2023. Starting from the 83,369-recording
+HC source sample, we require at least four eligible recordings
+spanning at least three distinct calendar quarters in each of
+2018, 2019, 2022, and 2023. This yields 21,878 recordings from
+273 districts; coverage in 2020 and 2021 is not required.
+We retain all eligible recordings in the four comparison years.
+For each recording, we calculate word shares within a fixed
+12,000-term vocabulary, average recordings within district-year,
+and average the two years within each period. Districts receive
+equal weight. Support and variance filters leave 11,804 tested
+terms.
+
+Let $\mathcal I_{\mathrm{HC}}$ denote the HC district sample,
+with $I_{\mathrm{HC}}=|\mathcal I_{\mathrm{HC}}|=273$.
+For this analysis, $\mathcal V_{\mathrm{HC}}$ denotes the fixed
+12,000-term vocabulary, and $\mathcal J_{\mathrm{HC}}$ indexes
+its $m=11{,}804$ tested terms. For district $i$ and vocabulary
+term $v_j$, let $\Delta_{ij}$ be the late-minus-early word share,
+using the recording and year averages described above. We calculate
+\[
+\overline{\Delta}_j
+=
+\frac{1}{I_{\mathrm{HC}}}
+\sum_{i\in\mathcal I_{\mathrm{HC}}}\Delta_{ij},
+\qquad
+Z_j
+=
+\frac{\sqrt{I_{\mathrm{HC}}}\,
+      \overline{\Delta}_j}{s_j},
+\]
+where $s_j$ is the sample standard deviation of $\Delta_{ij}$
+across districts. The two-sided normal-approximation p-value is
+$p_j=2\Phi(-|Z_j|)$, where $\Phi$ is the standard normal cumulative
+distribution function. The global null is zero mean change for
+every tested term. Ordering the p-values as
+$p_{(1)}\leq\cdots\leq p_{(m)}$, we calculate
 \begin{equation}
 \mathrm{HC}^{+}
 =
 \max\left\{
 0,\;
-\max_{\substack{1\leq i\leq\lfloor m/2\rfloor\\
-                p_{(i)}>1/m}}
+\max_{\substack{1\leq k\leq\lfloor m/2\rfloor\\
+                p_{(k)}>1/m}}
 \sqrt{m}\,
-\frac{i/m-p_{(i)}}{\sqrt{p_{(i)}(1-p_{(i)})}}
+\frac{k/m-p_{(k)}}{\sqrt{p_{(k)}(1-p_{(k)})}}
 \right\}.
 \label{eq:hc}
 \end{equation}
-We also report $\max_w|Z_w|$ and $\sum_w Z_w^2$.
-All three statistics are calibrated using 1,999 null-centered
-Gaussian district-multiplier draws, sharing each district's
-multiplier across words to retain estimated cross-word dependence.
-The minimum Monte Carlo p-value is 0.0005. Calibration assumes
-independent district contributions and does not fully account for
-shared shocks across districts. Sensitivity checks tighten
-eligibility and exclude selected COVID-related, number-format,
-and suspected artifact words without changing the original
-word-share denominators.
+An empty maximum is set to zero. We also report
+$\max_{j\in\mathcal J_{\mathrm{HC}}}|Z_j|$ and
+$\sum_{j\in\mathcal J_{\mathrm{HC}}}Z_j^2$.
+
+We calibrate all three global statistics using a Gaussian
+district-multiplier bootstrap; implementation, assumptions,
+and sensitivity checks are given in
+Appendix~\ref{app:hc-calibration}.
 
 \paragraph{Phrase-based follow-up.}
 Six exploratory dictionaries measure equity/inclusion, race/racism,
@@ -252,22 +296,11 @@ rates on the remaining text, and reapplies the coverage requirements.
 Dictionaries were refined after context inspection; these analyses
 are exploratory measures of mentions, not stance or causal effects.
 
-\subsection{Topic Modeling and Spectral Clustering}\label{sec:m-comm}
+\subsubsection{Spectral Clustering}
+Having obtained a topic weight vector $\beta_i$ for each of the documents, it becomes of interest to investigate how districts cluster based on the topics they discuss and whether political partisanship varies across clusters. To do this, spectral clustering was performed on a matrix $X \in \mathbb R^{I \times K}$ where $X_{ij}$ is the weight that district $i$ places on topic $j$. Row $i$ of $X$ is equal to $\gamma_i^T$, where the weight vector $\gamma_i \in \mathbb R^K$ is obtained for district $i$ by averaging the weight vectors for the set of documents $\mathcal S_i$ that belong to district $i$: $\gamma_i = \frac{1}{|\mathcal S_i|} \sum_{j \in \mathcal S_i} \beta_j$.
 
-If the vocabulary used in school board meetings changes during and after COVID, it seems plausible that the topics would also change over time. As such, topic modeling was applied to the dataset and implemented through LDA \citep{blei_latent_2003}. The topic model proposes
-\[ d_i \sim \text{Multinomial}(L_i, \Omega_i), \quad \Omega_i = \sum_{k=1}^K \beta_i(k) A_k \]
+$X$ is standardized by removing the mean of each column and dividing by the standard deviation within each year to obtain $X^*$, and singular value decomposition is performed so $X^* = UDV^T$, where orthogonal matrices $U$ and $V$ contain the left and right singular vectors (respectively) and diagonal $D$ the singular values (in non-increasing order). Let $X$ have rank $r$. Because standardizing removes one degree of freedom, $X^*$ has rank $r-1$, so with noise, the rows of $U$ roughly divide into $r$ clusters. After determining the rank of $X^*$ from a plot of its singular values, $k$-means clustering into $r$ clusters is performed on the first $r-1$ left singular vectors of $X^*$ and examined for prominent topics and political partisanship per cluster.
 
-\noindent where $A_k \in \mathbb R^p$ is a probability mass function over the $p$ words for topic $k$ so $A_k(j) \geq 0$ and $\sum_j A_k(j)=1$ and $\beta_i \in \mathbb R^K$ is the topic weight vector of document $i$ with $\beta_i(k) \geq 0$ and $\sum_k \beta_i(k)=1$. Thus, each document's word distribution $\Omega_i$ is a mixture of the $K$ topics. To make the model identifiable, LDA assumes that the weights $\beta_i$ are drawn from a Dirichlet distribution so $\beta_i \overset{iid}{\sim} \text{Dirichlet}(\alpha)$. Equivalently, each word $m$ of document $i$ is generated by drawing $\beta_i$, a topic $z_{im} \sim \text{Multinomial}(1, \beta_i)$, and a word $w_{im}|(z_{im}=k) \sim \text{Multinomial}(1, A_k)$. 
-
-We use a symmetric prior $\alpha(k) = 0.1$ and a Dirichlet$(0.01 \cdot \mathbf 1_p)$ prior for each topic. Because the marginal density $\int p(\beta_i; \alpha) p(d_i | \beta_i, A) d\beta_i$ is intractable, we fit the model using variational inference, in which the posterior $(\beta_i, z_{im}| d_i, \alpha, A_k)$ is approximated by factorized Dirichlet and multinomial distributions. We apply the variant of \citet{hoffman2010lda}. Each chunk of our dataset is treated as a document, and a meeting's topic weights are the average of its chunks' weights, weighted by each chunk's number of in-vocabulary words. Before fitting, we hold out 10\% of meetings in a test set for evaluation while the train set is used to estimate vocabulary and topic-word distributions.
-
-Having obtained a topic weight vector $\beta_i$ for each of the documents, it becomes of interest to investigate how similar districts are based on the topics they discuss and what clusters of similar districts may reveal about political partisanship. To do this, spectral clustering was performed on a matrix $X \in \mathbb R^{I \times K}$ where $X_{ij}$ is the weight that district $i$ places on topic $j$.
-
-A weight vector $\gamma_i \in \mathbb R^K$ is obtained for district $i$ by averaging the weight vectors for the set of documents $\mathcal S_i$ that belong to district $i$: $\gamma_i = \frac{1}{|\mathcal S_i|} \sum_{j \in \mathcal S_i} \beta_j$.
-
-$X$ is then built from the $\gamma_i$'s such that row $i$ of $X$ is equal to $\gamma_i^T$, for $i=1,..., I$. $X$ is standardized by removing the mean of each column and dividing by the standard deviation to obtain $X^*$ such that $X_{ij}^* = (X_{ij} - \bar x_j)/\hat \sigma_j$, where $\bar x_j$ is the mean of the values in column $j$ and $\hat \sigma_j$ is the sample standard deviation. Singular value decomposition (SVD) is performed on $X^*$ such that $X^* = UDV^T$, where $U \in \mathbb R^{I \times K}$ is an orthogonal matrix containing the left singular vectors of $X$, $V \in \mathbb R^{K \times K}$ is an orthogonal matrix containing the right singular vectors, and $D \in \mathbb R^{K \times K}$ is a diagonal matrix containing the singular values of $X$ (in non-increasing order down the diagonal).
-
-Let $X$ have rank $r$. Because we remove one degree of freedom when standardizing by removing the mean, $X^*$ has rank $r-1$ and $U$ has $r$ distinct rows in a noiseless case. In the noisy case, the rows of $U$ roughly divide into $r$ clusters, so $k$-means clustering is still applied to its rows in this analysis. The rank of $X^*$ is determined by an examination of a plot of the singular values of $X^*$. So, $k$-means clustering into $r$ clusters was performed on the first $r-1$ left singular vectors of $X^*$, and the output was examined for the most prominent topics and political partisanship leaning per cluster.
 
 \subsection{LLM-Based Methods}\label{sec:m-llm}
 
@@ -291,49 +324,52 @@ where $y_{it}$ is the mean score in district $i$ and year $t$, $G_i$ is the coun
 
 \subsection{Bag-of-Words}\label{sec:r-bow}
 
-\Cref{fig:lexicon-gap} shows that the largest partisan differences in vocabulary in
-2022--23 are professional and local rather than culture-war: equity and
-social-emotional terms are far more common in Democratic-county districts
-($t = -17.5$), athletics and facilities in Republican-county districts, while
-critical race theory, book content, parental rights and school choice do not differ
-detectably ($|t| < 1.3$). \Cref{fig:lexicon-trend} shows that these contested topics
-rose in both groups at the same time: COVID and critical race theory mentions spike
-together in 2021 and fade, while book content and parental-rights talk stays above
-its 2018--19 level in Republican- and Democratic-county districts alike.
-\Cref{fig:conflict-state} shows that conflict language rose in many states from
-2018--19 to 2022--23, but most in a few, including New Jersey, Oklahoma and Florida,
-which reach about 1.8--1.9 mentions per 10,000 words.
+We count mentions of the 17 dictionary themes (\cref{sec:m-bow}). Four cover
+mainstream school business (budget, facilities, athletics and academics) and serve
+as controls. The other 13 cover political and contested themes: parental rights, book content, critical race theory and race,
+gender and LGBTQ issues, school choice, COVID mandates, equity and social-emotional
+learning, guns and safety, unions and pay, immigration, religion, and two measures of
+conflict, in-meeting disruption and legal disputes.
 
-\subsection{Higher Criticism}\label{sec:r-lda}
+\Cref{fig:lexicon-gap} documents partisan differences in how often these themes are
+mentioned in 2022--23. The largest gaps are in professional and local vocabulary
+rather than culture-war topics: Democratic-county districts use far more equity and
+social-emotional-learning language ($t=-17.5$), along with more union, pay and
+academic terms, while Republican-county districts talk more about athletics
+($t=9.8$) and facilities ($t=6.8$). By contrast, critical race theory, book content,
+parental rights and school choice do not differ detectably ($|t|<1.3$).
 
+\Cref{fig:lexicon-trend} shows the time trend for six key themes of education
+politics. COVID mandates and critical race theory spiked in both groups in mid-2021
+and faded by 2022. Meeting conflict followed the same path: after dipping in 2020,
+when many meetings were virtual, it peaked in the third quarter of 2021 and has since
+fallen back to about its pre-pandemic level. Book content, parental rights and gender
+issues rose later and stayed above their 2018--19 levels through 2023, in Republican-
+and Democratic-county districts alike. \Cref{fig:conflict-state} shows the geography:
+conflict language rose in many states between 2018--19 and 2022--23, but most in New
+Jersey, Oklahoma and Florida, which reach about 1.8--1.9 mentions per 10,000 words.
+
+\subsection{Topic Modeling}\label{sec:r-comm}
+The outputs from LDA were obtained for \textcolor{red}{UPDATE THIS: $K=10,20,30$ topics, with $K=20$ topics being selected because it achieved the lowest perplexity and highest coherence scores while remaining interpretable (see Appendix for details).} Some of the most prominent topics across the entire corpus include informal discussion, voting, budget and finance, and scheduling. Table \ref{tab:lda_topics} displays key words and labels for each topic. The trend of these topics over time is examined by averaging the estimated topic weights across meetings within the same district and then across districts within the same year. This analysis is restricted to the 363 districts that were present across all 6 years. Figure \ref{fig:topic_trends} displays the trends for each topic, highlighting in color the topics that experienced the most change. Notably, the COVID/Health and parental concerns topics peaked during COVID years (2020-2021) while student activities dropped. In both cases, the topics roughly returned to their pre-COVID levels of prevalence in 2022 and 2023. The topic regarding voting interestingly increased over time, including post-COVID.
+
+\subsubsection{Higher Criticism}
 Recorded word shares differ between 2018--2019 and 2022--2023.
 HC$^{+}$ equals 859.85, compared with a 95th-percentile bootstrap
 threshold of 11.34. All three global tests return Monte Carlo
 p-values of 0.0005, the reporting limit. After excluding specified
 COVID-related, number-format, and suspected artifact words,
 11,745 words remain and HC$^{+}$ equals 819.30; all three tests
-again reach the reporting limit. Exploratory individual-word
-increases include ``staffing'' and ``inflation,'' rising by
-0.714 and 0.635 occurrences per 10,000 modeled-vocabulary tokens.
-These examples are not adjusted for word-level multiple testing.
+again reach the reporting limit.
 
 The phrase analysis finds increases in equity/inclusion,
 race/racism, book-restriction, and parents' rights mentions
 (Table~\ref{tab:hc-themes}). All four survive Holm adjustment
 and persist outside COVID-containing chunks, retaining 273
 districts and 21,815 recordings. School-choice/voucher and
-closure/reopening measures show no detectable change. An initial
-voucher increase disappears after removing bare ``voucher''
-matches that can refer to financial administration. The book
-dictionary excludes ``book challenge,'' which also describes
-reading competitions. These findings concern recorded mentions;
-they do not establish endorsement, partisan divergence, or the
-cause of vocabulary change.
+closure/reopening measures show no detectable change. 
 
-\subsection{Topic Modeling and Spectral Clustering}\label{sec:r-comm}
-The outputs from LDA were obtained for \textcolor{red}{UPDATE THIS: $K=10,15,20,30$ topics, with $K=15$ topics being selected because it achieved the lowest perplexity and highest coherence scores while remaining interpretable (see Appendix for details).} Some of the most prominent topics across the entire corpus included informal discussion, deliberation, budget and finance, and scheduling. A table displaying key words and labels for each topic is included in the Appendix. The trend of these topics over time was examined by averaging the estimated topic weights $\hat w_i$ (for meeting $i$) across meetings within the same district and then across districts within the same year. This analysis was restricted to the 385 districts that were present across all 6 years. Figure \ref{fig:topic_trends} displays the trends for each topic, highlighting in color the topics that experienced the most change. Notably, the Health and Scheduling topics peaked during COVID years (2020-2021) while conversational topics such as those related to informal discussion dropped. In both cases, the topics roughly returned to their pre-COVID levels of prevalence in 2022 and 2023.
-
-For spectral clustering, the scree plot warranted a selection of 4 clusters (see Appendix). Figure \ref{fig:cluster_gop_2021} plots the clustering results for districts in year 2021 on top of a heatmap for county GOP share in 2020. \textcolor{red}{update: The average GOP shares across the clusters are statistically significantly different}, with cluster 0 leaning Republican, cluster 2 leaning Democratic, and clusters 1 and 3 leaning slightly Democratic. It is notable, however, that the clusters also tend to align with locale, as cluster 0 is composed of \textcolor{red}{50\% rural districts while cluster 2 is 30\% city.} Because geographic proximity to a city tends to correlate with political partisanship, ensuring that these clusters were not simply recovering locale becomes of interest. To this end, a permutation test that shuffles the cluster labels for districts within the same locale was conducted and revealed that the original cluster labeling carried information regarding political partisanship beyond just locale. Additional details regarding these analyses is included in the Appendix.
+\subsubsection{Spectral Clustering}
+The scree plot warranted a selection of 3 clusters, as shown in Figure \ref{fig:lda_scree}. Figure \ref{fig:lda_clustering} shows the clustering results, along with the average GOP share per cluster. Although the districts do not separate into discrete clusters, the clusters still reveal notable differences in political partisanship, with one leaning Democrat, one Republican, and one neutral. This separation persists significantly across the years, with a mild polarization during COVID (Figure \ref{fig:lda_cluster_gop_time}). It is notable, however, that the clusters also tend to align with locale, as the Democratic-leaning cluster is composed of 41.5\% urban districts while the Republican-leaning cluster is 25.3\% rural. As an example, Figure \ref{fig:lda_gop_map} plots the clustering results for districts in year 2021 on top of a heatmap for county GOP share in 2020. Because geographic proximity to a city tends to correlate with political partisanship, ensuring that these clusters were not simply recovering locale becomes of interest. To this end, the share of variance in count GOP vote share explained by cluster membership was compared with its distribution when cluster labels were shuffled within locale (city, suburb, town, rural, for 2,000 permutations). In every year from 2018 to 2023, clusters explained 12-17\% of the variance in partisanship, significantly more than expected from locale alone.
 
 \subsection{LLM-Based Methods}\label{sec:r-llm}
 
@@ -400,3 +436,4 @@ content to the formation of local parents'-rights groups.
 \input{appendix}
 
 \end{document}
+

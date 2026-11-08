@@ -70,14 +70,17 @@ def PlotCategoryGap():
 
 def PlotCategoryTrend():
     d = pd.read_csv(OUTDIR_TABLES / "lexicon_category_trend_quarter.csv")
-    cats = ["covid_mandates", "equity_sel", "gender_lgbtq", "book_content", "parental_rights", "school_choice", "crt_race", "guns_safety"]
-    fig, axes = plt.subplots(2, 4, figsize=(13, 5.6), sharex=True)
+    # Six themes of education politics: two that spiked with the pandemic, in-meeting conflict, and three that stayed up
+    cats = {"covid_mandates": "COVID mandates", "crt_race": "Critical race theory / race", "meeting_conflict": "Meeting conflict",
+            "book_content": "Book content", "parental_rights": "Parental rights", "gender_lgbtq": "Gender / LGBTQ"}
+    fig, axes = plt.subplots(2, 3, figsize=(11, 5.6), sharex=True)
     quarters = sorted(d.label.unique())
-    for ax, cat in zip(axes.ravel(), cats):
+    for ax, (cat, title) in zip(axes.ravel(), cats.items()):
         g = d[d.category == cat].set_index("label").reindex(quarters)
+        ax.axvspan(quarters.index("2020Q1") - 0.5, quarters.index("2021Q4") + 0.5, color=GRID, alpha=0.5, lw=0)
         ax.plot(range(len(quarters)), g.R, color=RED, lw=2, label="R districts")
         ax.plot(range(len(quarters)), g.D, color=BLUE, lw=2, label="D districts")
-        ax.set_title(cat, loc="left", fontsize=10)
+        ax.set_title(title, loc="left", fontsize=10)
         ax.set_xticks(range(0, len(quarters), 4))
         ax.set_xticklabels([q[:4] for q in quarters[::4]])
     axes[0, 0].set_ylabel("mentions per 10k words")

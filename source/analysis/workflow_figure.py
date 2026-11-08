@@ -37,12 +37,12 @@ def Main():
     Box(ax, X0, 148, X1 - X0, 108, "gray", "Pre-processing and cleaning",
         ["Filter 2018-2023, deduplicate, keep school board meetings only,", "tokenize, drop stop words",
          "Append county-level partisanship (2020 vote share)"])
-    Box(ax, *LEFT[:1], 296, LEFT[1], 96, "teal", "Bag of words", ["Generate 17 word clusters from", "TF-IDF representation"])
+    Box(ax, *LEFT[:1], 296, LEFT[1], 96, "teal", "Bag of words", ["Term counts by district and period,", "reweighted by TF-IDF"])
     Box(ax, RIGHT[0], 296, RIGHT[1], 96, "purple", "Topic model (LDA)", ["K = 10, 20, 30 topics", "fit on ~1,000-word chunks"])
-    Box(ax, LEFT[0], 432, LEFT[1], 150, "teal", "Conflict clusters",
-        ["Hand-picked from BoW (LLM-assisted):", "meeting conflict, legal conflict, plus", "11 culture-war topics: parental rights,",
-         "books, CRT/race, gender/LGBTQ, choice,", "COVID, equity/SEL, guns, unions, more"], dashed=True)
-    Box(ax, LEFT[0], 622, LEFT[1], 140, "teal", "LLM scoring", ["Selected attributes,", "rated 0-100 by GABRIEL"])
+    Box(ax, LEFT[0], 432, LEFT[1], 150, "teal", "Dictionary of 17 themes",
+        ["Hand-built word and phrase lists:", "4 controls (budget, facilities,", "athletics, academics) and 13 political",
+         "themes, e.g. meeting conflict, CRT/race,", "books, parental rights, COVID mandates"], dashed=True)
+    Box(ax, LEFT[0], 622, LEFT[1], 140, "teal", "LLM scoring", ["Attributes mirroring the themes,", "rated 0-100 by GABRIEL"])
     Box(ax, RIGHT[0], 622, RIGHT[1], 140, "purple", "Topic tests and clustering",
         ["Higher criticism: did", "vocabulary change,", "2018-19 vs 2022-23?",
          "Spectral clustering of districts", "on topics vs. partisanship"])
