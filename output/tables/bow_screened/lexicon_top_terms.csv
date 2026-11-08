@@ -1,0 +1,251 @@
+category,entry,kind,count,per_10k
+book_content,inappropriate,term,14042,0.12436173280193565
+book_content,explicit,term,12865,0.11393773625529854
+book_content,ban,term,6403,0.05670760398310739
+book_content,age appropriate,phrase,5032,0.044565463570669435
+book_content,banned,term,4434,0.03926932938639671
+book_content,pornography,term,3043,0.02695006074037104
+book_content,obscene,term,2859,0.02532048099136405
+book_content,sexually explicit,phrase,2281,0.020201475040679047
+book_content,pornographic,term,1820,0.016118669256482185
+book_content,censorship,term,1502,0.013302330342437498
+book_content,pornographic material,phrase,276,0.0024443696235104855
+book_content,banned books,phrase,267,0.002364661918396013
+book_content,inappropriate material,phrase,176,0.0015587284555719037
+book_content,inappropriate materials,phrase,110,0.0009742052847324398
+book_content,book ban,phrase,104,0.000921066814656125
+book_content,book bans,phrase,53,0.00046938981900744836
+conflict_legal,public comment,phrase,143561,1.2714353171043073
+conflict_legal,recall,term,54670,0.4841800265120226
+conflict_legal,transparency,term,39471,0.34957142539703756
+conflict_legal,resignation,term,22787,0.2018110529381646
+conflict_legal,lawsuit,term,9566,0.08472043412500471
+conflict_legal,illegal,term,8259,0.07314510406004747
+conflict_legal,open meetings act,phrase,5688,0.05037526963234653
+conflict_legal,resign,term,5453,0.048294012887690856
+conflict_legal,first amendment,phrase,5082,0.04500828415463872
+conflict_legal,lawsuits,term,3809,0.03373407208678057
+conflict_legal,misconduct,term,2916,0.025825296457089045
+conflict_legal,unlawful,term,1689,0.014958479326482645
+conflict_legal,censure,term,1024,0.009068965559691076
+conflict_legal,no confidence,phrase,720,0.006376616409157788
+conflict_legal,recall election,phrase,65,0.0005756667591600782
+covid_mandates,mask,term,134021,1.1869451496829666
+covid_mandates,masks,term,106669,0.9447045774284057
+covid_mandates,quarantine,term,60312,0.5341479012071174
+covid_mandates,vaccinated,term,52778,0.46742369561462466
+covid_mandates,mandate,term,48332,0.4280480892880753
+covid_mandates,vaccine,term,47403,0.41982048283792583
+covid_mandates,remote learning,phrase,36831,0.326190498563459
+covid_mandates,social distancing,phrase,30902,0.2736808337163805
+covid_mandates,masking,term,30843,0.27315830542729674
+covid_mandates,vaccination,term,28763,0.25473696913417426
+covid_mandates,mandated,term,25480,0.22566136959075062
+covid_mandates,mandates,term,23821,0.21096858261464957
+covid_mandates,virtual learning,phrase,22272,0.1972500009232809
+covid_mandates,vaccines,term,19004,0.16830724755504806
+covid_mandates,contact tracing,phrase,18319,0.1622406055546688
+covid_mandates,lockdown,term,9225,0.08170039774233416
+covid_mandates,mask mandate,phrase,6218,0.055069167822421015
+covid_mandates,hybrid learning,phrase,5399,0.04781576665700403
+covid_mandates,mask optional,phrase,2827,0.025037075817623704
+covid_mandates,vaccine mandate,phrase,1679,0.014869915209688786
+covid_mandates,mask mandates,phrase,1426,0.012629243054804175
+crt_race,critical race theory,phrase,8789,0.07783900225012196
+crt_race,crt,term,8235,0.0729325501797422
+crt_race,anti racist,phrase,5113,0.04528283291669968
+crt_race,woke,term,2624,0.023239224246708386
+crt_race,indoctrination,term,2284,0.020228044275717207
+crt_race,systemic racism,phrase,2133,0.018890726112129948
+crt_race,marxist,term,1193,0.01056569913350728
+crt_race,white privilege,phrase,925,0.00819218080343188
+crt_race,indoctrinate,term,893,0.007908775629691535
+crt_race,marxism,term,698,0.0061817753522113005
+crt_race,indoctrinating,term,665,0.0058895137667915685
+crt_race,1619 project,phrase,468,0.004144800665952563
+crt_race,divisive concepts,phrase,139,0.0012310412234346286
+crt_race,antiracist,phrase,12,0.0001062769401526298
+ctrl_academics,curriculum,term,319975,2.833830327111477
+ctrl_academics,math,term,288212,2.5525241229391455
+ctrl_academics,assessment,term,158235,1.4013943020876147
+ctrl_academics,standards,term,150288,1.3310123984715356
+ctrl_academics,testing,term,146234,1.2951085055233056
+ctrl_academics,graduation,term,129092,1.1432918965152739
+ctrl_academics,achievement,term,101341,0.8975176160006381
+ctrl_academics,literacy,term,86243,0.763803512465271
+ctrl_academics,scores,term,81342,0.7203982388246012
+ctrl_academics,test scores,phrase,12634,0.11189190515736042
+ctrl_academics,reading level,phrase,2756,0.024408270588387314
+ctrl_athletics,coach,term,120048,1.0631945092869086
+ctrl_athletics,coaches,term,89177,0.789788224332589
+ctrl_athletics,athletic,term,86775,0.7685151234787043
+ctrl_athletics,football,term,82992,0.7350113180955877
+ctrl_athletics,basketball,term,57453,0.5088274202157533
+ctrl_athletics,athletics,term,52811,0.4677159572000444
+ctrl_athletics,stadium,term,26527,0.23493403261906756
+ctrl_athletics,volleyball,term,24027,0.212793003420603
+ctrl_athletics,athletic director,phrase,12530,0.11097083834270428
+ctrl_budget,budget,term,848528,7.5149132894858885
+ctrl_budget,revenue,term,158935,1.4075937902631848
+ctrl_budget,bond,term,149139,1.3208363814519215
+ctrl_budget,audit,term,119227,1.0559233952981328
+ctrl_budget,fiscal,term,115524,1.023128102849367
+ctrl_budget,expenditures,term,90104,0.7979981179593797
+ctrl_budget,levy,term,89221,0.790177906446482
+ctrl_budget,fund balance,phrase,83997,0.7439120118333705
+ctrl_budget,general fund,phrase,70834,0.6273350648976149
+ctrl_budget,deficit,term,37376,0.3310172429287243
+ctrl_budget,reserves,term,23810,0.2108711620861763
+ctrl_budget,millage,term,16077,0.1423845305694858
+ctrl_facilities,building,term,650457,5.760714971738261
+ctrl_facilities,bus,term,235737,2.0877839200633743
+ctrl_facilities,facilities,term,179496,1.5896904708030368
+ctrl_facilities,transportation,term,174704,1.54725054603542
+ctrl_facilities,construction,term,156289,1.3841597249595299
+ctrl_facilities,buses,term,112863,0.9995611913705215
+ctrl_facilities,parking,term,68525,0.6068856103299131
+ctrl_facilities,roof,term,47307,0.41897026731670484
+ctrl_facilities,hvac,term,36152,0.32017699503315605
+ctrl_facilities,renovation,term,25511,0.22593591835281157
+ctrl_facilities,capital improvement,phrase,9299,0.08235577220660871
+ctrl_facilities,capital improvements,phrase,4638,0.04107603736899142
+equity_sel,equity,term,177564,1.5725798834384632
+equity_sel,social emotional,phrase,74198,0.6571280337870689
+equity_sel,diversity,term,59348,0.5256103203481894
+equity_sel,inclusion,term,38807,0.3436907680419254
+equity_sel,inclusive,term,36357,0.32199255942743016
+equity_sel,social emotional learning,phrase,28939,0.2562956975897462
+equity_sel,restorative,term,25360,0.22459860018922434
+equity_sel,sel,term,17538,0.15532374803306845
+equity_sel,restorative practices,phrase,10119,0.08961802978370509
+equity_sel,dei,term,8715,0.07718362778584739
+equity_sel,culturally responsive,phrase,7684,0.06805266734440062
+equity_sel,marginalized,term,6664,0.059019127431427086
+equity_sel,restorative justice,phrase,6158,0.05453778312165786
+equity_sel,racial equity,phrase,5444,0.048214305182576384
+equity_sel,underserved,term,4403,0.03899478062433575
+equity_sel,safe space,phrase,3865,0.034230031140826185
+equity_sel,equity lens,phrase,3682,0.03260930780349858
+equity_sel,implicit bias,phrase,2973,0.026330111922814033
+equity_sel,bipoc,term,300,0.002656923503815745
+gender_lgbtq,gender,term,35787,0.31694440477018027
+gender_lgbtq,bathroom,term,20399,0.1806619418477913
+gender_lgbtq,bathrooms,term,18571,0.164472421297874
+gender_lgbtq,lgbtq,term,16262,0.14402296673017217
+gender_lgbtq,transgender,term,11120,0.09848329787477028
+gender_lgbtq,title ix,phrase,8188,0.07251629883081107
+gender_lgbtq,gender identity,phrase,6890,0.06102067647096828
+gender_lgbtq,locker room,phrase,6183,0.05475919341364251
+gender_lgbtq,pronouns,term,5225,0.046274751024790894
+gender_lgbtq,sexual orientation,phrase,4501,0.03986270896891556
+gender_lgbtq,lgbt,term,3023,0.026772932506783323
+gender_lgbtq,grooming,term,2255,0.019971208337015017
+gender_lgbtq,biological sex,phrase,617,0.005464406006181049
+gender_lgbtq,gender affirming,phrase,374,0.003312297968090296
+gender_lgbtq,girls sports,phrase,323,0.002860620972441619
+gender_lgbtq,groomers,term,317,0.002807482502365304
+gender_lgbtq,gender ideology,phrase,306,0.00271006197389206
+gender_lgbtq,groomer,term,214,0.001895272099388565
+guns_safety,school safety,phrase,23557,0.20863048993129168
+guns_safety,sro,term,21796,0.19303434896389327
+guns_safety,gun,term,17330,0.1534816144037562
+guns_safety,shooting,term,10905,0.09657916936370234
+guns_safety,armed,term,7390,0.06544888231066119
+guns_safety,guns,term,6564,0.05813348626348851
+guns_safety,shooter,term,6327,0.05603451669547407
+guns_safety,school resource officers,phrase,6201,0.05491860882387145
+guns_safety,school resource officer,phrase,6115,0.05415695741944428
+guns_safety,active shooter,phrase,4329,0.03833940616006121
+guns_safety,shootings,term,3643,0.032263907748002536
+guns_safety,gun violence,phrase,3569,0.03160853328372798
+guns_safety,firearms,term,2790,0.02470938858548643
+guns_safety,firearm,term,2613,0.02314180371823514
+guns_safety,arming teachers,phrase,380,0.0033654364381666105
+immigration,english learners,phrase,14504,0.1284533949978119
+immigration,dual language,phrase,12676,0.11226387444789461
+immigration,english language learners,phrase,11121,0.09849215428644967
+immigration,migrant,term,4206,0.037250067523496744
+immigration,immigration,term,2295,0.020325464804190452
+immigration,immigrants,term,2182,0.01932469028441985
+immigration,refugees,term,1017,0.009006970677935376
+immigration,undocumented,term,925,0.00819218080343188
+immigration,asylum,term,387,0.003427431319922311
+immigration,migrants,term,290,0.002568359387021887
+meeting_conflict,out of order,phrase,5869,0.05197828014631536
+meeting_conflict,point of order,phrase,5712,0.050587823512651786
+meeting_conflict,time is up,phrase,4858,0.0430244479384563
+meeting_conflict,threatened,term,4271,0.03782573428265683
+meeting_conflict,intimidation,term,4067,0.03601902630006212
+meeting_conflict,decorum,term,3928,0.03478798507662749
+meeting_conflict,arrest,term,3737,0.033096410445864796
+meeting_conflict,lying,term,3595,0.03183879998739201
+meeting_conflict,disgusting,term,3174,0.028110250670370585
+meeting_conflict,your time is up,phrase,3141,0.027817989084950853
+meeting_conflict,yelling,term,3070,0.027189183855714456
+meeting_conflict,screaming,term,3024,0.026781788918462713
+meeting_conflict,arrested,term,2806,0.024851091172356603
+meeting_conflict,shouting,term,1211,0.010725114543736224
+meeting_conflict,escorted,term,1140,0.010096309314499832
+meeting_conflict,intimidate,term,999,0.008847555267706432
+meeting_conflict,corruption,term,903,0.007997339746485393
+meeting_conflict,corrupt,term,853,0.007554519162516101
+meeting_conflict,disgrace,term,658,0.005827518885035867
+meeting_conflict,please be seated,phrase,645,0.005712385533203852
+meeting_conflict,call the police,phrase,641,0.0056769598864863085
+meeting_conflict,liar,term,636,0.005632677828089379
+meeting_conflict,booing,term,449,0.003976528844044232
+meeting_conflict,trespassing,term,448,0.0039676724323648455
+meeting_conflict,trespass,term,431,0.003817113433815287
+meeting_conflict,outburst,term,380,0.0033654364381666105
+meeting_conflict,remove her,phrase,265,0.0023469490950372416
+meeting_conflict,ask you to leave,phrase,242,0.0021432516264113678
+meeting_conflict,recess the meeting,phrase,207,0.0018332772176328641
+meeting_conflict,remove him,phrase,199,0.0017624259241977775
+meeting_conflict,hypocrite,term,190,0.0016827182190833052
+meeting_conflict,please sit down,phrase,184,0.0016295797490069903
+meeting_conflict,stop the meeting,phrase,156,0.0013816002219841875
+meeting_conflict,heckling,term,149,0.0013196053402284866
+meeting_conflict,you will be removed,phrase,90,0.0007970770511447235
+meeting_conflict,this is a warning,phrase,35,0.0003099744087785036
+parental_rights,parental,term,18382,0.1627985594904701
+parental_rights,opt out,phrase,15820,0.14010843276788362
+parental_rights,moms,term,5916,0.05239453149524649
+parental_rights,parental rights,phrase,3299,0.02921730213029381
+parental_rights,right to know,phrase,1893,0.01676518730907735
+parental_rights,parent choice,phrase,1634,0.014471376684116424
+parental_rights,parents rights,phrase,1423,0.012602673819766019
+parental_rights,moms for liberty,phrase,1056,0.009352370733431422
+parental_rights,parents bill of rights,phrase,765,0.00677515493473015
+parental_rights,parents choice,phrase,720,0.006376616409157788
+parental_rights,parent rights,phrase,436,0.003861395492212216
+religion,christian,term,16785,0.14865487003849093
+religion,religious,term,14504,0.1284533949978119
+religion,moment of silence,phrase,12149,0.10759654549285828
+religion,religion,term,7874,0.06973538556348392
+religion,prayer,term,7805,0.0691242931576063
+religion,bible,term,5008,0.044352909690364165
+religion,separation of church,phrase,319,0.0028251953257240757
+religion,satanic,term,176,0.0015587284555719037
+religion,in god we trust,phrase,168,0.001487877162136817
+religion,atheist,term,152,0.0013461745752666443
+religion,ten commandments,phrase,138,0.0012221848117552427
+school_choice,charter,term,77903,0.6899410390591934
+school_choice,open enrollment,phrase,14950,0.13240335460681796
+school_choice,school choice,phrase,7675,0.06797295963928615
+school_choice,homeschool,term,7449,0.06597141059974496
+school_choice,charters,term,7426,0.06576771313111908
+school_choice,vouchers,term,6137,0.05435179847639076
+school_choice,voucher,term,4524,0.04006640643754144
+school_choice,homeschooling,term,4007,0.035487641599298965
+school_choice,education savings accounts,phrase,193,0.0017092874541214625
+school_choice,education savings account,phrase,121,0.0010716258132056839
+school_choice,tax credit scholarship,phrase,31,0.00027454876206096034
+unions_pay,union,term,58137,0.5148852058044533
+unions_pay,bargaining,term,35285,0.31249848610712855
+unions_pay,collective bargaining,phrase,14388,0.12742605124300313
+unions_pay,strike,term,11126,0.0985364363448466
+unions_pay,unions,term,9094,0.08054020781233462
+unions_pay,teachers union,phrase,5335,0.04724895630952333
+unions_pay,teacher salaries,phrase,3059,0.027091763327241215
+unions_pay,teacher pay,phrase,3019,0.026737506860065784
+unions_pay,living wage,phrase,1850,0.01638436160686376

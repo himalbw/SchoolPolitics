@@ -20,6 +20,8 @@
 \usepackage{subcaption}
 \usepackage{float}
 \usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{pdflscape}
 \usepackage[font=small,labelfont=bf,skip=4pt]{caption}
 
 % ---------- Compactness ----------
@@ -207,7 +209,7 @@ similarity between same-party and different-party pairs of districts.
 \paragraph{Dictionary of themes.}
 To measure specific agendas, we define 17 themes by hand, each a list of single
 words and multi-word phrases (for example, ``critical race theory,'' ``book ban''
-and ``point of order''). Four themes cover routine school business and serve as
+and ``point of order''). \Cref{tab:lexicon-terms} lists the most frequent entries in each theme. Four themes cover routine school business and serve as
 controls; the other 13 cover political and contested themes. Single words are
 counted from the document--term matrix and phrases directly from the cleaned text,
 and each theme's rate is its mentions per 10,000 words in $\mathbf{c}_{it}$. Each
