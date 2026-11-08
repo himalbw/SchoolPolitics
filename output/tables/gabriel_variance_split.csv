@@ -1,0 +1,4 @@
+attribute,component,sum_sq,share,n_excerpts,batches
+conservative_positions,between_districts,166046.56473945273,0.06926559784462619,16367,"extension, extra_random, original"
+conservative_positions,between_years_within_district,322765.05362812977,0.13464002966869765,16367,"extension, extra_random, original"
+conservative_positions,within_district_year,1908432.7555555557,0.7960943724866764,16367,"extension, extra_random, original"

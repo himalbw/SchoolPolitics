@@ -50,10 +50,11 @@ def SampleTranscripts(df_metadata, n=15, n_lines=15, seed=236):
             continue
 
         found += 1
-        header = f"{row.place_names} | {row.title} | {row.meeting_date:%Y-%m-%d}"
+        date = row.meeting_date if pd.notna(row.meeting_date) else row.published_at  # codebook fallback
+        header = f"{row.place_names} | {row.title} | {date:%Y-%m-%d}"
         print(f"\n=== Sample {found}: {header} ===")
         print("\n".join(text.splitlines()[:n_lines]))
-        base = f"{row.leaid}_{Slug(row.place_names)}_{row.meeting_date:%Y-%m-%d}"
+        base = f"{row.leaid}_{Slug(row.place_names)}_{date:%Y-%m-%d}"
         out_name, k = f"{base}.txt", 2
         while (OUTDIR_SAMPLES / out_name).exists():  # same district + same day
             out_name, k = f"{base}_{k}.txt", k + 1
