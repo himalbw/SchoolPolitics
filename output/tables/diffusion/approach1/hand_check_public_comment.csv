@@ -1,0 +1,41 @@
+hit_id,sample,flag_public_comment,flag_public_comment_loose,hand_label,note
+1301,flagged_seed1,True,True,public_comment,
+747,flagged_seed1,True,True,public_comment,quotes dictionary definition
+2903,flagged_seed1,True,True,public_comment,
+944,flagged_seed1,True,True,public_comment,
+2186,flagged_seed1,True,True,public_comment,
+1506,flagged_seed1,True,True,public_comment,
+2701,flagged_seed1,True,True,public_comment,
+595,flagged_seed1,True,True,public_comment,student speaker
+532,flagged_seed1,True,True,public_comment,
+270,flagged_seed1,True,True,public_comment,
+4371,flagged_seed1,True,True,public_comment,
+1539,flagged_seed1,True,True,public_comment,
+3750,flagged_seed1,True,True,public_comment,
+3863,flagged_seed1,True,True,public_comment,
+1770,flagged_seed1,True,True,public_comment,
+3102,flagged_seed1,True,True,public_comment,
+3269,flagged_seed1,True,True,public_comment,
+21,flagged_seed1,True,True,public_comment,
+1414,flagged_seed1,True,True,ambiguous,parent speaking; could be board member
+2333,flagged_seed1,True,True,public_comment,
+847,unflagged_seed2,False,True,board_member,
+1002,unflagged_seed2,False,True,ambiguous,union representative addressing board
+1428,unflagged_seed2,False,True,public_comment,
+4068,unflagged_seed2,False,True,public_comment,
+1196,unflagged_seed2,False,True,public_comment,
+1632,unflagged_seed2,False,True,public_comment,
+68,unflagged_seed2,False,False,presentation,history presentation
+3952,unflagged_seed2,False,False,public_comment,
+958,unflagged_seed2,False,False,public_comment,
+3123,unflagged_seed2,False,True,public_comment,
+416,unflagged_seed2,False,True,public_comment,
+718,unflagged_seed2,False,True,public_comment,
+3359,unflagged_seed2,False,True,public_comment,
+4072,unflagged_seed2,False,False,public_comment,
+4424,unflagged_seed2,False,True,public_comment,teacher or staff speaking at comment
+890,unflagged_seed2,False,False,board_or_staff,
+1593,unflagged_seed2,False,True,board_member,
+4175,unflagged_seed2,False,True,public_comment,teacher speaking at comment
+3217,unflagged_seed2,False,False,public_comment,flag_policy=True wrongly (cites policy 832)
+164,unflagged_seed2,False,False,public_comment,

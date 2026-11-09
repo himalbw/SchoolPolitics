@@ -1,0 +1,217 @@
+kw,subset,n_hits,rule,n_links,expected_false_links,n_talking_points,n_tp_ge3_districts,n_tp_ge5_districts,largest_tp_districts
+indoctrination,all hits,4431,lex>=75 or sh5f>=4,547,5.6,36,8,2,18
+indoctrination,all hits,4431,lex>=80 or sh5f>=4,503,4.4,33,7,2,18
+indoctrination,all hits,4431,lex>=80 or sh5f>=5,388,2.2,21,7,2,18
+indoctrination,all hits,4431,lex>=85 or sh5f>=6,291,1.1,16,5,2,15
+indoctrination,all hits,4431,lex>=90 or sh5f>=8,139,0.4,13,4,2,14
+indoctrination,all hits,4431,sh5f>=4,489,4.4,32,7,2,18
+indoctrination,all hits,4431,lex>=80,130,0.4,11,2,1,15
+indoctrination,all hits,4431,shared exact 8-gram,209,3.3,21,5,1,15
+indoctrination,"public comment (rule, loose)",2687,lex>=75 or sh5f>=4,69,2.0,17,3,1,9
+indoctrination,"public comment (rule, loose)",2687,lex>=80 or sh5f>=4,68,1.6,16,3,1,9
+indoctrination,"public comment (rule, loose)",2687,lex>=80 or sh5f>=5,51,0.8,6,2,1,9
+indoctrination,"public comment (rule, loose)",2687,lex>=85 or sh5f>=6,43,0.4,3,1,1,9
+indoctrination,"public comment (rule, loose)",2687,lex>=90 or sh5f>=8,20,0.1,2,1,1,6
+indoctrination,"public comment (rule, loose)",2687,sh5f>=4,67,1.6,15,3,1,9
+indoctrination,"public comment (rule, loose)",2687,lex>=80,2,0.1,2,0,0,2
+indoctrination,"public comment (rule, loose)",2687,shared exact 8-gram,7,1.2,7,0,0,2
+indoctrination,not policy (rule),4214,lex>=75 or sh5f>=4,205,5.0,31,4,2,14
+indoctrination,not policy (rule),4214,lex>=80 or sh5f>=4,195,4.0,28,3,2,14
+indoctrination,not policy (rule),4214,lex>=80 or sh5f>=5,145,2.0,18,3,2,13
+indoctrination,not policy (rule),4214,lex>=85 or sh5f>=6,115,1.0,13,2,2,13
+indoctrination,not policy (rule),4214,lex>=90 or sh5f>=8,65,0.3,11,2,1,10
+indoctrination,not policy (rule),4214,sh5f>=4,192,4.0,27,3,2,14
+indoctrination,not policy (rule),4214,lex>=80,24,0.3,9,1,1,7
+indoctrination,not policy (rule),4214,shared exact 8-gram,32,3.0,17,1,1,6
+mask,all hits,8023,lex>=75 or sh5f>=4,109,18.3,51,11,3,16
+mask,all hits,8023,lex>=80 or sh5f>=4,95,14.7,47,11,2,13
+mask,all hits,8023,lex>=80 or sh5f>=5,40,7.3,28,4,1,5
+mask,all hits,8023,lex>=85 or sh5f>=6,16,3.7,12,1,0,4
+mask,all hits,8023,lex>=90 or sh5f>=8,3,1.2,2,0,0,2
+mask,all hits,8023,sh5f>=4,92,14.7,46,10,2,13
+mask,all hits,8023,lex>=80,8,1.2,7,1,0,3
+mask,all hits,8023,shared exact 8-gram,44,11.0,28,5,1,6
+mask,"public comment (rule, loose)",3210,lex>=75 or sh5f>=4,29,2.9,13,1,1,10
+mask,"public comment (rule, loose)",3210,lex>=80 or sh5f>=4,26,2.3,10,1,1,10
+mask,"public comment (rule, loose)",3210,lex>=80 or sh5f>=5,10,1.2,6,1,0,4
+mask,"public comment (rule, loose)",3210,lex>=85 or sh5f>=6,5,0.6,4,1,0,3
+mask,"public comment (rule, loose)",3210,lex>=90 or sh5f>=8,2,0.2,2,0,0,2
+mask,"public comment (rule, loose)",3210,sh5f>=4,26,2.3,10,1,1,10
+mask,"public comment (rule, loose)",3210,lex>=80,2,0.2,2,0,0,2
+mask,"public comment (rule, loose)",3210,shared exact 8-gram,7,1.8,4,1,1,5
+mask,not policy (rule),7809,lex>=75 or sh5f>=4,104,17.4,49,11,2,16
+mask,not policy (rule),7809,lex>=80 or sh5f>=4,91,13.9,45,11,2,13
+mask,not policy (rule),7809,lex>=80 or sh5f>=5,39,6.9,27,4,1,5
+mask,not policy (rule),7809,lex>=85 or sh5f>=6,16,3.5,12,1,0,4
+mask,not policy (rule),7809,lex>=90 or sh5f>=8,3,1.2,2,0,0,2
+mask,not policy (rule),7809,sh5f>=4,88,13.9,44,10,2,13
+mask,not policy (rule),7809,lex>=80,8,1.2,7,1,0,3
+mask,not policy (rule),7809,shared exact 8-gram,41,10.4,25,5,1,6
+crt,all hits,7973,lex>=75 or sh5f>=4,686,18.0,138,41,15,34
+crt,all hits,7973,lex>=80 or sh5f>=4,667,14.4,134,39,13,33
+crt,all hits,7973,lex>=80 or sh5f>=5,243,7.2,68,16,4,18
+crt,all hits,7973,lex>=85 or sh5f>=6,145,3.6,48,13,3,6
+crt,all hits,7973,lex>=90 or sh5f>=8,68,1.2,30,8,2,5
+crt,all hits,7973,sh5f>=4,667,14.4,134,39,13,33
+crt,all hits,7973,lex>=80,21,1.2,18,1,0,3
+crt,all hits,7973,shared exact 8-gram,466,10.8,107,31,11,23
+crt,"public comment (rule, loose)",4257,lex>=75 or sh5f>=4,192,5.1,58,18,6,18
+crt,"public comment (rule, loose)",4257,lex>=80 or sh5f>=4,181,4.1,56,17,5,16
+crt,"public comment (rule, loose)",4257,lex>=80 or sh5f>=5,51,2.1,28,6,1,5
+crt,"public comment (rule, loose)",4257,lex>=85 or sh5f>=6,26,1.0,19,3,0,4
+crt,"public comment (rule, loose)",4257,lex>=90 or sh5f>=8,12,0.3,10,1,0,3
+crt,"public comment (rule, loose)",4257,sh5f>=4,181,4.1,56,17,5,16
+crt,"public comment (rule, loose)",4257,lex>=80,7,0.3,7,0,0,2
+crt,"public comment (rule, loose)",4257,shared exact 8-gram,140,3.1,43,13,5,10
+crt,not policy (rule),7700,lex>=75 or sh5f>=4,655,16.8,133,38,15,34
+crt,not policy (rule),7700,lex>=80 or sh5f>=4,636,13.4,129,36,12,33
+crt,not policy (rule),7700,lex>=80 or sh5f>=5,222,6.7,61,14,4,18
+crt,not policy (rule),7700,lex>=85 or sh5f>=6,126,3.4,42,10,3,6
+crt,not policy (rule),7700,lex>=90 or sh5f>=8,56,1.1,27,5,2,5
+crt,not policy (rule),7700,sh5f>=4,636,13.4,129,36,12,33
+crt,not policy (rule),7700,lex>=80,19,1.1,16,1,0,3
+crt,not policy (rule),7700,shared exact 8-gram,458,10.1,104,30,11,23
+parental_rights,all hits,5413,lex>=75 or sh5f>=4,383,8.2,77,30,7,11
+parental_rights,all hits,5413,lex>=80 or sh5f>=4,368,6.6,72,27,7,11
+parental_rights,all hits,5413,lex>=80 or sh5f>=5,275,3.3,43,19,4,11
+parental_rights,all hits,5413,lex>=85 or sh5f>=6,239,1.6,32,16,4,11
+parental_rights,all hits,5413,lex>=90 or sh5f>=8,200,0.5,27,13,4,10
+parental_rights,all hits,5413,sh5f>=4,365,6.6,71,27,6,11
+parental_rights,all hits,5413,lex>=80,161,0.5,23,11,3,11
+parental_rights,all hits,5413,shared exact 8-gram,255,4.9,57,16,4,11
+parental_rights,"public comment (rule, loose)",2695,lex>=75 or sh5f>=4,143,2.0,30,12,2,8
+parental_rights,"public comment (rule, loose)",2695,lex>=80 or sh5f>=4,139,1.6,29,10,2,8
+parental_rights,"public comment (rule, loose)",2695,lex>=80 or sh5f>=5,96,0.8,17,6,1,8
+parental_rights,"public comment (rule, loose)",2695,lex>=85 or sh5f>=6,85,0.4,11,5,1,8
+parental_rights,"public comment (rule, loose)",2695,lex>=90 or sh5f>=8,64,0.1,10,5,1,7
+parental_rights,"public comment (rule, loose)",2695,sh5f>=4,138,1.6,29,10,1,8
+parental_rights,"public comment (rule, loose)",2695,lex>=80,50,0.1,9,5,1,7
+parental_rights,"public comment (rule, loose)",2695,shared exact 8-gram,97,1.2,24,6,1,8
+parental_rights,not policy (rule),4718,lex>=75 or sh5f>=4,275,6.3,57,24,5,11
+parental_rights,not policy (rule),4718,lex>=80 or sh5f>=4,266,5.0,54,21,5,11
+parental_rights,not policy (rule),4718,lex>=80 or sh5f>=5,190,2.5,32,14,3,11
+parental_rights,not policy (rule),4718,lex>=85 or sh5f>=6,169,1.3,24,11,3,11
+parental_rights,not policy (rule),4718,lex>=90 or sh5f>=8,139,0.4,20,8,3,10
+parental_rights,not policy (rule),4718,sh5f>=4,264,5.0,54,21,4,11
+parental_rights,not policy (rule),4718,lex>=80,116,0.4,15,8,2,11
+parental_rights,not policy (rule),4718,shared exact 8-gram,193,3.8,46,12,3,11
+groom,all hits,3872,lex>=75 or sh5f>=4,190,4.3,35,12,2,10
+groom,all hits,3872,lex>=80 or sh5f>=4,173,3.4,31,10,2,10
+groom,all hits,3872,lex>=80 or sh5f>=5,148,1.7,24,10,1,10
+groom,all hits,3872,lex>=85 or sh5f>=6,122,0.9,19,7,1,10
+groom,all hits,3872,lex>=90 or sh5f>=8,53,0.3,15,5,1,5
+groom,all hits,3872,sh5f>=4,161,3.4,27,9,2,10
+groom,all hits,3872,lex>=80,70,0.3,16,4,1,10
+groom,all hits,3872,shared exact 8-gram,110,2.6,15,4,1,9
+groom,"public comment (rule, loose)",1469,lex>=75 or sh5f>=4,7,0.6,5,0,0,2
+groom,"public comment (rule, loose)",1469,lex>=80 or sh5f>=4,6,0.5,4,0,0,2
+groom,"public comment (rule, loose)",1469,lex>=80 or sh5f>=5,3,0.2,2,0,0,2
+groom,"public comment (rule, loose)",1469,lex>=85 or sh5f>=6,2,0.1,1,0,0,2
+groom,"public comment (rule, loose)",1469,lex>=90 or sh5f>=8,1,0.0,1,0,0,2
+groom,"public comment (rule, loose)",1469,sh5f>=4,6,0.5,4,0,0,2
+groom,"public comment (rule, loose)",1469,lex>=80,1,0.0,1,0,0,2
+groom,"public comment (rule, loose)",1469,shared exact 8-gram,1,0.4,1,0,0,2
+groom,not policy (rule),3482,lex>=75 or sh5f>=4,79,3.4,19,6,1,9
+groom,not policy (rule),3482,lex>=80 or sh5f>=4,69,2.8,16,6,1,9
+groom,not policy (rule),3482,lex>=80 or sh5f>=5,59,1.4,13,6,1,9
+groom,not policy (rule),3482,lex>=85 or sh5f>=6,51,0.7,9,4,1,9
+groom,not policy (rule),3482,lex>=90 or sh5f>=8,20,0.2,8,2,0,4
+groom,not policy (rule),3482,sh5f>=4,64,2.8,15,6,1,9
+groom,not policy (rule),3482,lex>=80,32,0.2,6,2,1,9
+groom,not policy (rule),3482,shared exact 8-gram,46,2.1,8,2,1,8
+pornography,all hits,6302,lex>=75 or sh5f>=4,407,11.2,45,16,6,17
+pornography,all hits,6302,lex>=80 or sh5f>=4,389,9.0,44,13,6,16
+pornography,all hits,6302,lex>=80 or sh5f>=5,317,4.5,31,14,6,12
+pornography,all hits,6302,lex>=85 or sh5f>=6,229,2.2,30,16,7,8
+pornography,all hits,6302,lex>=90 or sh5f>=8,143,0.7,28,12,5,8
+pornography,all hits,6302,sh5f>=4,383,9.0,43,13,6,16
+pornography,all hits,6302,lex>=80,95,0.7,28,8,3,8
+pornography,all hits,6302,shared exact 8-gram,117,6.7,35,9,3,8
+pornography,"public comment (rule, loose)",3203,lex>=75 or sh5f>=4,86,2.9,18,6,3,6
+pornography,"public comment (rule, loose)",3203,lex>=80 or sh5f>=4,84,2.3,17,6,3,6
+pornography,"public comment (rule, loose)",3203,lex>=80 or sh5f>=5,76,1.2,17,6,3,6
+pornography,"public comment (rule, loose)",3203,lex>=85 or sh5f>=6,63,0.6,16,7,2,6
+pornography,"public comment (rule, loose)",3203,lex>=90 or sh5f>=8,48,0.2,14,5,2,6
+pornography,"public comment (rule, loose)",3203,sh5f>=4,84,2.3,17,6,3,6
+pornography,"public comment (rule, loose)",3203,lex>=80,29,0.2,12,2,1,6
+pornography,"public comment (rule, loose)",3203,shared exact 8-gram,32,1.7,11,3,2,6
+pornography,not policy (rule),5847,lex>=75 or sh5f>=4,254,9.6,35,15,7,8
+pornography,not policy (rule),5847,lex>=80 or sh5f>=4,247,7.7,31,14,7,8
+pornography,not policy (rule),5847,lex>=80 or sh5f>=5,209,3.9,23,15,6,8
+pornography,not policy (rule),5847,lex>=85 or sh5f>=6,167,1.9,24,16,5,8
+pornography,not policy (rule),5847,lex>=90 or sh5f>=8,113,0.6,24,10,4,8
+pornography,not policy (rule),5847,sh5f>=4,244,7.7,31,14,7,8
+pornography,not policy (rule),5847,lex>=80,73,0.6,21,7,2,8
+pornography,not policy (rule),5847,shared exact 8-gram,78,5.8,27,6,2,8
+equity,all hits,8005,lex>=75 or sh5f>=4,29,18.2,22,4,0,3
+equity,all hits,8005,lex>=80 or sh5f>=4,20,14.6,15,2,0,3
+equity,all hits,8005,lex>=80 or sh5f>=5,12,7.3,10,1,0,3
+equity,all hits,8005,lex>=85 or sh5f>=6,7,3.6,6,0,0,2
+equity,all hits,8005,lex>=90 or sh5f>=8,5,1.2,4,0,0,2
+equity,all hits,8005,sh5f>=4,18,14.6,13,2,0,3
+equity,all hits,8005,lex>=80,4,1.2,4,0,0,2
+equity,all hits,8005,shared exact 8-gram,15,10.9,13,1,0,3
+equity,"public comment (rule, loose)",1580,lex>=75 or sh5f>=4,1,0.7,1,0,0,2
+equity,"public comment (rule, loose)",1580,lex>=80 or sh5f>=4,1,0.6,1,0,0,2
+equity,"public comment (rule, loose)",1580,lex>=80 or sh5f>=5,0,0.3,0,0,0,0
+equity,"public comment (rule, loose)",1580,lex>=85 or sh5f>=6,0,0.1,0,0,0,0
+equity,"public comment (rule, loose)",1580,lex>=90 or sh5f>=8,0,0.0,0,0,0,0
+equity,"public comment (rule, loose)",1580,sh5f>=4,1,0.6,1,0,0,2
+equity,"public comment (rule, loose)",1580,lex>=80,0,0.0,0,0,0,0
+equity,"public comment (rule, loose)",1580,shared exact 8-gram,1,0.4,1,0,0,2
+equity,not policy (rule),7488,lex>=75 or sh5f>=4,24,15.9,19,3,0,3
+equity,not policy (rule),7488,lex>=80 or sh5f>=4,15,12.7,12,1,0,3
+equity,not policy (rule),7488,lex>=80 or sh5f>=5,7,6.4,6,1,0,3
+equity,not policy (rule),7488,lex>=85 or sh5f>=6,2,3.2,2,0,0,2
+equity,not policy (rule),7488,lex>=90 or sh5f>=8,2,1.1,2,0,0,2
+equity,not policy (rule),7488,sh5f>=4,13,12.7,10,1,0,3
+equity,not policy (rule),7488,lex>=80,2,1.1,2,0,0,2
+equity,not policy (rule),7488,shared exact 8-gram,13,9.6,11,1,0,3
+vaccine,all hits,7984,lex>=75 or sh5f>=4,56,18.1,35,6,2,6
+vaccine,all hits,7984,lex>=80 or sh5f>=4,51,14.5,33,6,1,5
+vaccine,all hits,7984,lex>=80 or sh5f>=5,28,7.3,17,3,1,5
+vaccine,all hits,7984,lex>=85 or sh5f>=6,21,3.6,12,2,0,4
+vaccine,all hits,7984,lex>=90 or sh5f>=8,14,1.2,8,1,0,4
+vaccine,all hits,7984,sh5f>=4,51,14.5,33,6,1,5
+vaccine,all hits,7984,lex>=80,8,1.2,7,0,0,2
+vaccine,all hits,7984,shared exact 8-gram,24,10.9,21,2,0,3
+vaccine,"public comment (rule, loose)",2352,lex>=75 or sh5f>=4,11,1.6,9,1,0,3
+vaccine,"public comment (rule, loose)",2352,lex>=80 or sh5f>=4,10,1.3,8,1,0,3
+vaccine,"public comment (rule, loose)",2352,lex>=80 or sh5f>=5,6,0.6,4,1,0,3
+vaccine,"public comment (rule, loose)",2352,lex>=85 or sh5f>=6,5,0.3,3,1,0,3
+vaccine,"public comment (rule, loose)",2352,lex>=90 or sh5f>=8,5,0.1,3,1,0,3
+vaccine,"public comment (rule, loose)",2352,sh5f>=4,10,1.3,8,1,0,3
+vaccine,"public comment (rule, loose)",2352,lex>=80,0,0.1,0,0,0,0
+vaccine,"public comment (rule, loose)",2352,shared exact 8-gram,6,0.9,6,0,0,2
+vaccine,not policy (rule),7812,lex>=75 or sh5f>=4,48,17.4,33,4,1,6
+vaccine,not policy (rule),7812,lex>=80 or sh5f>=4,43,13.9,31,4,0,4
+vaccine,not policy (rule),7812,lex>=80 or sh5f>=5,22,6.9,15,2,0,4
+vaccine,not policy (rule),7812,lex>=85 or sh5f>=6,16,3.5,10,1,0,4
+vaccine,not policy (rule),7812,lex>=90 or sh5f>=8,12,1.2,6,1,0,4
+vaccine,not policy (rule),7812,sh5f>=4,43,13.9,31,4,0,4
+vaccine,not policy (rule),7812,lex>=80,7,1.2,6,0,0,2
+vaccine,not policy (rule),7812,shared exact 8-gram,23,10.4,20,2,0,3
+transgender,all hits,8013,lex>=75 or sh5f>=4,1353,18.0,123,42,14,76
+transgender,all hits,8013,lex>=80 or sh5f>=4,1197,14.4,113,40,13,68
+transgender,all hits,8013,lex>=80 or sh5f>=5,830,7.2,91,31,12,33
+transgender,all hits,8013,lex>=85 or sh5f>=6,600,3.6,74,21,10,26
+transgender,all hits,8013,lex>=90 or sh5f>=8,382,1.2,64,21,7,14
+transgender,all hits,8013,sh5f>=4,1150,14.4,112,42,13,61
+transgender,all hits,8013,lex>=80,381,1.2,64,21,8,14
+transgender,all hits,8013,shared exact 8-gram,755,10.8,100,38,13,15
+transgender,"public comment (rule, loose)",3990,lex>=75 or sh5f>=4,252,4.4,56,16,4,21
+transgender,"public comment (rule, loose)",3990,lex>=80 or sh5f>=4,235,3.5,52,15,4,21
+transgender,"public comment (rule, loose)",3990,lex>=80 or sh5f>=5,169,1.8,34,8,3,15
+transgender,"public comment (rule, loose)",3990,lex>=85 or sh5f>=6,125,0.9,23,6,2,13
+transgender,"public comment (rule, loose)",3990,lex>=90 or sh5f>=8,76,0.3,21,6,2,7
+transgender,"public comment (rule, loose)",3990,sh5f>=4,226,3.5,50,14,4,20
+transgender,"public comment (rule, loose)",3990,lex>=80,68,0.3,17,7,3,8
+transgender,"public comment (rule, loose)",3990,shared exact 8-gram,143,2.6,39,12,3,8
+transgender,not policy (rule),6854,lex>=75 or sh5f>=4,811,13.2,96,30,8,69
+transgender,not policy (rule),6854,lex>=80 or sh5f>=4,714,10.5,88,30,8,60
+transgender,not policy (rule),6854,lex>=80 or sh5f>=5,490,5.3,70,24,5,29
+transgender,not policy (rule),6854,lex>=85 or sh5f>=6,347,2.6,53,14,3,24
+transgender,not policy (rule),6854,lex>=90 or sh5f>=8,206,0.9,45,14,3,14
+transgender,not policy (rule),6854,sh5f>=4,679,10.5,88,31,8,50
+transgender,not policy (rule),6854,lex>=80,220,0.9,42,13,4,14
+transgender,not policy (rule),6854,shared exact 8-gram,472,7.9,75,28,9,15

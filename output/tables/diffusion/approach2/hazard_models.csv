@@ -1,0 +1,15 @@
+model,term,coef,se,p,sd_x,n,mean_y
+"LPM, phrase x month FE",geo_share,0.01229,0.00404,0.00236,0.13274,523255,0.00945
+"LPM, phrase x month FE",state_share,0.03313,0.00703,0.00000,0.11416,523255,0.00945
+"LPM, phrase x month FE",copart_share,0.04592,0.01012,0.00001,0.10250,523255,0.00945
+"LPM, phrase x month FE",gop_z,0.00185,0.00032,0.00000,0.93925,523255,0.00945
+"LPM, phrase x month FE",log_words,0.00730,0.00041,0.00000,0.87813,523255,0.00945
+"LPM, phrase x month FE",n_meet,-0.00006,0.00035,0.86947,1.19247,523255,0.00945
+"LPM, phrase x month FE",no_neighbor,-0.00010,0.00167,0.95214,0.11922,523255,0.00945
+"logit, phrase + month FE",geo_share,0.59032,0.20768,0.00448,0.13274,523255,0.00945
+"logit, phrase + month FE",state_share,1.25904,0.29407,0.00002,0.11416,523255,0.00945
+"logit, phrase + month FE",copart_share,-1.21581,0.32213,0.00016,0.10250,523255,0.00945
+"logit, phrase + month FE",gop_z,0.09930,0.03500,0.00455,0.93925,523255,0.00945
+"logit, phrase + month FE",log_words,1.06163,0.04610,0.00000,0.87813,523255,0.00945
+"logit, phrase + month FE",n_meet,-0.12124,0.02755,0.00001,1.19247,523255,0.00945
+"logit, phrase + month FE",no_neighbor,-0.05861,0.24302,0.80943,0.11922,523255,0.00945

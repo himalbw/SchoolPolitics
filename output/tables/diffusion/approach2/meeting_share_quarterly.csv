@@ -1,0 +1,817 @@
+phrase,quarter,district_weighted_share,n_districts,pooled_share
+1619 project,2018Q1,0.00000,333,0.00000
+1619 project,2018Q2,0.00000,355,0.00000
+1619 project,2018Q3,0.00000,367,0.00000
+1619 project,2018Q4,0.00000,380,0.00000
+1619 project,2019Q1,0.00000,420,0.00000
+1619 project,2019Q2,0.00000,424,0.00000
+1619 project,2019Q3,0.00115,429,0.00189
+1619 project,2019Q4,0.00073,455,0.00056
+1619 project,2020Q1,0.00087,572,0.00090
+1619 project,2020Q2,0.00026,760,0.00029
+1619 project,2020Q3,0.00318,855,0.00328
+1619 project,2020Q4,0.00195,895,0.00237
+1619 project,2021Q1,0.00525,938,0.00433
+1619 project,2021Q2,0.01449,948,0.01505
+1619 project,2021Q3,0.01768,980,0.01759
+1619 project,2021Q4,0.00573,1010,0.00552
+1619 project,2022Q1,0.00607,1078,0.00505
+1619 project,2022Q2,0.00400,1072,0.00334
+1619 project,2022Q3,0.00211,1079,0.00250
+1619 project,2022Q4,0.00135,1085,0.00140
+1619 project,2023Q1,0.00237,1132,0.00231
+1619 project,2023Q2,0.00150,1136,0.00212
+1619 project,2023Q3,0.00032,1098,0.00049
+1619 project,2023Q4,0.00090,1097,0.00095
+anti-racist,2018Q1,0.00467,333,0.00549
+anti-racist,2018Q2,0.00234,355,0.00323
+anti-racist,2018Q3,0.00300,367,0.00301
+anti-racist,2018Q4,0.00838,380,0.00852
+anti-racist,2019Q1,0.00667,420,0.00683
+anti-racist,2019Q2,0.00598,424,0.00793
+anti-racist,2019Q3,0.00705,429,0.00819
+anti-racist,2019Q4,0.01022,455,0.01523
+anti-racist,2020Q1,0.01045,572,0.01311
+anti-racist,2020Q2,0.03764,760,0.05039
+anti-racist,2020Q3,0.07356,855,0.08165
+anti-racist,2020Q4,0.05256,895,0.06833
+anti-racist,2021Q1,0.05356,938,0.06693
+anti-racist,2021Q2,0.06898,948,0.07995
+anti-racist,2021Q3,0.05581,980,0.06054
+anti-racist,2021Q4,0.03922,1010,0.04684
+anti-racist,2022Q1,0.03074,1078,0.03779
+anti-racist,2022Q2,0.02520,1072,0.03237
+anti-racist,2022Q3,0.01808,1079,0.02047
+anti-racist,2022Q4,0.02120,1085,0.02872
+anti-racist,2023Q1,0.02157,1132,0.03078
+anti-racist,2023Q2,0.02239,1136,0.02714
+anti-racist,2023Q3,0.01860,1098,0.02064
+anti-racist,2023Q4,0.02313,1097,0.03005
+book bans,2018Q1,0.00043,333,0.00069
+book bans,2018Q2,0.00070,355,0.00065
+book bans,2018Q3,0.00136,367,0.00075
+book bans,2018Q4,0.00066,380,0.00066
+book bans,2019Q1,0.00000,420,0.00000
+book bans,2019Q2,0.00052,424,0.00106
+book bans,2019Q3,0.00047,429,0.00063
+book bans,2019Q4,0.00000,455,0.00000
+book bans,2020Q1,0.00073,572,0.00090
+book bans,2020Q2,0.00044,760,0.00029
+book bans,2020Q3,0.00017,855,0.00025
+book bans,2020Q4,0.00034,895,0.00053
+book bans,2021Q1,0.00066,938,0.00087
+book bans,2021Q2,0.00197,948,0.00225
+book bans,2021Q3,0.00292,980,0.00285
+book bans,2021Q4,0.00806,1010,0.01033
+book bans,2022Q1,0.01488,1078,0.01738
+book bans,2022Q2,0.01169,1072,0.01545
+book bans,2022Q3,0.01758,1079,0.01723
+book bans,2022Q4,0.01168,1085,0.01424
+book bans,2023Q1,0.01780,1132,0.02020
+book bans,2023Q2,0.02655,1136,0.02868
+book bans,2023Q3,0.01937,1098,0.02310
+book bans,2023Q4,0.02113,1097,0.02361
+co-parent with government,2018Q1,0.00000,333,0.00000
+co-parent with government,2018Q2,0.00000,355,0.00000
+co-parent with government,2018Q3,0.00000,367,0.00000
+co-parent with government,2018Q4,0.00000,380,0.00000
+co-parent with government,2019Q1,0.00000,420,0.00000
+co-parent with government,2019Q2,0.00000,424,0.00000
+co-parent with government,2019Q3,0.00000,429,0.00000
+co-parent with government,2019Q4,0.00000,455,0.00000
+co-parent with government,2020Q1,0.00000,572,0.00000
+co-parent with government,2020Q2,0.00016,760,0.00029
+co-parent with government,2020Q3,0.00058,855,0.00050
+co-parent with government,2020Q4,0.00005,895,0.00026
+co-parent with government,2021Q1,0.00015,938,0.00022
+co-parent with government,2021Q2,0.00142,948,0.00157
+co-parent with government,2021Q3,0.01627,980,0.01889
+co-parent with government,2021Q4,0.00909,1010,0.00721
+co-parent with government,2022Q1,0.00398,1078,0.00303
+co-parent with government,2022Q2,0.00130,1072,0.00146
+co-parent with government,2022Q3,0.00110,1079,0.00100
+co-parent with government,2022Q4,0.00064,1085,0.00117
+co-parent with government,2023Q1,0.00084,1132,0.00096
+co-parent with government,2023Q2,0.00197,1136,0.00231
+co-parent with government,2023Q3,0.00378,1098,0.00344
+co-parent with government,2023Q4,0.00182,1097,0.00191
+critical race theory,2018Q1,0.00000,333,0.00000
+critical race theory,2018Q2,0.00000,355,0.00000
+critical race theory,2018Q3,0.00136,367,0.00075
+critical race theory,2018Q4,0.00044,380,0.00066
+critical race theory,2019Q1,0.00000,420,0.00000
+critical race theory,2019Q2,0.00055,424,0.00106
+critical race theory,2019Q3,0.00023,429,0.00063
+critical race theory,2019Q4,0.00082,455,0.00113
+critical race theory,2020Q1,0.00054,572,0.00090
+critical race theory,2020Q2,0.00116,760,0.00117
+critical race theory,2020Q3,0.00255,855,0.00252
+critical race theory,2020Q4,0.00291,895,0.00420
+critical race theory,2021Q1,0.01007,938,0.00953
+critical race theory,2021Q2,0.08869,948,0.09342
+critical race theory,2021Q3,0.15423,980,0.15627
+critical race theory,2021Q4,0.10546,1010,0.09945
+critical race theory,2022Q1,0.04195,1078,0.04770
+critical race theory,2022Q2,0.03828,1072,0.04134
+critical race theory,2022Q3,0.02933,1079,0.03021
+critical race theory,2022Q4,0.01804,1085,0.01915
+critical race theory,2023Q1,0.01945,1132,0.02173
+critical race theory,2023Q2,0.01417,1136,0.01694
+critical race theory,2023Q3,0.00944,1098,0.01032
+critical race theory,2023Q4,0.01199,1097,0.01216
+crt (acronym),2018Q1,0.00388,333,0.00343
+crt (acronym),2018Q2,0.00113,355,0.00129
+crt (acronym),2018Q3,0.00381,367,0.00226
+crt (acronym),2018Q4,0.00360,380,0.00262
+crt (acronym),2019Q1,0.00082,420,0.00114
+crt (acronym),2019Q2,0.00240,424,0.00264
+crt (acronym),2019Q3,0.00068,429,0.00126
+crt (acronym),2019Q4,0.00132,455,0.00169
+crt (acronym),2020Q1,0.00226,572,0.00271
+crt (acronym),2020Q2,0.00090,760,0.00117
+crt (acronym),2020Q3,0.00154,855,0.00277
+crt (acronym),2020Q4,0.00154,895,0.00237
+crt (acronym),2021Q1,0.00387,938,0.00390
+crt (acronym),2021Q2,0.04453,948,0.04402
+crt (acronym),2021Q3,0.12566,980,0.12574
+crt (acronym),2021Q4,0.09409,1010,0.08912
+crt (acronym),2022Q1,0.05082,1078,0.05335
+crt (acronym),2022Q2,0.04359,1072,0.04573
+crt (acronym),2022Q3,0.02744,1079,0.03071
+crt (acronym),2022Q4,0.02151,1085,0.02311
+crt (acronym),2023Q1,0.02517,1132,0.02424
+crt (acronym),2023Q2,0.02026,1136,0.02348
+crt (acronym),2023Q3,0.01080,1098,0.01376
+crt (acronym),2023Q4,0.01440,1097,0.01503
+diversity equity inclusion,2018Q1,0.00000,333,0.00000
+diversity equity inclusion,2018Q2,0.00141,355,0.00129
+diversity equity inclusion,2018Q3,0.00259,367,0.00226
+diversity equity inclusion,2018Q4,0.00560,380,0.00656
+diversity equity inclusion,2019Q1,0.00460,420,0.00569
+diversity equity inclusion,2019Q2,0.00891,424,0.01058
+diversity equity inclusion,2019Q3,0.00865,429,0.01071
+diversity equity inclusion,2019Q4,0.00642,455,0.00677
+diversity equity inclusion,2020Q1,0.00944,572,0.01266
+diversity equity inclusion,2020Q2,0.01834,760,0.02010
+diversity equity inclusion,2020Q3,0.03635,855,0.03579
+diversity equity inclusion,2020Q4,0.04150,895,0.05125
+diversity equity inclusion,2021Q1,0.05177,938,0.06000
+diversity equity inclusion,2021Q2,0.09084,948,0.09926
+diversity equity inclusion,2021Q3,0.07426,980,0.07943
+diversity equity inclusion,2021Q4,0.08600,1010,0.08624
+diversity equity inclusion,2022Q1,0.06538,1078,0.07559
+diversity equity inclusion,2022Q2,0.07426,1072,0.08290
+diversity equity inclusion,2022Q3,0.06579,1079,0.06692
+diversity equity inclusion,2022Q4,0.06630,1085,0.07448
+diversity equity inclusion,2023Q1,0.06142,1132,0.07001
+diversity equity inclusion,2023Q2,0.06299,1136,0.07334
+diversity equity inclusion,2023Q3,0.05063,1098,0.05112
+diversity equity inclusion,2023Q4,0.05333,1097,0.05938
+experimental vaccine,2018Q1,0.00000,333,0.00000
+experimental vaccine,2018Q2,0.00000,355,0.00000
+experimental vaccine,2018Q3,0.00000,367,0.00000
+experimental vaccine,2018Q4,0.00000,380,0.00000
+experimental vaccine,2019Q1,0.00000,420,0.00000
+experimental vaccine,2019Q2,0.00000,424,0.00000
+experimental vaccine,2019Q3,0.00000,429,0.00000
+experimental vaccine,2019Q4,0.00000,455,0.00000
+experimental vaccine,2020Q1,0.00000,572,0.00000
+experimental vaccine,2020Q2,0.00019,760,0.00029
+experimental vaccine,2020Q3,0.00000,855,0.00000
+experimental vaccine,2020Q4,0.00000,895,0.00000
+experimental vaccine,2021Q1,0.00211,938,0.00173
+experimental vaccine,2021Q2,0.01143,948,0.01325
+experimental vaccine,2021Q3,0.02606,980,0.03131
+experimental vaccine,2021Q4,0.02137,1010,0.02330
+experimental vaccine,2022Q1,0.00934,1078,0.00990
+experimental vaccine,2022Q2,0.00153,1072,0.00209
+experimental vaccine,2022Q3,0.00124,1079,0.00075
+experimental vaccine,2022Q4,0.00060,1085,0.00070
+experimental vaccine,2023Q1,0.00040,1132,0.00058
+experimental vaccine,2023Q2,0.00074,1136,0.00096
+experimental vaccine,2023Q3,0.00000,1098,0.00000
+experimental vaccine,2023Q4,0.00000,1097,0.00000
+gender ideology,2018Q1,0.00000,333,0.00000
+gender ideology,2018Q2,0.00019,355,0.00129
+gender ideology,2018Q3,0.00000,367,0.00000
+gender ideology,2018Q4,0.00000,380,0.00000
+gender ideology,2019Q1,0.00000,420,0.00000
+gender ideology,2019Q2,0.00000,424,0.00000
+gender ideology,2019Q3,0.00155,429,0.00189
+gender ideology,2019Q4,0.00110,455,0.00056
+gender ideology,2020Q1,0.00010,572,0.00045
+gender ideology,2020Q2,0.00000,760,0.00000
+gender ideology,2020Q3,0.00000,855,0.00000
+gender ideology,2020Q4,0.00000,895,0.00000
+gender ideology,2021Q1,0.00000,938,0.00000
+gender ideology,2021Q2,0.00078,948,0.00112
+gender ideology,2021Q3,0.00088,980,0.00078
+gender ideology,2021Q4,0.00140,1010,0.00096
+gender ideology,2022Q1,0.00154,1078,0.00182
+gender ideology,2022Q2,0.00527,1072,0.00606
+gender ideology,2022Q3,0.00720,1079,0.00799
+gender ideology,2022Q4,0.00420,1085,0.00537
+gender ideology,2023Q1,0.00673,1132,0.00616
+gender ideology,2023Q2,0.00746,1136,0.00885
+gender ideology,2023Q3,0.00670,1098,0.00786
+gender ideology,2023Q4,0.00667,1097,0.00739
+god-given rights,2018Q1,0.00120,333,0.00137
+god-given rights,2018Q2,0.00047,355,0.00065
+god-given rights,2018Q3,0.00000,367,0.00000
+god-given rights,2018Q4,0.00000,380,0.00000
+god-given rights,2019Q1,0.00048,420,0.00057
+god-given rights,2019Q2,0.00000,424,0.00000
+god-given rights,2019Q3,0.00078,429,0.00063
+god-given rights,2019Q4,0.00055,455,0.00056
+god-given rights,2020Q1,0.00000,572,0.00000
+god-given rights,2020Q2,0.00089,760,0.00087
+god-given rights,2020Q3,0.00065,855,0.00076
+god-given rights,2020Q4,0.00069,895,0.00079
+god-given rights,2021Q1,0.00236,938,0.00217
+god-given rights,2021Q2,0.00390,948,0.00382
+god-given rights,2021Q3,0.02282,980,0.02794
+god-given rights,2021Q4,0.01191,1010,0.01201
+god-given rights,2022Q1,0.00403,1078,0.00485
+god-given rights,2022Q2,0.00165,1072,0.00209
+god-given rights,2022Q3,0.00130,1079,0.00150
+god-given rights,2022Q4,0.00122,1085,0.00187
+god-given rights,2023Q1,0.00175,1132,0.00173
+god-given rights,2023Q2,0.00061,1136,0.00096
+god-given rights,2023Q3,0.00201,1098,0.00221
+god-given rights,2023Q4,0.00088,1097,0.00119
+grading for equity,2018Q1,0.00300,333,0.00069
+grading for equity,2018Q2,0.00010,355,0.00065
+grading for equity,2018Q3,0.00000,367,0.00000
+grading for equity,2018Q4,0.00213,380,0.00197
+grading for equity,2019Q1,0.00000,420,0.00000
+grading for equity,2019Q2,0.00118,424,0.00053
+grading for equity,2019Q3,0.00155,429,0.00126
+grading for equity,2019Q4,0.00077,455,0.00169
+grading for equity,2020Q1,0.00155,572,0.00181
+grading for equity,2020Q2,0.00380,760,0.00466
+grading for equity,2020Q3,0.00365,855,0.00252
+grading for equity,2020Q4,0.00407,895,0.00499
+grading for equity,2021Q1,0.00572,938,0.00650
+grading for equity,2021Q2,0.00481,948,0.00382
+grading for equity,2021Q3,0.00312,980,0.00285
+grading for equity,2021Q4,0.00803,1010,0.00745
+grading for equity,2022Q1,0.00531,1078,0.00525
+grading for equity,2022Q2,0.00640,1072,0.00710
+grading for equity,2022Q3,0.00525,1079,0.00549
+grading for equity,2022Q4,0.00508,1085,0.00560
+grading for equity,2023Q1,0.00520,1132,0.00616
+grading for equity,2023Q2,0.00447,1136,0.00539
+grading for equity,2023Q3,0.00678,1098,0.00590
+grading for equity,2023Q4,0.00666,1097,0.00811
+groomer / grooming kids,2018Q1,0.00060,333,0.00069
+groomer / grooming kids,2018Q2,0.00141,355,0.00129
+groomer / grooming kids,2018Q3,0.00272,367,0.00226
+groomer / grooming kids,2018Q4,0.00206,380,0.00197
+groomer / grooming kids,2019Q1,0.00421,420,0.00285
+groomer / grooming kids,2019Q2,0.00047,424,0.00053
+groomer / grooming kids,2019Q3,0.00078,429,0.00063
+groomer / grooming kids,2019Q4,0.00141,455,0.00113
+groomer / grooming kids,2020Q1,0.00117,572,0.00090
+groomer / grooming kids,2020Q2,0.00111,760,0.00117
+groomer / grooming kids,2020Q3,0.00082,855,0.00076
+groomer / grooming kids,2020Q4,0.00088,895,0.00105
+groomer / grooming kids,2021Q1,0.00097,938,0.00108
+groomer / grooming kids,2021Q2,0.00088,948,0.00067
+groomer / grooming kids,2021Q3,0.00263,980,0.00336
+groomer / grooming kids,2021Q4,0.00239,1010,0.00336
+groomer / grooming kids,2022Q1,0.00330,1078,0.00344
+groomer / grooming kids,2022Q2,0.00615,1072,0.00773
+groomer / grooming kids,2022Q3,0.00932,1079,0.00974
+groomer / grooming kids,2022Q4,0.00882,1085,0.01074
+groomer / grooming kids,2023Q1,0.01327,1132,0.01443
+groomer / grooming kids,2023Q2,0.01052,1136,0.01213
+groomer / grooming kids,2023Q3,0.01282,1098,0.01401
+groomer / grooming kids,2023Q4,0.00662,1097,0.00882
+indoctrination,2018Q1,0.00000,333,0.00000
+indoctrination,2018Q2,0.00000,355,0.00000
+indoctrination,2018Q3,0.00000,367,0.00000
+indoctrination,2018Q4,0.00000,380,0.00000
+indoctrination,2019Q1,0.00000,420,0.00000
+indoctrination,2019Q2,0.00000,424,0.00000
+indoctrination,2019Q3,0.00000,429,0.00000
+indoctrination,2019Q4,0.00183,455,0.00113
+indoctrination,2020Q1,0.00029,572,0.00045
+indoctrination,2020Q2,0.00022,760,0.00029
+indoctrination,2020Q3,0.00132,855,0.00050
+indoctrination,2020Q4,0.00103,895,0.00131
+indoctrination,2021Q1,0.00089,938,0.00152
+indoctrination,2021Q2,0.01270,948,0.01415
+indoctrination,2021Q3,0.01259,980,0.01475
+indoctrination,2021Q4,0.00957,1010,0.01057
+indoctrination,2022Q1,0.00469,1078,0.00586
+indoctrination,2022Q2,0.00514,1072,0.00668
+indoctrination,2022Q3,0.00674,1079,0.00574
+indoctrination,2022Q4,0.00553,1085,0.00584
+indoctrination,2023Q1,0.00439,1132,0.00462
+indoctrination,2023Q2,0.00432,1136,0.00500
+indoctrination,2023Q3,0.00584,1098,0.00639
+indoctrination,2023Q4,0.00285,1097,0.00358
+let parents decide,2018Q1,0.00000,333,0.00000
+let parents decide,2018Q2,0.00000,355,0.00000
+let parents decide,2018Q3,0.00000,367,0.00000
+let parents decide,2018Q4,0.00066,380,0.00066
+let parents decide,2019Q1,0.00000,420,0.00000
+let parents decide,2019Q2,0.00000,424,0.00000
+let parents decide,2019Q3,0.00000,429,0.00000
+let parents decide,2019Q4,0.00000,455,0.00000
+let parents decide,2020Q1,0.00066,572,0.00090
+let parents decide,2020Q2,0.00103,760,0.00117
+let parents decide,2020Q3,0.00495,855,0.00454
+let parents decide,2020Q4,0.00392,895,0.00394
+let parents decide,2021Q1,0.00191,938,0.00238
+let parents decide,2021Q2,0.00611,948,0.00517
+let parents decide,2021Q3,0.03025,980,0.03079
+let parents decide,2021Q4,0.00851,1010,0.00889
+let parents decide,2022Q1,0.00771,1078,0.00849
+let parents decide,2022Q2,0.00182,1072,0.00188
+let parents decide,2022Q3,0.00114,1079,0.00125
+let parents decide,2022Q4,0.00104,1085,0.00117
+let parents decide,2023Q1,0.00212,1132,0.00173
+let parents decide,2023Q2,0.00153,1136,0.00173
+let parents decide,2023Q3,0.00031,1098,0.00049
+let parents decide,2023Q4,0.00137,1097,0.00095
+let them breathe,2018Q1,0.00000,333,0.00000
+let them breathe,2018Q2,0.00023,355,0.00065
+let them breathe,2018Q3,0.00000,367,0.00000
+let them breathe,2018Q4,0.00000,380,0.00000
+let them breathe,2019Q1,0.00000,420,0.00000
+let them breathe,2019Q2,0.00000,424,0.00000
+let them breathe,2019Q3,0.00000,429,0.00000
+let them breathe,2019Q4,0.00000,455,0.00000
+let them breathe,2020Q1,0.00000,572,0.00000
+let them breathe,2020Q2,0.00000,760,0.00000
+let them breathe,2020Q3,0.00039,855,0.00050
+let them breathe,2020Q4,0.00107,895,0.00079
+let them breathe,2021Q1,0.00087,938,0.00130
+let them breathe,2021Q2,0.00624,948,0.00719
+let them breathe,2021Q3,0.01370,980,0.01604
+let them breathe,2021Q4,0.00402,1010,0.00432
+let them breathe,2022Q1,0.00866,1078,0.00869
+let them breathe,2022Q2,0.00000,1072,0.00000
+let them breathe,2022Q3,0.00077,1079,0.00050
+let them breathe,2022Q4,0.00000,1085,0.00000
+let them breathe,2023Q1,0.00000,1132,0.00000
+let them breathe,2023Q2,0.00000,1136,0.00000
+let them breathe,2023Q3,0.00015,1098,0.00025
+let them breathe,2023Q4,0.00000,1097,0.00000
+lgbtq plus,2018Q1,0.00060,333,0.00069
+lgbtq plus,2018Q2,0.00362,355,0.00259
+lgbtq plus,2018Q3,0.00403,367,0.00451
+lgbtq plus,2018Q4,0.00614,380,0.00721
+lgbtq plus,2019Q1,0.00140,420,0.00228
+lgbtq plus,2019Q2,0.00554,424,0.00687
+lgbtq plus,2019Q3,0.00493,429,0.00441
+lgbtq plus,2019Q4,0.00846,455,0.00902
+lgbtq plus,2020Q1,0.00444,572,0.00678
+lgbtq plus,2020Q2,0.00579,760,0.00670
+lgbtq plus,2020Q3,0.01158,855,0.01285
+lgbtq plus,2020Q4,0.01414,895,0.01866
+lgbtq plus,2021Q1,0.01461,938,0.01733
+lgbtq plus,2021Q2,0.02793,948,0.03616
+lgbtq plus,2021Q3,0.02125,980,0.02561
+lgbtq plus,2021Q4,0.03322,1010,0.03915
+lgbtq plus,2022Q1,0.02205,1078,0.02930
+lgbtq plus,2022Q2,0.04071,1072,0.04907
+lgbtq plus,2022Q3,0.03554,1079,0.03571
+lgbtq plus,2022Q4,0.03622,1085,0.04226
+lgbtq plus,2023Q1,0.03375,1132,0.03751
+lgbtq plus,2023Q2,0.05613,1136,0.06564
+lgbtq plus,2023Q3,0.03175,1098,0.03686
+lgbtq plus,2023Q4,0.03313,1097,0.03792
+mask mandate,2018Q1,0.00000,333,0.00000
+mask mandate,2018Q2,0.00000,355,0.00000
+mask mandate,2018Q3,0.00136,367,0.00075
+mask mandate,2018Q4,0.00000,380,0.00000
+mask mandate,2019Q1,0.00000,420,0.00000
+mask mandate,2019Q2,0.00000,424,0.00000
+mask mandate,2019Q3,0.00000,429,0.00000
+mask mandate,2019Q4,0.00000,455,0.00000
+mask mandate,2020Q1,0.00235,572,0.00136
+mask mandate,2020Q2,0.00111,760,0.00146
+mask mandate,2020Q3,0.03686,855,0.03780
+mask mandate,2020Q4,0.03594,895,0.03022
+mask mandate,2021Q1,0.03601,938,0.03184
+mask mandate,2021Q2,0.10584,948,0.10869
+mask mandate,2021Q3,0.35742,980,0.36274
+mask mandate,2021Q4,0.20177,1010,0.20586
+mask mandate,2022Q1,0.23488,1078,0.24576
+mask mandate,2022Q2,0.03620,1072,0.04051
+mask mandate,2022Q3,0.01582,1079,0.01848
+mask mandate,2022Q4,0.00900,1085,0.01191
+mask mandate,2023Q1,0.00803,1132,0.00904
+mask mandate,2023Q2,0.00232,1136,0.00308
+mask mandate,2023Q3,0.00536,1098,0.00565
+mask mandate,2023Q4,0.00366,1097,0.00453
+masks optional,2018Q1,0.00000,333,0.00000
+masks optional,2018Q2,0.00000,355,0.00000
+masks optional,2018Q3,0.00136,367,0.00075
+masks optional,2018Q4,0.00000,380,0.00000
+masks optional,2019Q1,0.00000,420,0.00000
+masks optional,2019Q2,0.00000,424,0.00000
+masks optional,2019Q3,0.00000,429,0.00000
+masks optional,2019Q4,0.00055,455,0.00056
+masks optional,2020Q1,0.00025,572,0.00045
+masks optional,2020Q2,0.00013,760,0.00029
+masks optional,2020Q3,0.00326,855,0.00302
+masks optional,2020Q4,0.00186,895,0.00237
+masks optional,2021Q1,0.00487,938,0.00520
+masks optional,2021Q2,0.05666,948,0.05457
+masks optional,2021Q3,0.15182,980,0.15653
+masks optional,2021Q4,0.07103,1010,0.07519
+masks optional,2022Q1,0.14060,1078,0.14632
+masks optional,2022Q2,0.01981,1072,0.01963
+masks optional,2022Q3,0.00917,1079,0.00999
+masks optional,2022Q4,0.00393,1085,0.00327
+masks optional,2023Q1,0.00159,1132,0.00135
+masks optional,2023Q2,0.00086,1136,0.00096
+masks optional,2023Q3,0.00023,1098,0.00049
+masks optional,2023Q4,0.00000,1097,0.00000
+medical decisions for my child,2018Q1,0.00000,333,0.00000
+medical decisions for my child,2018Q2,0.00000,355,0.00000
+medical decisions for my child,2018Q3,0.00000,367,0.00000
+medical decisions for my child,2018Q4,0.00088,380,0.00066
+medical decisions for my child,2019Q1,0.00000,420,0.00000
+medical decisions for my child,2019Q2,0.00034,424,0.00053
+medical decisions for my child,2019Q3,0.00000,429,0.00000
+medical decisions for my child,2019Q4,0.00037,455,0.00056
+medical decisions for my child,2020Q1,0.00000,572,0.00000
+medical decisions for my child,2020Q2,0.00000,760,0.00000
+medical decisions for my child,2020Q3,0.00029,855,0.00025
+medical decisions for my child,2020Q4,0.00028,895,0.00026
+medical decisions for my child,2021Q1,0.00018,938,0.00022
+medical decisions for my child,2021Q2,0.00282,948,0.00359
+medical decisions for my child,2021Q3,0.01895,980,0.02044
+medical decisions for my child,2021Q4,0.00697,1010,0.00721
+medical decisions for my child,2022Q1,0.00417,1078,0.00485
+medical decisions for my child,2022Q2,0.00050,1072,0.00063
+medical decisions for my child,2022Q3,0.00070,1079,0.00075
+medical decisions for my child,2022Q4,0.00054,1085,0.00047
+medical decisions for my child,2023Q1,0.00035,1132,0.00038
+medical decisions for my child,2023Q2,0.00000,1136,0.00000
+medical decisions for my child,2023Q3,0.00104,1098,0.00123
+medical decisions for my child,2023Q4,0.00053,1097,0.00072
+medical freedom,2018Q1,0.00000,333,0.00000
+medical freedom,2018Q2,0.00000,355,0.00000
+medical freedom,2018Q3,0.00000,367,0.00000
+medical freedom,2018Q4,0.00000,380,0.00000
+medical freedom,2019Q1,0.00024,420,0.00057
+medical freedom,2019Q2,0.00034,424,0.00053
+medical freedom,2019Q3,0.00047,429,0.00063
+medical freedom,2019Q4,0.00037,455,0.00056
+medical freedom,2020Q1,0.00087,572,0.00045
+medical freedom,2020Q2,0.00022,760,0.00029
+medical freedom,2020Q3,0.00000,855,0.00000
+medical freedom,2020Q4,0.00212,895,0.00158
+medical freedom,2021Q1,0.00069,938,0.00087
+medical freedom,2021Q2,0.00458,948,0.00584
+medical freedom,2021Q3,0.01699,980,0.02044
+medical freedom,2021Q4,0.01516,1010,0.01513
+medical freedom,2022Q1,0.00559,1078,0.00546
+medical freedom,2022Q2,0.00062,1072,0.00063
+medical freedom,2022Q3,0.00185,1079,0.00100
+medical freedom,2022Q4,0.00038,1085,0.00047
+medical freedom,2023Q1,0.00086,1132,0.00077
+medical freedom,2023Q2,0.00196,1136,0.00115
+medical freedom,2023Q3,0.00061,1098,0.00049
+medical freedom,2023Q4,0.00023,1097,0.00024
+moms for liberty,2018Q1,0.00000,333,0.00000
+moms for liberty,2018Q2,0.00000,355,0.00000
+moms for liberty,2018Q3,0.00136,367,0.00075
+moms for liberty,2018Q4,0.00000,380,0.00000
+moms for liberty,2019Q1,0.00000,420,0.00000
+moms for liberty,2019Q2,0.00000,424,0.00000
+moms for liberty,2019Q3,0.00078,429,0.00063
+moms for liberty,2019Q4,0.00000,455,0.00000
+moms for liberty,2020Q1,0.00000,572,0.00000
+moms for liberty,2020Q2,0.00044,760,0.00029
+moms for liberty,2020Q3,0.00017,855,0.00025
+moms for liberty,2020Q4,0.00000,895,0.00000
+moms for liberty,2021Q1,0.00122,938,0.00217
+moms for liberty,2021Q2,0.00261,948,0.00517
+moms for liberty,2021Q3,0.01007,980,0.01397
+moms for liberty,2021Q4,0.00578,1010,0.00793
+moms for liberty,2022Q1,0.00629,1078,0.00768
+moms for liberty,2022Q2,0.00700,1072,0.00793
+moms for liberty,2022Q3,0.00612,1079,0.00799
+moms for liberty,2022Q4,0.00717,1085,0.00841
+moms for liberty,2023Q1,0.00683,1132,0.00789
+moms for liberty,2023Q2,0.00865,1136,0.01193
+moms for liberty,2023Q3,0.01042,1098,0.01425
+moms for liberty,2023Q4,0.01428,1097,0.01717
+my body my choice,2018Q1,0.00000,333,0.00000
+my body my choice,2018Q2,0.00010,355,0.00065
+my body my choice,2018Q3,0.00000,367,0.00000
+my body my choice,2018Q4,0.00000,380,0.00000
+my body my choice,2019Q1,0.00000,420,0.00000
+my body my choice,2019Q2,0.00000,424,0.00000
+my body my choice,2019Q3,0.00000,429,0.00000
+my body my choice,2019Q4,0.00000,455,0.00000
+my body my choice,2020Q1,0.00000,572,0.00000
+my body my choice,2020Q2,0.00000,760,0.00000
+my body my choice,2020Q3,0.00000,855,0.00000
+my body my choice,2020Q4,0.00000,895,0.00000
+my body my choice,2021Q1,0.00077,938,0.00065
+my body my choice,2021Q2,0.00141,948,0.00202
+my body my choice,2021Q3,0.01403,980,0.01630
+my body my choice,2021Q4,0.00561,1010,0.00528
+my body my choice,2022Q1,0.00182,1078,0.00222
+my body my choice,2022Q2,0.00043,1072,0.00042
+my body my choice,2022Q3,0.00049,1079,0.00050
+my body my choice,2022Q4,0.00032,1085,0.00047
+my body my choice,2023Q1,0.00035,1132,0.00038
+my body my choice,2023Q2,0.00010,1136,0.00019
+my body my choice,2023Q3,0.00000,1098,0.00000
+my body my choice,2023Q4,0.00000,1097,0.00000
+my child my choice,2018Q1,0.00000,333,0.00000
+my child my choice,2018Q2,0.00000,355,0.00000
+my child my choice,2018Q3,0.00000,367,0.00000
+my child my choice,2018Q4,0.00000,380,0.00000
+my child my choice,2019Q1,0.00000,420,0.00000
+my child my choice,2019Q2,0.00000,424,0.00000
+my child my choice,2019Q3,0.00000,429,0.00000
+my child my choice,2019Q4,0.00000,455,0.00000
+my child my choice,2020Q1,0.00000,572,0.00000
+my child my choice,2020Q2,0.00000,760,0.00000
+my child my choice,2020Q3,0.00013,855,0.00025
+my child my choice,2020Q4,0.00000,895,0.00000
+my child my choice,2021Q1,0.00000,938,0.00000
+my child my choice,2021Q2,0.00036,948,0.00045
+my child my choice,2021Q3,0.00662,980,0.00750
+my child my choice,2021Q4,0.00058,1010,0.00048
+my child my choice,2022Q1,0.00090,1078,0.00121
+my child my choice,2022Q2,0.00000,1072,0.00000
+my child my choice,2022Q3,0.00023,1079,0.00025
+my child my choice,2022Q4,0.00015,1085,0.00023
+my child my choice,2023Q1,0.00000,1132,0.00000
+my child my choice,2023Q2,0.00000,1136,0.00000
+my child my choice,2023Q3,0.00000,1098,0.00000
+my child my choice,2023Q4,0.00000,1097,0.00000
+my pronouns are,2018Q1,0.00050,333,0.00069
+my pronouns are,2018Q2,0.00070,355,0.00065
+my pronouns are,2018Q3,0.00000,367,0.00000
+my pronouns are,2018Q4,0.00044,380,0.00066
+my pronouns are,2019Q1,0.00083,420,0.00114
+my pronouns are,2019Q2,0.00000,424,0.00000
+my pronouns are,2019Q3,0.00125,429,0.00189
+my pronouns are,2019Q4,0.00473,455,0.00338
+my pronouns are,2020Q1,0.00087,572,0.00136
+my pronouns are,2020Q2,0.00044,760,0.00117
+my pronouns are,2020Q3,0.00292,855,0.00328
+my pronouns are,2020Q4,0.00317,895,0.00526
+my pronouns are,2021Q1,0.00228,938,0.00347
+my pronouns are,2021Q2,0.00352,948,0.00674
+my pronouns are,2021Q3,0.00483,980,0.00673
+my pronouns are,2021Q4,0.00454,1010,0.00697
+my pronouns are,2022Q1,0.00181,1078,0.00404
+my pronouns are,2022Q2,0.00525,1072,0.00793
+my pronouns are,2022Q3,0.00862,1079,0.00924
+my pronouns are,2022Q4,0.00712,1085,0.00934
+my pronouns are,2023Q1,0.00615,1132,0.00885
+my pronouns are,2023Q2,0.00633,1136,0.00828
+my pronouns are,2023Q3,0.00590,1098,0.00836
+my pronouns are,2023Q4,0.00705,1097,0.00954
+not what to think,2018Q1,0.00000,333,0.00000
+not what to think,2018Q2,0.00000,355,0.00000
+not what to think,2018Q3,0.00000,367,0.00000
+not what to think,2018Q4,0.00000,380,0.00000
+not what to think,2019Q1,0.00000,420,0.00000
+not what to think,2019Q2,0.00010,424,0.00053
+not what to think,2019Q3,0.00000,429,0.00000
+not what to think,2019Q4,0.00264,455,0.00113
+not what to think,2020Q1,0.00035,572,0.00045
+not what to think,2020Q2,0.00000,760,0.00000
+not what to think,2020Q3,0.00000,855,0.00000
+not what to think,2020Q4,0.00015,895,0.00053
+not what to think,2021Q1,0.00015,938,0.00022
+not what to think,2021Q2,0.00447,948,0.00494
+not what to think,2021Q3,0.00968,980,0.01009
+not what to think,2021Q4,0.00461,1010,0.00504
+not what to think,2022Q1,0.00403,1078,0.00404
+not what to think,2022Q2,0.00233,1072,0.00271
+not what to think,2022Q3,0.00243,1079,0.00175
+not what to think,2022Q4,0.00321,1085,0.00327
+not what to think,2023Q1,0.00133,1132,0.00173
+not what to think,2023Q2,0.00229,1136,0.00250
+not what to think,2023Q3,0.00181,1098,0.00172
+not what to think,2023Q4,0.00206,1097,0.00191
+parent's choice,2018Q1,0.00527,333,0.00412
+parent's choice,2018Q2,0.00347,355,0.00259
+parent's choice,2018Q3,0.00248,367,0.00301
+parent's choice,2018Q4,0.00520,380,0.00525
+parent's choice,2019Q1,0.00397,420,0.00398
+parent's choice,2019Q2,0.00134,424,0.00159
+parent's choice,2019Q3,0.00268,429,0.00252
+parent's choice,2019Q4,0.00524,455,0.00451
+parent's choice,2020Q1,0.00425,572,0.00407
+parent's choice,2020Q2,0.00400,760,0.00437
+parent's choice,2020Q3,0.01214,855,0.01588
+parent's choice,2020Q4,0.00952,895,0.01025
+parent's choice,2021Q1,0.01172,938,0.01126
+parent's choice,2021Q2,0.01720,948,0.01752
+parent's choice,2021Q3,0.09588,980,0.09599
+parent's choice,2021Q4,0.04994,1010,0.04612
+parent's choice,2022Q1,0.03796,1078,0.04305
+parent's choice,2022Q2,0.00810,1072,0.00981
+parent's choice,2022Q3,0.00859,1079,0.00949
+parent's choice,2022Q4,0.00961,1085,0.01004
+parent's choice,2023Q1,0.00915,1132,0.01135
+parent's choice,2023Q2,0.00962,1136,0.01078
+parent's choice,2023Q3,0.00898,1098,0.01008
+parent's choice,2023Q4,0.00608,1097,0.00859
+parental rights,2018Q1,0.00641,333,0.00686
+parental rights,2018Q2,0.00430,355,0.00647
+parental rights,2018Q3,0.00366,367,0.00376
+parental rights,2018Q4,0.00521,380,0.00590
+parental rights,2019Q1,0.01011,420,0.00797
+parental rights,2019Q2,0.00328,424,0.00476
+parental rights,2019Q3,0.00381,429,0.00567
+parental rights,2019Q4,0.00829,455,0.00677
+parental rights,2020Q1,0.00655,572,0.00633
+parental rights,2020Q2,0.00252,760,0.00379
+parental rights,2020Q3,0.00285,855,0.00328
+parental rights,2020Q4,0.00506,895,0.00526
+parental rights,2021Q1,0.00711,938,0.00866
+parental rights,2021Q2,0.01589,948,0.01864
+parental rights,2021Q3,0.05839,980,0.06805
+parental rights,2021Q4,0.04052,1010,0.04012
+parental rights,2022Q1,0.02731,1078,0.03335
+parental rights,2022Q2,0.02473,1072,0.03028
+parental rights,2022Q3,0.02796,1079,0.03346
+parental rights,2022Q4,0.03386,1085,0.03852
+parental rights,2023Q1,0.03587,1132,0.03905
+parental rights,2023Q2,0.03309,1136,0.04023
+parental rights,2023Q3,0.04831,1098,0.05112
+parental rights,2023Q4,0.03981,1097,0.04388
+parents bill of rights,2018Q1,0.00000,333,0.00000
+parents bill of rights,2018Q2,0.00000,355,0.00000
+parents bill of rights,2018Q3,0.00000,367,0.00000
+parents bill of rights,2018Q4,0.00000,380,0.00000
+parents bill of rights,2019Q1,0.00000,420,0.00000
+parents bill of rights,2019Q2,0.00047,424,0.00053
+parents bill of rights,2019Q3,0.00183,429,0.00189
+parents bill of rights,2019Q4,0.00044,455,0.00056
+parents bill of rights,2020Q1,0.00176,572,0.00271
+parents bill of rights,2020Q2,0.00203,760,0.00204
+parents bill of rights,2020Q3,0.00170,855,0.00151
+parents bill of rights,2020Q4,0.00362,895,0.00289
+parents bill of rights,2021Q1,0.00212,938,0.00152
+parents bill of rights,2021Q2,0.00439,948,0.00651
+parents bill of rights,2021Q3,0.00792,980,0.01423
+parents bill of rights,2021Q4,0.00582,1010,0.00961
+parents bill of rights,2022Q1,0.00506,1078,0.00647
+parents bill of rights,2022Q2,0.00572,1072,0.00814
+parents bill of rights,2022Q3,0.00523,1079,0.00574
+parents bill of rights,2022Q4,0.00596,1085,0.00654
+parents bill of rights,2023Q1,0.00836,1132,0.00885
+parents bill of rights,2023Q2,0.00948,1136,0.00885
+parents bill of rights,2023Q3,0.01535,1098,0.01425
+parents bill of rights,2023Q4,0.01807,1097,0.01741
+pornographic,2018Q1,0.00017,333,0.00069
+pornographic,2018Q2,0.00198,355,0.00194
+pornographic,2018Q3,0.00039,367,0.00075
+pornographic,2018Q4,0.00147,380,0.00197
+pornographic,2019Q1,0.00238,420,0.00057
+pornographic,2019Q2,0.00059,424,0.00053
+pornographic,2019Q3,0.00140,429,0.00189
+pornographic,2019Q4,0.00109,455,0.00169
+pornographic,2020Q1,0.00095,572,0.00136
+pornographic,2020Q2,0.00070,760,0.00058
+pornographic,2020Q3,0.00105,855,0.00101
+pornographic,2020Q4,0.00051,895,0.00079
+pornographic,2021Q1,0.00021,938,0.00022
+pornographic,2021Q2,0.00279,948,0.00314
+pornographic,2021Q3,0.00494,980,0.00569
+pornographic,2021Q4,0.01397,1010,0.01778
+pornographic,2022Q1,0.00981,1078,0.01314
+pornographic,2022Q2,0.01365,1072,0.01545
+pornographic,2022Q3,0.01816,1079,0.01898
+pornographic,2022Q4,0.01234,1085,0.01214
+pornographic,2023Q1,0.01732,1132,0.01943
+pornographic,2023Q2,0.01943,1136,0.02137
+pornographic,2023Q3,0.01488,1098,0.01745
+pornographic,2023Q4,0.01721,1097,0.01956
+right to breathe,2018Q1,0.00000,333,0.00000
+right to breathe,2018Q2,0.00094,355,0.00065
+right to breathe,2018Q3,0.00000,367,0.00000
+right to breathe,2018Q4,0.00000,380,0.00000
+right to breathe,2019Q1,0.00000,420,0.00000
+right to breathe,2019Q2,0.00047,424,0.00053
+right to breathe,2019Q3,0.00000,429,0.00000
+right to breathe,2019Q4,0.00044,455,0.00056
+right to breathe,2020Q1,0.00000,572,0.00000
+right to breathe,2020Q2,0.00022,760,0.00029
+right to breathe,2020Q3,0.00029,855,0.00025
+right to breathe,2020Q4,0.00214,895,0.00210
+right to breathe,2021Q1,0.00290,938,0.00173
+right to breathe,2021Q2,0.01224,948,0.01392
+right to breathe,2021Q3,0.03477,980,0.03752
+right to breathe,2021Q4,0.01033,1010,0.01081
+right to breathe,2022Q1,0.01467,1078,0.01516
+right to breathe,2022Q2,0.00132,1072,0.00063
+right to breathe,2022Q3,0.00114,1079,0.00100
+right to breathe,2022Q4,0.00000,1085,0.00000
+right to breathe,2023Q1,0.00072,1132,0.00115
+right to breathe,2023Q2,0.00052,1136,0.00058
+right to breathe,2023Q3,0.00120,1098,0.00074
+right to breathe,2023Q4,0.00018,1097,0.00024
+sexually explicit,2018Q1,0.00018,333,0.00069
+sexually explicit,2018Q2,0.00000,355,0.00000
+sexually explicit,2018Q3,0.00136,367,0.00075
+sexually explicit,2018Q4,0.00044,380,0.00066
+sexually explicit,2019Q1,0.00121,420,0.00171
+sexually explicit,2019Q2,0.00236,424,0.00264
+sexually explicit,2019Q3,0.00274,429,0.00252
+sexually explicit,2019Q4,0.00110,455,0.00056
+sexually explicit,2020Q1,0.00195,572,0.00226
+sexually explicit,2020Q2,0.00070,760,0.00087
+sexually explicit,2020Q3,0.00029,855,0.00025
+sexually explicit,2020Q4,0.00082,895,0.00105
+sexually explicit,2021Q1,0.00021,938,0.00022
+sexually explicit,2021Q2,0.00059,948,0.00090
+sexually explicit,2021Q3,0.00222,980,0.00285
+sexually explicit,2021Q4,0.00850,1010,0.01201
+sexually explicit,2022Q1,0.00765,1078,0.00889
+sexually explicit,2022Q2,0.01019,1072,0.01169
+sexually explicit,2022Q3,0.01819,1079,0.01798
+sexually explicit,2022Q4,0.02051,1085,0.02031
+sexually explicit,2023Q1,0.01534,1132,0.01827
+sexually explicit,2023Q2,0.01736,1136,0.01944
+sexually explicit,2023Q3,0.01775,1098,0.01942
+sexually explicit,2023Q4,0.01286,1097,0.01383
+systemic racism,2018Q1,0.00294,333,0.00480
+systemic racism,2018Q2,0.00282,355,0.00453
+systemic racism,2018Q3,0.00250,367,0.00301
+systemic racism,2018Q4,0.00430,380,0.00721
+systemic racism,2019Q1,0.00513,420,0.00569
+systemic racism,2019Q2,0.00781,424,0.00793
+systemic racism,2019Q3,0.00608,429,0.00819
+systemic racism,2019Q4,0.00485,455,0.00790
+systemic racism,2020Q1,0.00968,572,0.00949
+systemic racism,2020Q2,0.03611,760,0.04136
+systemic racism,2020Q3,0.02734,855,0.03503
+systemic racism,2020Q4,0.01871,895,0.02523
+systemic racism,2021Q1,0.02254,938,0.02642
+systemic racism,2021Q2,0.03880,948,0.04469
+systemic racism,2021Q3,0.03588,980,0.03803
+systemic racism,2021Q4,0.02081,1010,0.02402
+systemic racism,2022Q1,0.01209,1078,0.01597
+systemic racism,2022Q2,0.01110,1072,0.01357
+systemic racism,2022Q3,0.00889,1079,0.00949
+systemic racism,2022Q4,0.00830,1085,0.01097
+systemic racism,2023Q1,0.00884,1132,0.01173
+systemic racism,2023Q2,0.01014,1136,0.01251
+systemic racism,2023Q3,0.00609,1098,0.00639
+systemic racism,2023Q4,0.00670,1097,0.00930
+unmask our children,2018Q1,0.00000,333,0.00000
+unmask our children,2018Q2,0.00000,355,0.00000
+unmask our children,2018Q3,0.00000,367,0.00000
+unmask our children,2018Q4,0.00000,380,0.00000
+unmask our children,2019Q1,0.00000,420,0.00000
+unmask our children,2019Q2,0.00000,424,0.00000
+unmask our children,2019Q3,0.00000,429,0.00000
+unmask our children,2019Q4,0.00000,455,0.00000
+unmask our children,2020Q1,0.00000,572,0.00000
+unmask our children,2020Q2,0.00000,760,0.00000
+unmask our children,2020Q3,0.00018,855,0.00050
+unmask our children,2020Q4,0.00131,895,0.00184
+unmask our children,2021Q1,0.00079,938,0.00108
+unmask our children,2021Q2,0.01603,948,0.01797
+unmask our children,2021Q3,0.01755,980,0.01863
+unmask our children,2021Q4,0.00900,1010,0.00961
+unmask our children,2022Q1,0.01705,1078,0.02162
+unmask our children,2022Q2,0.00062,1072,0.00063
+unmask our children,2022Q3,0.00000,1079,0.00000
+unmask our children,2022Q4,0.00000,1085,0.00000
+unmask our children,2023Q1,0.00000,1132,0.00000
+unmask our children,2023Q2,0.00007,1136,0.00019
+unmask our children,2023Q3,0.00000,1098,0.00000
+unmask our children,2023Q4,0.00000,1097,0.00000
+vaccine mandate,2018Q1,0.00000,333,0.00000
+vaccine mandate,2018Q2,0.00000,355,0.00000
+vaccine mandate,2018Q3,0.00000,367,0.00000
+vaccine mandate,2018Q4,0.00000,380,0.00000
+vaccine mandate,2019Q1,0.00000,420,0.00000
+vaccine mandate,2019Q2,0.00000,424,0.00000
+vaccine mandate,2019Q3,0.00000,429,0.00000
+vaccine mandate,2019Q4,0.00040,455,0.00113
+vaccine mandate,2020Q1,0.00146,572,0.00090
+vaccine mandate,2020Q2,0.00000,760,0.00000
+vaccine mandate,2020Q3,0.00023,855,0.00025
+vaccine mandate,2020Q4,0.00074,895,0.00105
+vaccine mandate,2021Q1,0.00187,938,0.00130
+vaccine mandate,2021Q2,0.00572,948,0.00606
+vaccine mandate,2021Q3,0.07822,980,0.08150
+vaccine mandate,2021Q4,0.09788,1010,0.10017
+vaccine mandate,2022Q1,0.04271,1078,0.04951
+vaccine mandate,2022Q2,0.00486,1072,0.00710
+vaccine mandate,2022Q3,0.00472,1079,0.00375
+vaccine mandate,2022Q4,0.00399,1085,0.00444
+vaccine mandate,2023Q1,0.00447,1132,0.00481
+vaccine mandate,2023Q2,0.00076,1136,0.00096
+vaccine mandate,2023Q3,0.00050,1098,0.00074
+vaccine mandate,2023Q4,0.00076,1097,0.00072

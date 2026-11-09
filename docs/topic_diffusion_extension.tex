@@ -1,0 +1,141 @@
+% Topic Diffusion extension: do talking points recur across districts?
+% Example phrases are real 8-grams from the 2018--2023 cleaned transcripts (derived_screened/transcripts/), 2026-11-09.
+% District/state counts are over full transcripts (not yet restricted to public comment).
+
+\section{Topic Diffusion Extension}\label{sec:diffusion}
+
+We ask whether public commenters in different districts use phrasing too similar to have arisen
+independently, and where such shared \emph{talking points} spread. Notation follows
+\cref{sec:m-bow}: documents $d_n$, districts $i(n)$, periods $t(n)$.
+
+\subsection{Approach 1: similarity-based detection}
+
+\begin{enumerate}
+  \item \textbf{Public comment and keyword contexts.} Limit documents to public-comment segments,
+  with each commenter's turn as one document. For each keyword $j$ in our lexicon (e.g.\
+  \emph{indoctrination}, \emph{mask}, \emph{parental rights}), keep the set $\mathcal{G}_j$ of
+  8-grams containing $j$. Real examples for $j = $ ``indoctrination'':
+  \begin{itemize}
+    \item ``will have opened the floodgates of an indoctrination''
+    \item ``public schools are being turned into indoctrination centers''
+    \item ``it's game over the indoctrination must stop now''
+    \item ``the process of teaching a person or group''
+  \end{itemize}
+  The last is a dictionary definition, recited in 13 districts in 10 states by both critics and
+  defenders of the curriculum. ``Indoctrination centers'' appears in 16 districts in 14 states.
+  The most widely shared 8-gram, ``to indoctrinate or persuade students to a particular [point of
+  view]'' (16 districts, 7 states), is board-policy text read aloud. Restricting to public comment
+  removes it.
+
+  \item \textbf{Pairwise similarity.} For each keyword $j$, compute $S_j(g, g')$ for all pairs
+  $g, g' \in \mathcal{G}_j$ from different districts, using one of:
+  (a) fuzzy lexical matching (shingle overlap or edit distance, which tolerates caption errors);
+  (b) cosine similarity of sentence embeddings; or
+  (c) an LLM judging whether two contexts make the same point, applied to candidate pairs from (a)--(b).
+
+  \item \textbf{Shared talking points.} Link $g$ and $g'$ when $S_j(g, g') > \tau$, with $\tau$
+  tuned on a placebo set (e.g.\ 2018--19 comments). A cluster of linked 8-grams is a
+  \emph{shared talking point} if it spans at least two districts in different counties.
+
+  \item \textbf{Analysis.} For each talking point: its timing (first appearance, peak), its source
+  (official guidance, news, advocacy materials, or none found), and its spread across district
+  pairs by partisanship, distance and state.
+\end{enumerate}
+
+\subsection{Approach 2: tracking known phrases}
+
+Some talking points are already known. We collect them from the verbatim illustrative quotes
+returned by our GABRIEL scoring (\cref{sec:m-llm}), and from advocacy-group
+materials and news coverage. Examples are ``parents' bill of rights'' and ``unmask our children.''
+For each phrase, including caption variants (``parents bill of rights,'' ``parental bill of
+rights''), we record each district's first mention and its share of meetings mentioning the
+phrase by period. We then study adoption: how quickly phrases spread, and whether districts adopt
+sooner after nearby or co-partisan districts do.
+
+\subsection{Trial results}\label{sec:diffusion-results}
+% Prototype run 2026-11-09 on the screened 2018--2023 sample (80,063 transcripts, 1,485 districts).
+% Code: source/analysis/diffusion/approach{1,2}/; tables: output/tables/diffusion/approach{1,2}/.
+
+\paragraph{Approach 1.} We ran steps 1--3 for nine keywords (\cref{tab:diffusion-kw}). Two spans
+are linked if their 15-word windows have a fuzzy-match score of at least 80, or if they share at
+least four uncommon word 5-grams (about eight identical consecutive words). We set this threshold
+on spans around the neutral word \emph{students}: only 12 of its 26.3 million cross-district pairs
+pass, so we expect about 14 false links per keyword at the 8,000-hit cap. A language model
+(\texttt{gpt-6-luna}) labelled 3,267 hits for speaker role, quotation source and stance. On 38
+hand-coded hits it agreed with us 92\% of the time on whether the speaker is a public commenter.
+A rule-based public-comment flag reached 0.76--0.93 precision but only 0.57--0.79 recall against
+these labels. Total API cost was \$0.50.
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Shared talking points by keyword (Approach 1).}\label{tab:diffusion-kw}
+\setlength{\tabcolsep}{4pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrrl}
+\toprule
+Keyword & Hits & Districts & PC share & Links (exp.\ false) & TPs & PC TPs & Official & Largest PC TP \\
+ & & & (LLM) & & & & share & (districts/states) \\
+\midrule
+indoctrinat* & 4,431 & 575 & 0.85 & 503 (4) & 33 & 19 & 0.21 & 2/2 \\
+mask(s) & 286,327$^{*}$ & 1,355 & 0.45 & 95 (15) & 47 & 12 & 0.51 & 13/11 \\
+critical race theory / CRT & 17,058$^{*}$ & 763 & 0.81 & 667 (14) & 134 & 50 & 0.33 & 33/20 \\
+parental / parents' rights & 5,413 & 616 & 0.63 & 368 (7) & 72 & 31 & 0.42 & 11/9 \\
+groom* & 3,872 & 724 & 0.48 & 173 (3) & 31 & 3 & 0.61 & 3/2 \\
+pornograph* & 6,302 & 584 & 0.72 & 389 (9) & 44 & 8 & 0.43 & 4/3 \\
+equity & 187,604$^{*}$ & 1,295 & 0.22 & 20 (15) & 15 & 1 & 0.60 & 2/2 \\
+vaccin* & 174,960$^{*}$ & 1,266 & 0.39 & 51 (14) & 33 & 7 & 0.58 & 4/4 \\
+transgender* & 11,868$^{*}$ & 708 & 0.64 & 1,197 (14) & 113 & 31 & 0.33 & 9/5 \\
+\bottomrule
+\end{tabular}}
+\par\smallskip
+\begin{minipage}{0.97\linewidth}\scriptsize
+$^{*}$ Random sample of 8,000 hits used for pairwise matching. PC share: share of 150 random hits
+whose speaker the LLM labels a public commenter. Links: cross-district pairs above the threshold;
+expected false links from the \emph{students} placebo. TP: talking point, a cluster spanning at
+least two districts in different counties. PC TPs: clusters whose hits are mostly public commenters.
+Official share: share of TPs that are mostly official text, board members or staff.
+\end{minipage}
+\end{table}
+
+For rare, contested keywords, links far exceed the placebo, and public-comment talking points
+recur across states:
+\begin{itemize}
+  \item ``[we have] been told on multiple occasions that critical race theory is not being taught
+  in our schools'' (33 districts, 20 states, 2021--23);
+  \item a recited definition, ``critical race theory is an academic concept\ldots'' (18 districts,
+  15 states);
+  \item ``educating and empowering parents to defend their parental rights at all levels of
+  government'' (11 districts, 9 states, 2021--23), an advocacy group's mission statement read aloud;
+  \item ``I don't want to wear a mask, I don't want my kids to wear [one]'' (13 districts, 11
+  states), which may be an everyday phrase rather than a shared script.
+\end{itemize}
+Many of the largest clusters are not public comment. They include statute or policy text (a Florida
+obscene-materials statute, state parental-rights laws, ``grooming'' in abuse-prevention policy) and
+quoted statistics or definitions. For frequent administrative keywords (\emph{equity},
+\emph{vaccine}, \emph{mask}), the number of links is close to the placebo and most clusters are
+official. The LLM judged pairs just below the threshold to be the same talking point 12--78\% of
+the time, compared with 3.5\% for placebo pairs. The lexical rule therefore misses many
+paraphrases.
+
+\paragraph{Approach 2.} We tracked 34 phrases with caption-spelling variants: hand seeds, n-grams
+nearly absent in 2018--19 but used in at least 20 districts and 5 states in 2020--23, and phrases
+from the GABRIEL quotes. Among the 529 districts with meetings in both periods, median first use
+was 2020-07 for \emph{anti-racist}, 2021-06 for \emph{critical race theory} and \emph{mask mandate},
+2021-08 for \emph{parental rights}, 2022-06 for \emph{parents bill of rights} and 2022-09 for
+\emph{Moms for Liberty}. Controlling for meetings posted and locale, a one-SD higher county GOP
+share raises the probability of adopting right-coded phrases by 5--7 points and lowers it by 6--11
+points for left-coded phrases.
+
+We fit a linear probability model of first adoption, with phrase-by-month fixed effects, on
+523,255 district--phrase--months with 4,946 adoptions and a base hazard of 0.95\% per month.
+A one-SD higher share of districts within 100\,km that have already adopted raises the hazard by
+about 17\% (coefficient 0.012, s.e.\ 0.004). For same-state districts the increase is about 40\%.
+The 100\,km coefficient exceeds all 200 draws in which district locations are permuted
+($p < 0.005$), and the within-state permutation gives $p = 0.01$. Shared regional shocks such as
+state laws or mandates would produce the same pattern. Mentioning a phrase is also not endorsing it.
+
+\paragraph{Assessment.} Measuring talking-point diffusion through text reuse is feasible for rare,
+contested terms that the public brings to meetings. It does not work for frequent administrative
+terms, where shared text is mostly official. Separating a shared script from a common everyday
+phrase requires matching to source material (advocacy toolkits, statutes) or timing evidence from
+Approach 2. Because the captions have no speaker labels, public-comment status rests on LLM labels.

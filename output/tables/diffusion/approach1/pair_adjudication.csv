@@ -1,0 +1,11 @@
+kw,borderline_pairs,judged,share_same_not_already_clustered,share_same_talking_point,kinds,implied_missed_links,linked_pairs
+indoctrination,926.0,200,0.585,0.78,"{'verbatim_or_near': 90, 'paraphrase': 60, 'same_topic_only': 50}",722.0,503.0
+mask,2519.0,200,0.18,0.18,"{'same_topic_only': 163, 'paraphrase': 31, 'verbatim_or_near': 5, 'unrelated': 1}",453.0,95.0
+crt,9348.0,200,0.31,0.32,"{'same_topic_only': 137, 'paraphrase': 38, 'verbatim_or_near': 25}",2991.0,667.0
+parental_rights,2347.0,200,0.485,0.5,"{'same_topic_only': 111, 'paraphrase': 53, 'verbatim_or_near': 36}",1174.0,368.0
+groom,403.0,200,0.33,0.395,"{'same_topic_only': 120, 'verbatim_or_near': 59, 'paraphrase': 18, 'unrelated': 3}",159.0,173.0
+pornography,1106.0,200,0.565,0.74,"{'verbatim_or_near': 72, 'paraphrase': 66, 'same_topic_only': 61, 'unrelated': 1}",818.0,389.0
+equity,1341.0,200,0.125,0.125,"{'same_topic_only': 178, 'verbatim_or_near': 15, 'paraphrase': 7}",168.0,20.0
+vaccine,1130.0,200,0.245,0.25,"{'same_topic_only': 152, 'paraphrase': 40, 'verbatim_or_near': 8}",282.0,51.0
+transgender,13623.0,200,0.245,0.29,"{'same_topic_only': 148, 'paraphrase': 26, 'verbatim_or_near': 26}",3951.0,1197.0
+placebo (students),,200,,0.035,"{'same_topic_only': 168, 'unrelated': 25, 'paraphrase': 5, 'verbatim_or_near': 2}",,
